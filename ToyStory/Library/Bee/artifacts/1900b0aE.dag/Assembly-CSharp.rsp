@@ -354,10 +354,15 @@
 "Assets/5_Scirpts/SettingManager.cs"
 "Assets/5_Scirpts/Sphere.cs"
 "Assets/5_Scirpts/SubUI.cs"
-"Assets/5_Scirpts/TipReader.cs"
 "Assets/Supercyan Character Pack Free Sample/Scripts/DemoFree.cs"
 "Assets/Supercyan Character Pack Free Sample/Scripts/FreeCameraLogic.cs"
 "Assets/Supercyan Character Pack Free Sample/Scripts/SimpleSampleCharacterControl.cs"
+"Assets/Unity-Logs-Viewer/Reporter/MultiKeyDictionary.cs"
+"Assets/Unity-Logs-Viewer/Reporter/Reporter.cs"
+"Assets/Unity-Logs-Viewer/Reporter/ReporterGUI.cs"
+"Assets/Unity-Logs-Viewer/Reporter/ReporterMessageReceiver.cs"
+"Assets/Unity-Logs-Viewer/Reporter/Test/Rotate.cs"
+"Assets/Unity-Logs-Viewer/Reporter/Test/TestReporter.cs"
 -langversion:9.0
 
 /deterministic

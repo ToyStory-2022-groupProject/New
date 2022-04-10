@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SettingManager : MonoBehaviour
@@ -47,10 +48,12 @@ public class SettingManager : MonoBehaviour
     public void OpenSetting()
     {
         gameObject.SetActive(true);
+        BackGround();
         var obj = FindObjectOfType<GameManager>();
+        sliders[0].value = obj.brightnessValue;
         sliders[1].value = obj.bgmValue;
     }
-
+    
     void Update()
     {
         Close();
@@ -63,6 +66,14 @@ public class SettingManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void BackGround()
+    {
+        if (SceneManager.GetActiveScene().name == "MainUI")
+        {
+            image.gameObject.SetActive(true);
+        }
+    }
     
     public void ValueChange(float value)
     {
@@ -71,6 +82,8 @@ public class SettingManager : MonoBehaviour
         switch (opType)
         {
             case Options.Brightness:
+                
+                obj.brightnessValue = value;
                 break;
             case Options.BGM:
                 obj.mixer.SetFloat("BGM", Mathf.Log10(value) * 20);

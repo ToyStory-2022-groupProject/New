@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SubUI : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class SubUI : MonoBehaviour
     
     void Awake()
     {
-        if (Instance != this)
+        if (Instance != this || SceneManager.GetActiveScene().name == "MainUI")
         {
             Destroy(gameObject);
         }
@@ -60,13 +61,13 @@ public class SubUI : MonoBehaviour
     public void ReturnMenu()
     {
         PlayerPrefs.SetInt("Save", 1);
-        LoadingSceneController.Instance.LoadScene("MainUI");
+        LoadingSceneController.Instance.LoadScene(0);
     }
 
     public void ExitGame()
     {
         PlayerPrefs.SetInt("Save", 0);
-        LoadingSceneController.Instance.LoadScene("MainUI");
+        LoadingSceneController.Instance.LoadScene(0);
 
     }
     
