@@ -1502,10 +1502,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 6139875921082946897}
   m_HandleRect: {fileID: 6139875921561923980}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 100
+  m_MinValue: 0.1
+  m_MaxValue: 1.1
   m_WholeNumbers: 0
-  m_Value: 50
+  m_Value: 0.7
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -4237,7 +4237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5222268831286774831
 RectTransform:
   m_ObjectHideFlags: 0

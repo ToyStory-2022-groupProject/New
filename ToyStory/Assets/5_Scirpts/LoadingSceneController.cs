@@ -34,8 +34,9 @@ public class LoadingSceneController : MonoBehaviour
     
     int ran;
     string[] tips;
-    string loadSceneName;
+    int loadSceneNum;
     bool isWait;
+    
     static LoadingSceneController Create()
     {
         var loadPrefab = Resources.Load<LoadingSceneController>("LoadScene");
@@ -44,10 +45,7 @@ public class LoadingSceneController : MonoBehaviour
     
     void Awake()
     {
-        string path = Application.dataPath;
-        path += "/6_Sprite/sample.txt";
-        tips = File.ReadAllLines(path);
-        
+        Reading();
         if (Instance != this)
         {
             Destroy(gameObject);
@@ -55,13 +53,15 @@ public class LoadingSceneController : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+    
+    
 
-    public void LoadScene(string sceneName) // 씬 불러오는 함수
+    public void LoadScene(int sceneNumber) // 씬 불러오는 함수
     {
         gameObject.SetActive(true);
         TipChange();
         SceneManager.sceneLoaded += LoadSceneEnd;
-        loadSceneName = sceneName;
+        loadSceneNum = sceneNumber;
         StartCoroutine(Load());
     }
 
@@ -70,7 +70,7 @@ public class LoadingSceneController : MonoBehaviour
         progressBar.fillAmount = 0f;
         yield return StartCoroutine(Fade(true));
 
-        AsyncOperation async = SceneManager.LoadSceneAsync(loadSceneName);
+        AsyncOperation async = SceneManager.LoadSceneAsync(loadSceneNum);
         async.allowSceneActivation = false;
 
         float timer = 0f;
@@ -117,11 +117,17 @@ public class LoadingSceneController : MonoBehaviour
 
     void LoadSceneEnd(Scene arg0, LoadSceneMode arg1)
     {
-        if (arg0.name == loadSceneName)
+        if (arg0.buildIndex == loadSceneNum)
         {
             StartCoroutine(Fade(false));
             SceneManager.sceneLoaded -= LoadSceneEnd;
         }
+    }
+    
+    void Reading()
+    {
+        TextAsset textFile = Resources.Load("sample") as TextAsset;
+        tips = textFile.text.Split('\n');
     }
     
     void TipChange()

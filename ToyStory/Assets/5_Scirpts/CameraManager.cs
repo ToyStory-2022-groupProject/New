@@ -18,7 +18,6 @@ public class CameraManager : MonoBehaviour
 
     public void Anim()
     {
-        Debug.Log("이걸 실행 됨?");
         _animator.SetTrigger("doCamera");
     }
 }

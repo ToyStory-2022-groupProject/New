@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class MainUI : MonoBehaviour
 {
     [SerializeField] Button resume;
@@ -10,7 +11,7 @@ public class MainUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1; // 지워도 될 듯
         SaveCheck();
     }
 
@@ -26,7 +27,10 @@ public class MainUI : MonoBehaviour
 
     public void StartGame()
     {
-        LoadingSceneController.Instance.LoadScene("InGame");
+        Scene scene = SceneManager.GetActiveScene();
+        int nextScene = scene.buildIndex + 1;
+        
+        LoadingSceneController.Instance.LoadScene(nextScene);
         PlayerPrefs.SetInt("Save", 0);
     }
     
