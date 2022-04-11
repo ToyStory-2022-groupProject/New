@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Linq;
 public class KeySettingUI : MonoBehaviour
 {
     public Text[] KeyName;
@@ -27,14 +27,36 @@ public class KeySettingUI : MonoBehaviour
     private void OnGUI()
     {
         Event keyEvent = Event.current;
-        if(keyEvent.isKey)
+        if(key >= 0)
         {
-            KeySetting.keys[(KeyAction) key] = keyEvent.keyCode;
-            key = -1;
-        }
+            if(keyEvent.isKey)
+            {
+                KeyCode current = keyEvent.keyCode;
+                if(Input.GetKey(KeyCode.Backspace)) //백스페이스 누를 시 키 삭제
+                {
+                    KeySetting.keys[(KeyAction) key] = KeyCode.None;
+                    key = -1;
+                }
+                    
+                else if(!KeySetting.keys.ContainsValue(current)) //같은 값 없을 시 추가
+                {
+                    KeySetting.keys[(KeyAction) key] = current;
+                    key = -1;
+                }
+                    
+                else if(KeySetting.keys.ContainsValue(current)) //같은 값 있을 시 기존 값 삭제 후 추가
+                {
+                    KeyAction exist = KeySetting.keys.FirstOrDefault(x => x.Value == current).Key;
+                    KeySetting.keys[(KeyAction) key] = current;
+                    key = -1;
+                    KeySetting.keys[exist] = KeyCode.None;
+                }
+            }   
+        }   
     }
+
     int key = -1;
-    public void ChangeKey(int num)
+    public void BtnNum(int num)
     {
         key = num;
     }
