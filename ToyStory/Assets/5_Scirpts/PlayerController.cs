@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private Animator anim;
     private AnimatorStateInfo currentBaseState;
-    static int jumpState = Animator.StringToHash("Base Layer.Jump"); // 점프 스테이트만 가져옴
+    private bool onGround;
+    static int jumpState = Animator.StringToHash("Base Layer.Jump"); 
+    
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -27,7 +29,9 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
-        if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
+        
+        /////좌우이동
+        if(onGround && Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
         {
               if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
             {
@@ -42,7 +46,7 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0,180,0);
             anim.SetBool("Move", true);
         }
-        else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
+        else if(onGround && Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
         {
             if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
             {
@@ -60,11 +64,12 @@ public class PlayerController : MonoBehaviour
         else if(Input.GetKeyUp(KeySetting.keys[KeyAction.LEFT])||Input.GetKeyUp(KeySetting.keys[KeyAction.RIGHT]))
             anim.SetBool("Move", false);
 
-
-        if (Input.GetKey(KeySetting.keys[KeyAction.JUMP])) // 점프키를 누르면
+        //////점프
+        if (Input.GetKeyDown(KeySetting.keys[KeyAction.JUMP]) && onGround) // 점프키를 누르면
         {
-            if (!anim.IsInTransition(0)) // 현재 트랜지션이 수행 중이지 않다면
+            if (!anim.IsInTransition(0) && col) // 현재 트랜지션이 수행 중이지 않다면
             {
+                onGround = false;
                 rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
                 anim.SetBool("Jump", true); // 점프
             }
@@ -74,5 +79,13 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("Jump", false); // 이미 점프를 수행 중이므로 이제 FALSE로 설정
         }
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            onGround = true;
+        }
     }
 }
