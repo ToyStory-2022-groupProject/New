@@ -20,6 +20,7 @@ public class SettingManager : MonoBehaviour
     [SerializeField] Slider[] sliders;
     [SerializeField] Image image;
     
+    
     static public SettingManager Instance
     {
         get

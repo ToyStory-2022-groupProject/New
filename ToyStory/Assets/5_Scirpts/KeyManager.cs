@@ -7,12 +7,19 @@ public static class KeySetting {public static Dictionary<KeyAction, KeyCode> key
 public class KeyManager : MonoBehaviour
 {
     KeyCode[] defaultKeys = new KeyCode[] {KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.RightShift, KeyCode.Space};
-    int key;
+    static KeyManager Instance;
+  
     void Awake()
     {
+        if(Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
         for(int i = 0; i<(int)KeyAction.KeyCount; i++)
             KeySetting.keys.Add((KeyAction) i, defaultKeys[i]);
-    }
-
-   
+    }  
 }

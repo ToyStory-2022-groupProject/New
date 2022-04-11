@@ -17,9 +17,11 @@ public class GameManager : MonoBehaviour
     public AudioClip clip;
     public AudioSource audioSource;
     public AudioMixer mixer;
+    public KeyManager keyManager;
     
     void Awake()
     {
+        keyManager = GetComponent<KeyManager>();
         lights = GetComponent<Light>();
         var obj = FindObjectsOfType<GameManager>();
         if(obj.Length == 1)

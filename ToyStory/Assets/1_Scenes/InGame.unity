@@ -416,6 +416,7 @@ MonoBehaviour:
   clip: {fileID: 0}
   audioSource: {fileID: 303367099}
   mixer: {fileID: 24100000, guid: 951b9a6408b60450798a95be7074efd5, type: 2}
+  keyManager: {fileID: 0}
 --- !u!4 &303367102
 Transform:
   m_ObjectHideFlags: 0
@@ -685,7 +686,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1635784239}
-  - component: {fileID: 1635784238}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -693,18 +693,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1635784238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635784237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d04efdf87ad27a4988fe12dd7b8c3c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1635784239
 Transform:
   m_ObjectHideFlags: 0
