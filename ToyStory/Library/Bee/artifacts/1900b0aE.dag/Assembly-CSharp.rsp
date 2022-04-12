@@ -346,6 +346,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/5_Scirpts/ButtonManager.cs"
 "Assets/5_Scirpts/CameraManager.cs"
+"Assets/5_Scirpts/CheckPointer.cs"
+"Assets/5_Scirpts/DataManager.cs"
 "Assets/5_Scirpts/GameManager.cs"
 "Assets/5_Scirpts/KeyManager.cs"
 "Assets/5_Scirpts/KeySettingUI.cs"

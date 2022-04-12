@@ -7,10 +7,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed = 0.1f;
+    [SerializeField] float speed = 1f;
     [SerializeField] float walkSpeed = 0;
     [SerializeField] float runSpeed = 1.0f;
     [SerializeField] float jumpPower = 1.0f;
+    public CheckPointer CheckPointer;
     private CapsuleCollider col;
     private Rigidbody rb;
     private Animator anim;
@@ -36,12 +37,12 @@ public class PlayerController : MonoBehaviour
               if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
             {
                 anim.SetFloat("Speed", walkSpeed);
-                transform.Translate(new Vector3(0,0,speed*0.5f*Time.deltaTime));
+                transform.Translate(new Vector3(0,0,speed));
             }
             else
             {
                 anim.SetFloat("Speed", runSpeed);
-                transform.Translate(new Vector3(0,0,speed*Time.deltaTime));
+                transform.Translate(new Vector3(0,0,speed));
             }
             transform.rotation = Quaternion.Euler(0,180,0);
             anim.SetBool("Move", true);
@@ -51,12 +52,12 @@ public class PlayerController : MonoBehaviour
             if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
             {
                 anim.SetFloat("Speed", walkSpeed);
-                transform.Translate(new Vector3(0,0,speed*0.5f*Time.deltaTime));
+                transform.Translate(new Vector3(0,0,speed));
             }
             else
             {
                 anim.SetFloat("Speed", runSpeed);
-                transform.Translate(new Vector3(0,0,speed*Time.deltaTime));
+                transform.Translate(new Vector3(0,0,speed));
             }
             transform.rotation = Quaternion.Euler(0,0,0);
             anim.SetBool("Move", true);  
@@ -86,6 +87,20 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.CompareTag("Ground"))
         {
             onGround = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider point)
+    {
+         if(point.tag == "CheckPoint")
+        {
+            for (int i = 0; i < CheckPointer.checkPoint.Length; i++)
+            {
+                if (CheckPointer.checkPoint[i].gameObject == point.gameObject)
+                {
+                    CheckPointer.TriggerCheck(i);
+                }         
+            }
         }
     }
 }

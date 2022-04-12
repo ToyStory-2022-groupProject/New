@@ -7,6 +7,7 @@ TagManager:
   - UIButton
   - MainUI
   - Ground
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
