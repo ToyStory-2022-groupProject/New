@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    //public Transform player;
-    //public Vector3 offset;
-    [SerializeField] float speed;
+    public Transform player;
+    public Vector3 offset;
+    public float speed;
     Quaternion initCameraRotate;
     Animator _animator;
 
     float h;
 
-    void awake()
+    void Awake()
     {
         initCameraRotate = transform.rotation;
     }
@@ -22,7 +22,7 @@ public class CameraManager : MonoBehaviour
     {
         Debug.Log(Convert.ToInt32(h));
         CameraRotate();
-        // transform.position = player.position + offset;
+        transform.position = player.position + offset;
         // _animator = GetComponent<Animator>();
     }
 
@@ -33,21 +33,17 @@ public class CameraManager : MonoBehaviour
 
     void CameraRotate() // 카메라 회전
     {
-        if (Input.GetKey(KeyCode.S))
+        Vector3 rot = transform.rotation.eulerAngles; // 현재 카메라의 각도를 Vector3로 반환
+        
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W))
         {
-            if(h < 0.5)
-                h += 0.1f;
+            rot.x += -1 * speed * (Input.GetKey(KeyCode.S) ? -1 : 1);
+            Quaternion q = Quaternion.Euler(rot); // Quaternion으로 변환
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, 0.1f); // 자연스럽게 회전
         }
-        if (Input.GetKey(KeyCode.W))
+        else
         {
-            if (h > -0.5)
-                h -= 0.1f;
+            transform.rotation = Quaternion.Slerp(transform.rotation, initCameraRotate, 0.1f);
         }
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
-        {
-            transform.rotation = initCameraRotate;
-        }
-        h = speed * h * Time.deltaTime;
-        transform.Rotate(Vector3.right * h);
     }
 }

@@ -48,23 +48,23 @@ public class SubUI : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void Resume()
+    public void Resume() // 게임 재개하기
     {
         Destroy(gameObject);
     }
 
-    public void Setting()
+    public void Setting() // 세팅창 켜기
     {
         gameObject.SetActive(false);
         SettingManager.Instance.OpenSetting();
     }
-    public void ReturnMenu()
+    public void ReturnMenu() // 서브메뉴에서 메인으로 돌아가기
     {
         PlayerPrefs.SetInt("Save", 1);
         LoadingSceneController.Instance.LoadScene(0);
     }
 
-    public void ExitGame()
+    public void ExitGame() // 서브메뉴에서 게임 종료
     {
         PlayerPrefs.SetInt("Save", 0);
         LoadingSceneController.Instance.LoadScene(0);

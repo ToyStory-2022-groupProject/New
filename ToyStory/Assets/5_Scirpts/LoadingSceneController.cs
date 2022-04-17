@@ -31,12 +31,14 @@ public class LoadingSceneController : MonoBehaviour
     [SerializeField] Image progressBar;
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] Text tip;
+
+    GameObject gameManager;
     
     int ran;
     string[] tips;
     int loadSceneNum;
     bool isWait;
-    
+
     static LoadingSceneController Create()
     {
         var loadPrefab = Resources.Load<LoadingSceneController>("LoadScene");
@@ -45,6 +47,7 @@ public class LoadingSceneController : MonoBehaviour
     
     void Awake()
     {
+        gameManager = GameObject.Find("GameManager");
         Reading();
         if (Instance != this)
         {
@@ -111,6 +114,7 @@ public class LoadingSceneController : MonoBehaviour
 
         if (!isFadeIn)
         {
+            gameManager.GetComponent<GameManager>().PlayBGM(loadSceneNum);
             gameObject.SetActive(false);
         }
     }
