@@ -17,7 +17,7 @@ public class SettingManager : MonoBehaviour
 
     public Options opType;
     static SettingManager instance;
-    [SerializeField] Slider[] sliders;
+    public Slider[] sliders;
     [SerializeField] Image image;
     
     
@@ -50,9 +50,11 @@ public class SettingManager : MonoBehaviour
     {
         gameObject.SetActive(true);
         BackGround();
-        var obj = FindObjectOfType<GameManager>();
-        sliders[0].value = obj.brightnessValue;
-        sliders[1].value = obj.bgmValue;
+        // var obj = FindObjectOfType<GameManager>();
+        // sliders[0].value = obj.brightnessValue;
+        // sliders[1].value = obj.bgmValue;
+        sliders[0].value = PlayerPrefs.GetFloat("Bright");
+        sliders[1].value = PlayerPrefs.GetFloat("BGM");
     }
     
     void Update()
@@ -79,16 +81,16 @@ public class SettingManager : MonoBehaviour
     public void ValueChange(float value)
     {
         var obj = FindObjectOfType<GameManager>();
-
+        
         switch (opType)
         {
+            // 설정값 저장 및 조정
             case Options.Brightness:
-                
-                obj.brightnessValue = value;
+                PlayerPrefs.SetFloat("Bright", value);
                 break;
             case Options.BGM:
                 obj.mixer.SetFloat("BGM", Mathf.Log10(value) * 20);
-                obj.bgmValue = value;
+                PlayerPrefs.SetFloat("BGM", value);
                 break;
             case Options.Effect:
                 break;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,7 @@ public class MainUI : MonoBehaviour
 {
     [SerializeField] Button resume;
     [SerializeField] Button chapterPick;
-    
-    // Update is called once per frame
+
     void Update()
     {
         Time.timeScale = 1; // 지워도 될 듯
@@ -27,8 +27,7 @@ public class MainUI : MonoBehaviour
 
     public void StartGame()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        int nextScene = scene.buildIndex + 1;
+        int nextScene = GameManager.scene.buildIndex + 1;
         
         LoadingSceneController.Instance.LoadScene(nextScene);
         PlayerPrefs.SetInt("Save", 0);
