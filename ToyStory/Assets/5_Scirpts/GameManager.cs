@@ -20,9 +20,6 @@ public class GameManager : MonoBehaviour
     // 밝기 관련
     public Light lights;
 
-    // 키 관련
-    public KeyManager keyManager;
-
     void Awake()
     {
         scene = SceneManager.GetActiveScene();
@@ -33,7 +30,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat("Bright", 1);
             PlayerPrefs.SetInt("init", 1);
         }
-        keyManager = GetComponent<KeyManager>();
         lights = GetComponent<Light>();
         var obj = FindObjectsOfType<GameManager>();
         if(obj.Length == 1)

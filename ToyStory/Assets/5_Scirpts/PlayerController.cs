@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
         
         /////좌우이동
-        if(onGround && Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
+        if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
         {
               if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
             {
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0,180,0);
             anim.SetBool("Move", true);
         }
-        else if(onGround && Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
+        else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
         {
             if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
             {
@@ -62,18 +62,15 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0,0,0);
             anim.SetBool("Move", true);  
         }
-        else if(Input.GetKeyUp(KeySetting.keys[KeyAction.LEFT])||Input.GetKeyUp(KeySetting.keys[KeyAction.RIGHT]))
+        else
             anim.SetBool("Move", false);
 
         //////점프
         if (Input.GetKeyDown(KeySetting.keys[KeyAction.JUMP]) && onGround) // 점프키를 누르면
         {
-            if (!anim.IsInTransition(0) && col) // 현재 트랜지션이 수행 중이지 않다면
-            {
                 onGround = false;
                 rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
                 anim.SetBool("Jump", true); // 점프
-            }
         } 
         if (currentBaseState.fullPathHash == jumpState && !anim.IsInTransition(0)) // 점프 중인 경우
         {

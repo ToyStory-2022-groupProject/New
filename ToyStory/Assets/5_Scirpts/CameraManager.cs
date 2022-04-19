@@ -20,7 +20,7 @@ public class CameraManager : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(Convert.ToInt32(h));
+        //Debug.Log(Convert.ToInt32(h)); 잠깐 꺼놓을게요
         CameraRotate();
         transform.position = player.position + offset;
         // _animator = GetComponent<Animator>();

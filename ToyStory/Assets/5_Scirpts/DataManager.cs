@@ -13,7 +13,8 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
     public CheckPointer checkPointer; //체크포인트 확인
-    private int StageNum; //스테이지 번호 확인
+    public int StageNum; //스테이지 번호 확인
+    public int PointNum;
     string jsonData; //저장하고 불러올 데이터
     string path;
     string filename = "saveData"; //파일명 지정
@@ -34,10 +35,10 @@ public class DataManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F1))
             Save();
-        else if(Input.GetKeyDown(KeyCode.F2))
+        /*else if(Input.GetKeyDown(KeyCode.F2))
             Load();
         else if(Input.GetKeyDown(KeyCode.R))
-            resetData();
+            resetData();*/
     }
     
     public void resetData() //데이터 초기화
@@ -47,28 +48,33 @@ public class DataManager : MonoBehaviour
     private void getData() //저장할 데이터 받아오기
     {
         checkPointer.FindCheckPoint();
+        PointNum = checkPointer.pointNum;
         StageNum = SceneManager.GetActiveScene().buildIndex;
     }
     public void Save()
     {
         getData();
-        Data Save = new Data() {Stage = StageNum, Checkpoint = checkPointer.pointNum};
+        Data Save = new Data() {Stage = StageNum, Checkpoint = PointNum};
         jsonData = JsonUtility.ToJson(Save);
         File.WriteAllText(path + filename, jsonData);
         Debug.Log(jsonData);
     }
 
-
-    public bool dataExist; //json파일이 존재하는지 확인
     public void Load()
+    {
+        jsonData = File.ReadAllText(path + filename);
+        Data Load = JsonUtility.FromJson<Data>(jsonData);
+        StageNum = Load.Stage;
+        PointNum = Load.Checkpoint;
+    }
+    public bool dataExist; //json파일이 존재하는지 확인
+
+    public void Checking()
     {
         if(System.IO.File.Exists(path + filename))
         {
             dataExist = true;
-            jsonData = File.ReadAllText(path + filename);
-            Data Load = JsonUtility.FromJson<Data>(jsonData);
             Debug.Log("파일 존재");
-            Debug.Log(Load);
         }
         else
         {
@@ -76,4 +82,6 @@ public class DataManager : MonoBehaviour
             Debug.Log("저장된 파일이 없습니다.");
         }
     }
+   
+   
 }
