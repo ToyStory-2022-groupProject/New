@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CheckPointer : MonoBehaviour
 {   public GameObject[] checkPoint;
-    bool[] checking;
+    public bool[] checking;
 
-    public int pointNum = -1;
+    public int pointNum;
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class CheckPointer : MonoBehaviour
     {
         if(checking[0] == false)
         {
-            pointNum = 0;
+            pointNum = -1;
         }
         else if(checking[checking.Length-1] == true)
         {

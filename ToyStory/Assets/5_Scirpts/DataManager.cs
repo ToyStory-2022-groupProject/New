@@ -11,7 +11,6 @@ public class Data //저장할 데이터
 }
 public class DataManager : MonoBehaviour
 {
-    public static DataManager instance;
     public CheckPointer checkPointer; //체크포인트 확인
     public int StageNum; //스테이지 번호 확인
     public int PointNum;
@@ -21,14 +20,6 @@ public class DataManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        #region singleton
-        if (instance == null)
-            instance = this;
-        else if (instance != this)
-            Destroy(instance.gameObject);
-        DontDestroyOnLoad(this.gameObject);
-        #endregion
-    
         path = Application.persistentDataPath + "/"; //Unity에서 지원하는 파일 경로
     }
     void Update()

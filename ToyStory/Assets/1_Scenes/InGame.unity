@@ -2122,6 +2122,7 @@ MonoBehaviour:
   runSpeed: 1
   jumpPower: 10
   CheckPointer: {fileID: 882891838}
+  dataManager: {fileID: 882891839}
 --- !u!137 &137001387129846496
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

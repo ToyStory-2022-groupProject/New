@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioMixerGroup audioMixerGroup;
     AudioSource audioSource;
     int nowSceneNum;
-
+    public int StartPoint = -1;
     // 밝기 관련
     public Light lights;
 

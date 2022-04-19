@@ -18,12 +18,36 @@ public class PlayerController : MonoBehaviour
     private AnimatorStateInfo currentBaseState;
     private bool onGround;
     static int jumpState = Animator.StringToHash("Base Layer.Jump"); 
+
+    //시작위치 결정요소
+
+    public DataManager dataManager;
     
     void Start()
     {
         anim = GetComponent<Animator>();
         col = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
+
+        dataManager.Checking();
+        Set();      
+    }
+
+    void Set()
+    {
+        if(dataManager.dataExist)
+        {
+            dataManager.Load();
+            Debug.Log(dataManager.PointNum);
+            if(dataManager.PointNum != -1)
+            {
+                transform.position = CheckPointer.checkPoint[dataManager.PointNum].transform.position;
+                for (int i = 0; i < dataManager.PointNum; i++)
+                {
+                    CheckPointer.checking[i] = true;
+                }
+            }     
+        }
     }
 
     // Update is called once per frame

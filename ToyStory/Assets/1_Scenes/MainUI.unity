@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPoint: []
+  checking: 
   pointNum: -1
 --- !u!114 &849987865
 MonoBehaviour:
@@ -431,6 +432,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c30fb566db8d61c47b24b39f932ba848, type: 3}
   mixer: {fileID: 24100000, guid: 951b9a6408b60450798a95be7074efd5, type: 2}
   audioMixerGroup: {fileID: 24300002, guid: 951b9a6408b60450798a95be7074efd5, type: 2}
+  StartPoint: -1
   lights: {fileID: 973119356}
 --- !u!4 &973119354
 Transform:
