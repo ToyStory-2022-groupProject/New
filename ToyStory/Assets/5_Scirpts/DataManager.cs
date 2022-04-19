@@ -44,6 +44,7 @@ public class DataManager : MonoBehaviour
     public void resetData() //데이터 초기화
     {
         System.IO.File.Delete(path + filename);
+        Debug.Log("데이터 초기화");
     }
     private void getData() //저장할 데이터 받아오기
     {

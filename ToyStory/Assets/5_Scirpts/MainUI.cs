@@ -30,7 +30,7 @@ public class MainUI : MonoBehaviour
             resume.gameObject.SetActive(true);
             chapterPick.gameObject.SetActive(true);
         }
-        else 
+        else if(!dataManager.dataExist) 
             saveExist = false;
        /* int isSave = PlayerPrefs.GetInt("Save");
         if (isSave > 0)
@@ -53,6 +53,7 @@ public class MainUI : MonoBehaviour
             dataManager.Load();
             nextScene = dataManager.StageNum;
             Debug.Log(dataManager.StageNum);
+            Debug.Log(dataManager.PointNum);
         }
             
         LoadingSceneController.Instance.LoadScene(nextScene);
