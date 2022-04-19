@@ -30,45 +30,69 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
-        
+
+
         /////좌우이동
         if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
         {
-              if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
+            transform.rotation = Quaternion.Euler(0,180,0);
+            if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
             {
+                transform.Translate(new Vector3(0,0,speed * 0.3f));
                 anim.SetFloat("Speed", walkSpeed);
-                transform.Translate(new Vector3(0,0,speed));
+                if(onGround)
+                {
+                    SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Walk);
+                    anim.SetBool("Move", true);
+                }
             }
             else
             {
                 anim.SetFloat("Speed", runSpeed);
-                transform.Translate(new Vector3(0,0,speed));
+                transform.Translate(new Vector3(0,0,speed)); 
+                if(onGround)
+                {
+                    SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Run);
+                    anim.SetBool("Move", true); 
+                }                 
             }
-            transform.rotation = Quaternion.Euler(0,180,0);
-            anim.SetBool("Move", true);
         }
         else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
         {
+            transform.rotation = Quaternion.Euler(0,0,0);
             if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
             {
                 anim.SetFloat("Speed", walkSpeed);
-                transform.Translate(new Vector3(0,0,speed));
+                transform.Translate(new Vector3(0,0,speed * 0.3f));
+                if(onGround)
+                {
+                    SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Walk);
+                    anim.SetBool("Move", true);
+                }
             }
             else
             {
                 anim.SetFloat("Speed", runSpeed);
                 transform.Translate(new Vector3(0,0,speed));
-            }
-            transform.rotation = Quaternion.Euler(0,0,0);
-            anim.SetBool("Move", true);  
+                if(onGround)
+                {
+                    SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Run);
+                    anim.SetBool("Move", true); 
+                }          
+            }            
         }
         else
+        {
+            SFXMgr.Instance.Stop_SFX();
             anim.SetBool("Move", false);
-
+        }
+             
         //////점프
         if (Input.GetKeyDown(KeySetting.keys[KeyAction.JUMP]) && onGround) // 점프키를 누르면
         {
                 onGround = false;
+                anim.SetBool("Move", false);
+                SFXMgr.Instance.Stop_SFX();
                 rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
                 anim.SetBool("Jump", true); // 점프
         } 

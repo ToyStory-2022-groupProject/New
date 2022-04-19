@@ -357,6 +357,7 @@
 "Assets/5_Scirpts/MainUI.cs"
 "Assets/5_Scirpts/PlayerController.cs"
 "Assets/5_Scirpts/SettingManager.cs"
+"Assets/5_Scirpts/SFXMgr.cs"
 "Assets/5_Scirpts/Sphere.cs"
 "Assets/5_Scirpts/SubUI.cs"
 "Assets/Supercyan Character Pack Free Sample/Scripts/DemoFree.cs"
