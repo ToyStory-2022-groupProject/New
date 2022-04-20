@@ -19,7 +19,6 @@ public class MainUI : MonoBehaviour
     void Update()
     {
         Time.timeScale = 1; // 지워도 될 듯
-        //SaveCheck(); 굳이 update에 안해도 될것 같아용..
     }
 
     void SaveCheck()
@@ -32,12 +31,6 @@ public class MainUI : MonoBehaviour
         }
         else if(!dataManager.dataExist) 
             saveExist = false;
-       /* int isSave = PlayerPrefs.GetInt("Save");
-        if (isSave > 0)
-        {
-            resume.gameObject.SetActive(true);
-            chapterPick.gameObject.SetActive(true);
-        } */
     }
 
     int nextScene;

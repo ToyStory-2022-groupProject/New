@@ -35,9 +35,9 @@ public class CameraManager : MonoBehaviour
     {
         Vector3 rot = transform.rotation.eulerAngles; // 현재 카메라의 각도를 Vector3로 반환
         
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeySetting.keys[KeyAction.CAMDOWN]) || Input.GetKey(KeySetting.keys[KeyAction.CAMUP]))
         {
-            rot.x += -1 * speed * (Input.GetKey(KeyCode.S) ? -1 : 1);
+            rot.x += -1 * speed * (Input.GetKey(KeySetting.keys[KeyAction.CAMDOWN]) ? -1 : 1);
             Quaternion q = Quaternion.Euler(rot); // Quaternion으로 변환
             transform.rotation = Quaternion.Slerp(transform.rotation, q, 0.1f); // 자연스럽게 회전
         }
