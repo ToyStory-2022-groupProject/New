@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -431,7 +431,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 00379ff33019bab4c9495c70aa3c3ff7, type: 3}
   - {fileID: 8300000, guid: c30fb566db8d61c47b24b39f932ba848, type: 3}
   mixer: {fileID: 24100000, guid: 951b9a6408b60450798a95be7074efd5, type: 2}
-  audioMixerGroup: {fileID: 24300002, guid: 951b9a6408b60450798a95be7074efd5, type: 2}
+  audioMixerGroup: {fileID: 750378812496599303, guid: 951b9a6408b60450798a95be7074efd5, type: 2}
   StartPoint: -1
   lights: {fileID: 973119356}
 --- !u!4 &973119354
@@ -1406,6 +1406,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SFXMgr
       objectReference: {fileID: 0}
+    - target: {fileID: 514369513619737101, guid: 02bfc1f094974fe4eb33b1379b6ab539, type: 3}
+      propertyPath: mixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 951b9a6408b60450798a95be7074efd5, type: 2}
+    - target: {fileID: 514369513619737101, guid: 02bfc1f094974fe4eb33b1379b6ab539, type: 3}
+      propertyPath: audioMixerGroup
+      value: 
+      objectReference: {fileID: 1711689689216070004, guid: 951b9a6408b60450798a95be7074efd5, type: 2}
     - target: {fileID: 8079049841785752411, guid: 02bfc1f094974fe4eb33b1379b6ab539, type: 3}
       propertyPath: m_RootOrder
       value: 6

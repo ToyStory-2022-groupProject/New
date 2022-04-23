@@ -29,6 +29,13 @@ public class CameraManager : MonoBehaviour
     public void Anim()
     {
         _animator.SetTrigger("doCamera");
+        // 나중에 카메라 애니메이션 관련
+        // Debug.Log(other.gameObject.name);
+        // if (other.gameObject.layer == 7)
+        // {
+        //     //CameraManager cam = cams.GetComponent<CameraManager>();
+        //     //cam.Anim();
+        // }
     }
 
     void CameraRotate() // 카메라 회전
@@ -39,7 +46,8 @@ public class CameraManager : MonoBehaviour
         {
             rot.x += -1 * speed * (Input.GetKey(KeySetting.keys[KeyAction.CAMDOWN]) ? -1 : 1);
             Quaternion q = Quaternion.Euler(rot); // Quaternion으로 변환
-            transform.rotation = Quaternion.Slerp(transform.rotation, q, 0.1f); // 자연스럽게 회전
+            if(transform.rotation.x > -0.003f && transform.rotation.x < 0.3f) // 범위 지정
+                transform.rotation = Quaternion.Slerp(transform.rotation, q, 0.1f); // 자연스럽게 회전
         }
         else
         {

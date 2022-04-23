@@ -5,23 +5,30 @@ using UnityEngine;
 
 public class Fan : MonoBehaviour
 {
-    public GameObject wing;
+    public GameObject wind;
     
-    void OnCollisionEnter(Collision collision)
+    float windspeed;
+    
+    Rigidbody _rigidbody;
+
+    void Awake()
     {
-        if (collision.gameObject.name == "Sphere")
-        {
-            wing.SetActive(true);
-            Sphere.windspeed = 1f;
-        }
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+    
+    void FixedUpdate () 
+    {
+        _rigidbody.AddForce(wind.transform.forward * windspeed,ForceMode.Impulse);
+    }
+    
+    public void acting()
+    {
+        windspeed = 1f;
     }
 
-    void OnCollisionExit(Collision other)
+    public void deactivating()
     {
-        if (other.gameObject.name == "Sphere")
-        {
-            Sphere.windspeed = 0f;
-            wing.SetActive(false);
-        }
+        windspeed = 0;
+        Destroy(gameObject);
     }
 }

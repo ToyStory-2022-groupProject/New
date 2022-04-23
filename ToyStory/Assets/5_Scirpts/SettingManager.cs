@@ -55,6 +55,7 @@ public class SettingManager : MonoBehaviour
         // sliders[1].value = obj.bgmValue;
         sliders[0].value = PlayerPrefs.GetFloat("Bright");
         sliders[1].value = PlayerPrefs.GetFloat("BGM");
+        sliders[2].value = PlayerPrefs.GetFloat("Effort");
     }
     
     void Update()
@@ -93,6 +94,8 @@ public class SettingManager : MonoBehaviour
                 PlayerPrefs.SetFloat("BGM", value);
                 break;
             case Options.Effect:
+                obj.mixer.SetFloat("Effort", Mathf.Log10(value) * 20);
+                PlayerPrefs.SetFloat("Effort", value);
                 break;
         }
     }

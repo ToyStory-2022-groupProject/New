@@ -28,7 +28,8 @@ public class SubUI : MonoBehaviour
             return instance;
         }
     }
-    
+
+    public DataManager dataManager;
     void Awake()
     {
         if (Instance != this || SceneManager.GetActiveScene().name == "MainUI")
@@ -50,6 +51,8 @@ public class SubUI : MonoBehaviour
 
     public void Resume() // 게임 재개하기
     {
+        dataManager = FindObjectOfType<DataManager>();
+        dataManager.Load();
         Destroy(gameObject);
     }
 
@@ -60,6 +63,7 @@ public class SubUI : MonoBehaviour
     }
     public void ReturnMenu() // 서브메뉴에서 메인으로 돌아가기
     {
+        
         PlayerPrefs.SetInt("Save", 1);
         LoadingSceneController.Instance.LoadScene(0);
     }
