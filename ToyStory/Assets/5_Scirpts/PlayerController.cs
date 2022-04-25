@@ -16,18 +16,21 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private Animator anim;
     private AnimatorStateInfo currentBaseState;
+    GameObject Rope;
     private bool onGround;
+    private bool isGrab;
+    private float swing;
     static int jumpState = Animator.StringToHash("Base Layer.Jump"); 
 
     //시작위치 결정요소
 
     public DataManager dataManager;
-    
     void Start()
     {
         anim = GetComponent<Animator>();
         col = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
+        Rope = GameObject.FindGameObjectWithTag("Rope");
 
         dataManager.Checking();
         Set();      
@@ -55,6 +58,70 @@ public class PlayerController : MonoBehaviour
     {
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
 
+        if(isGrab && onGround)//잡기
+        {
+            if(gameObject.transform.rotation == Quaternion.Euler(0,180,0))
+            {
+                if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
+                {
+                    anim.SetBool("Move", true);
+                    if(!anim.IsInTransition(0))
+                    {
+                        swing += Time.deltaTime;
+                        anim.SetFloat("Swing", swing);
+                        if(swing > 1)
+                            swing = 1;
+                        rb.AddForce(Vector3.forward*speed, ForceMode.Acceleration);
+                    }
+
+                }
+                else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
+                {
+                    anim.SetBool("Move", true);
+                    if(!anim.IsInTransition(0))
+                    {
+                        swing -= Time.deltaTime;
+                        anim.SetFloat("Swing", swing);
+                        if(swing < 0)
+                            swing = 0;
+                        rb.AddForce(Vector3.back*speed, ForceMode.Acceleration);
+                    }
+                }
+                
+            }
+            if(gameObject.transform.rotation == Quaternion.Euler(0,0,0))
+            {
+                if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
+                {
+                    anim.SetBool("Move", true);
+                    if(!anim.IsInTransition(0))
+                    {
+                        swing -= Time.deltaTime;
+                        anim.SetFloat("Swing", swing);
+                        if(swing < 0)
+                            swing = 0;
+                        rb.AddForce(Vector3.back*speed, ForceMode.Acceleration);
+                    }
+
+                }
+                else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
+                {
+                    anim.SetBool("Move", true);
+                    if(!anim.IsInTransition(0))
+                    {
+                        swing += Time.deltaTime;
+                        anim.SetFloat("Swing", swing);
+                        if(swing > 1)
+                            swing = 1;
+                        rb.AddForce(Vector3.forward*speed, ForceMode.Acceleration);
+                    }
+                }  
+            }
+        }
+        else if(!isGrab)
+        {
+            anim.SetBool("Move", false);
+        }
 
         /////좌우이동
         if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
@@ -132,6 +199,24 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.CompareTag("Ground"))
         {
             onGround = true;
+        }
+        if(collision.gameObject.CompareTag("Rope"))
+        {
+            if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
+            {
+                isGrab = true;
+                anim.SetBool("Grab",isGrab);
+                rb.isKinematic = isGrab;
+                transform.SetParent(Rope.transform);
+            }
+            else
+            {
+                isGrab = false;
+                anim.SetBool("Grab", isGrab);
+                rb.isKinematic = isGrab;
+                Rope.transform.DetachChildren();
+            }
+
         }
     }
 
