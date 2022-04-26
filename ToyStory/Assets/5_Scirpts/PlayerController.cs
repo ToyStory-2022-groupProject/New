@@ -17,8 +17,10 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private AnimatorStateInfo currentBaseState;
     GameObject Rope;
+    private Rigidbody Roperb;
     private bool onGround;
     private bool isGrab;
+    private bool onRope;
     private float swing;
     static int jumpState = Animator.StringToHash("Base Layer.Jump"); 
 
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
         Rope = GameObject.FindGameObjectWithTag("Rope");
+        Roperb = Rope.GetComponent<Rigidbody>();
 
         dataManager.Checking();
         Set();      
@@ -58,34 +61,26 @@ public class PlayerController : MonoBehaviour
     {
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
 
-        if(isGrab && onGround)//잡기
+        if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
         {
+            Debug.Log("잡기");
+            isGrab = true;
+            anim.SetBool("Grab",isGrab);
+             if(onRope && !onGround)//잡기
+            {
             if(gameObject.transform.rotation == Quaternion.Euler(0,180,0))
             {
                 if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
                 {
-                    anim.SetBool("Move", true);
-                    if(!anim.IsInTransition(0))
-                    {
-                        swing += Time.deltaTime;
-                        anim.SetFloat("Swing", swing);
-                        if(swing > 1)
-                            swing = 1;
-                        rb.AddForce(Vector3.forward*speed, ForceMode.Acceleration);
-                    }
-
+                    anim.SetFloat("Swing", 1);
+                    Roperb.AddForce(Vector3.forward*speed, ForceMode.Acceleration);
+                    Debug.Log("swing");
                 }
                 else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
                 {
-                    anim.SetBool("Move", true);
-                    if(!anim.IsInTransition(0))
-                    {
-                        swing -= Time.deltaTime;
-                        anim.SetFloat("Swing", swing);
-                        if(swing < 0)
-                            swing = 0;
-                        rb.AddForce(Vector3.back*speed, ForceMode.Acceleration);
-                    }
+                    anim.SetFloat("Swing", 0);
+                    Roperb.AddForce(Vector3.forward*speed, ForceMode.Acceleration);
+                    Debug.Log("swing");
                 }
                 
             }
@@ -93,35 +88,29 @@ public class PlayerController : MonoBehaviour
             {
                 if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
                 {
-                    anim.SetBool("Move", true);
-                    if(!anim.IsInTransition(0))
-                    {
-                        swing -= Time.deltaTime;
-                        anim.SetFloat("Swing", swing);
-                        if(swing < 0)
-                            swing = 0;
-                        rb.AddForce(Vector3.back*speed, ForceMode.Acceleration);
-                    }
-
+                    anim.SetFloat("Swing", 0);
+                    Roperb.AddForce(Vector3.forward*speed, ForceMode.Acceleration);
+                    Debug.Log("swing");
                 }
                 else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
                 {
-                    anim.SetBool("Move", true);
-                    if(!anim.IsInTransition(0))
-                    {
-                        swing += Time.deltaTime;
-                        anim.SetFloat("Swing", swing);
-                        if(swing > 1)
-                            swing = 1;
-                        rb.AddForce(Vector3.forward*speed, ForceMode.Acceleration);
-                    }
+                    anim.SetFloat("Swing", 1);
+                    Roperb.AddForce(Vector3.forward*speed, ForceMode.Acceleration);
+                    Debug.Log("swing");
                 }  
             }
+            }       
+
         }
-        else if(!isGrab)
+        else if(Input.GetKeyUp(KeySetting.keys[KeyAction.GRAB]))
         {
-            anim.SetBool("Move", false);
+            isGrab = false;
+            anim.SetBool("Grab", isGrab);
+            rb.isKinematic = isGrab;
+            Rope.transform.DetachChildren();
         }
+        
+    
 
         /////좌우이동
         if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
@@ -182,7 +171,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeySetting.keys[KeyAction.JUMP]) && onGround) // 점프키를 누르면
         {
                 onGround = false;
-                anim.SetBool("Move", false);
                 SFXMgr.Instance.Stop_SFX();
                 rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
                 anim.SetBool("Jump", true); // 점프
@@ -200,36 +188,25 @@ public class PlayerController : MonoBehaviour
         {
             onGround = true;
         }
-        if(collision.gameObject.CompareTag("Rope"))
+        if (collision.gameObject.CompareTag("Rope") && isGrab)
         {
-            if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
-            {
-                isGrab = true;
-                anim.SetBool("Grab",isGrab);
-                rb.isKinematic = isGrab;
-                transform.SetParent(Rope.transform);
-            }
-            else
-            {
-                isGrab = false;
-                anim.SetBool("Grab", isGrab);
-                rb.isKinematic = isGrab;
-                Rope.transform.DetachChildren();
-            }
-
+            Debug.Log("로프접촉");
+            rb.isKinematic = isGrab;
+            onRope = true;
+            transform.SetParent(Rope.transform);
         }
     }
 
     private void OnTriggerEnter(Collider point)
     {
-         if(point.tag == "CheckPoint")
+        if(point.tag == "CheckPoint")
         {
             for (int i = 0; i < CheckPointer.checkPoint.Length; i++)
             {
                 if (CheckPointer.checkPoint[i].gameObject == point.gameObject)
                 {
                     CheckPointer.TriggerCheck(i);
-                }         
+                }       
             }
         }
     }
