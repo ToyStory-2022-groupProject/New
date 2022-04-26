@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 3383468975964971914}
   - component: {fileID: 3128829720062702004}
   m_Layer: 5
-  m_Name: Jump (1)
+  m_Name: Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 148810437095563929}
   - component: {fileID: 8976904702210077069}
   m_Layer: 5
-  m_Name: Jbtn (1)
+  m_Name: Gbtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -453,7 +453,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1330,7 +1330,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1654,7 +1654,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4785,6 +4785,7 @@ MonoBehaviour:
   - {fileID: 8518701360342285742}
   - {fileID: 4338688245660731470}
   - {fileID: 8923840396479744617}
+  - {fileID: 4412026632847437796}
   - {fileID: 7006205659483036178}
   - {fileID: 2298059930253354336}
 --- !u!1 &6686110241895820057
