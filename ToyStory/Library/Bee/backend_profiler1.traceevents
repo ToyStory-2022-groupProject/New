@@ -1,4 +1,6 @@
 { "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
+<<<<<<< HEAD
+<<<<<<< HEAD
 ,{ "pid":12345, "tid":0, "ts":1650990686165824, "dur":4924, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1650990686170766, "dur":242, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
 ,{ "pid":12345, "tid":0, "ts":1650990686171062, "dur":51, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
@@ -868,4 +870,479 @@
 ,{ "pid":12345, "tid":8, "ts":1650990686334671, "dur":609246, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":8, "ts":1650990686943917, "dur":533250, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1650990687487945, "dur":5239, "ph":"X", "name": "ProfilerWriteOutput" }
+=======
+=======
+>>>>>>> f0550e07330fa2e7ae7dcfb1dbed29cadfadfea9
+,{ "pid":12345, "tid":0, "ts":1651052415380870, "dur":714, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415381591, "dur":457, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
+,{ "pid":12345, "tid":0, "ts":1651052415382055, "dur":10, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
+,{ "pid":12345, "tid":0, "ts":1651052415382065, "dur":173, "ph":"X", "name": "Tundra",  "args": { "detail":"BuildQueueInit" }}
+,{ "pid":12345, "tid":0, "ts":1651052415382255, "dur":393, "ph":"X", "name": "EnqueueRequestedNodes",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415382648, "dur":7, "ph":"X", "name": "SortWorkingStack",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406644, "dur":9, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406653, "dur":8, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406661, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406663, "dur":2, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406665, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406667, "dur":1, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406668, "dur":3, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406671, "dur":1, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406672, "dur":3, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406675, "dur":1, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406676, "dur":3, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406679, "dur":1, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406680, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406682, "dur":1, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406683, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406685, "dur":1, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406686, "dur":3, "ph":"X", "name": "SharedResourceDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406691, "dur":2, "ph":"X", "name": "BuildQueueDestroyTail",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415406694, "dur":1434, "ph":"X", "name": "Tundra",  "args": { "detail":"Write AllBuiltNodes" }}
+,{ "pid":12345, "tid":1, "ts":1651052415382116, "dur":543, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415382661, "dur":1232, "ph":"X", "name": "CheckDagSignatures",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415383893, "dur":2, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"WriteText Library/Bee/artifacts/WinPlayerBuildProgram/Data/app.info" }}
+,{ "pid":12345, "tid":1, "ts":1651052415383898, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415384168, "dur":122, "ph":"X", "name": "WriteText",  "args": { "detail":"Library/Bee/artifacts/WinPlayerBuildProgram/Data/app.info" }}
+,{ "pid":12345, "tid":1, "ts":1651052415384292, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/app.info" }}
+,{ "pid":12345, "tid":1, "ts":1651052415384324, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415384443, "dur":261, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/app.info" }}
+,{ "pid":12345, "tid":1, "ts":1651052415384705, "dur":470, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
+,{ "pid":12345, "tid":1, "ts":1651052415385177, "dur":19, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415385222, "dur":210, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
+,{ "pid":12345, "tid":1, "ts":1651052415385532, "dur":2761, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415388295, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415388339, "dur":119, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415388460, "dur":2574, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415391037, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415391040, "dur":142, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415391184, "dur":1578, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.VehiclesModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415392779, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415392783, "dur":121, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.VehiclesModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415392906, "dur":235, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415393143, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415393146, "dur":123, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415393271, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Mono.Security.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415393276, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415393279, "dur":212, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Mono.Security.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415393492, "dur":1527, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.VRModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415395021, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415395024, "dur":124, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.VRModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415395150, "dur":1494, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.HotReloadModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415396646, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415396650, "dur":114, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.HotReloadModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415396766, "dur":1188, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415397956, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415397959, "dur":124, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415398085, "dur":1620, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.StreamingModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415399707, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415399711, "dur":130, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.StreamingModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415399844, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/mscorlib.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415399849, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415399852, "dur":103, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/mscorlib.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415399957, "dur":1573, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Unity.TextMeshPro.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415401532, "dur":75, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415401846, "dur":333, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Unity.TextMeshPro.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415402244, "dur":23, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.IO.Compression.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415402279, "dur":11, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415402295, "dur":387, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.IO.Compression.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415402770, "dur":200, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.LocalizationModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415402999, "dur":23, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415403339, "dur":378, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.LocalizationModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415403782, "dur":277, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415404062, "dur":23, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415404272, "dur":359, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415404659, "dur":229, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.CrashReportingModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415404890, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415404894, "dur":329, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.CrashReportingModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1651052415405298, "dur":34, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/level1" }}
+,{ "pid":12345, "tid":1, "ts":1651052415405334, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415405337, "dur":269, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/level1" }}
+,{ "pid":12345, "tid":1, "ts":1651052415405671, "dur":153, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/ScriptingAssemblies.json" }}
+,{ "pid":12345, "tid":1, "ts":1651052415405826, "dur":19, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1651052415405977, "dur":318, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/ScriptingAssemblies.json" }}
+,{ "pid":12345, "tid":1, "ts":1651052415406391, "dur":252, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415382133, "dur":529, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415382664, "dur":1255, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415383927, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":2, "ts":1651052415383985, "dur":24, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415384897, "dur":327, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":2, "ts":1651052415385270, "dur":189, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/2.0/web.config" }}
+,{ "pid":12345, "tid":2, "ts":1651052415385475, "dur":24, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415385611, "dur":165, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/2.0/web.config" }}
+,{ "pid":12345, "tid":2, "ts":1651052415385779, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":2, "ts":1651052415385783, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415385838, "dur":235, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":2, "ts":1651052415386076, "dur":885, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.IMGUIModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415386963, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415386966, "dur":129, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.IMGUIModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415387097, "dur":546, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ClothModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415387644, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415387660, "dur":123, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ClothModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415387785, "dur":925, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UNETModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415388711, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415388724, "dur":110, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UNETModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415388836, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.ComponentModel.Composition.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415388842, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415388845, "dur":120, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.ComponentModel.Composition.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415388967, "dur":791, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Xml.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415389760, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415389763, "dur":107, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Xml.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415389871, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Numerics.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415389877, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415389880, "dur":107, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Numerics.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415389989, "dur":1310, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.SubsystemsModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415391301, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415391304, "dur":115, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.SubsystemsModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415391420, "dur":2797, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ParticleSystemModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415394219, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415394223, "dur":119, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ParticleSystemModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415394344, "dur":1815, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.GridModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415396161, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415396165, "dur":180, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.GridModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415396347, "dur":1709, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UIModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415398058, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415398062, "dur":129, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UIModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415398193, "dur":3044, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415401239, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415401243, "dur":181, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415401426, "dur":6, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415401434, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415401437, "dur":373, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415401880, "dur":341, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.AudioModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415402223, "dur":9, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415402321, "dur":418, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.AudioModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415402806, "dur":505, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Assembly-CSharp.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415403313, "dur":15, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415403508, "dur":334, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Assembly-CSharp.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415403892, "dur":266, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.VirtualTexturingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415404160, "dur":27, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415404295, "dur":326, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.VirtualTexturingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415404624, "dur":1312, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Unity.VisualScripting.Core.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415405938, "dur":12, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1651052415406101, "dur":307, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Unity.VisualScripting.Core.dll" }}
+,{ "pid":12345, "tid":2, "ts":1651052415406411, "dur":208, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415382156, "dur":510, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415382666, "dur":1302, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415383968, "dur":432, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.0/web.config" }}
+,{ "pid":12345, "tid":3, "ts":1651052415384402, "dur":6, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415384674, "dur":347, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.0/web.config" }}
+,{ "pid":12345, "tid":3, "ts":1651052415385136, "dur":592, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/2.0/machine.config" }}
+,{ "pid":12345, "tid":3, "ts":1651052415385730, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415385734, "dur":142, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/2.0/machine.config" }}
+,{ "pid":12345, "tid":3, "ts":1651052415385879, "dur":604, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.VideoModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415386485, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415386490, "dur":129, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.VideoModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415386621, "dur":1156, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.AIModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415387784, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415387789, "dur":125, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.AIModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415387916, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Drawing.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415387920, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415387924, "dur":119, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Drawing.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415388044, "dur":502, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415388547, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415388551, "dur":132, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415388685, "dur":1276, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ScreenCaptureModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415389963, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415389967, "dur":1044, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ScreenCaptureModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415391015, "dur":5626, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.CoreModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415396643, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415396647, "dur":138, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.CoreModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415396787, "dur":3641, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415400430, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415400434, "dur":200, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415400636, "dur":297, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.DirectorModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415400935, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415400938, "dur":230, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.DirectorModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415401171, "dur":284, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ClusterInputModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415401457, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415401461, "dur":470, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ClusterInputModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415401962, "dur":841, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.AnimationModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415402805, "dur":35, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415402910, "dur":450, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.AnimationModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415403412, "dur":234, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.GIModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415403648, "dur":35, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415403908, "dur":365, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.GIModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415404339, "dur":484, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415404825, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415404828, "dur":243, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1651052415405073, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/globalgamemanagers.assets" }}
+,{ "pid":12345, "tid":3, "ts":1651052415405079, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415405082, "dur":235, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/globalgamemanagers.assets" }}
+,{ "pid":12345, "tid":3, "ts":1651052415405354, "dur":27, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/sharedassets0.assets" }}
+,{ "pid":12345, "tid":3, "ts":1651052415405382, "dur":15, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415405400, "dur":355, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/sharedassets0.assets" }}
+,{ "pid":12345, "tid":3, "ts":1651052415405785, "dur":47, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/boot.config" }}
+,{ "pid":12345, "tid":3, "ts":1651052415405833, "dur":16, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1651052415405988, "dur":270, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/boot.config" }}
+,{ "pid":12345, "tid":3, "ts":1651052415406368, "dur":274, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415382170, "dur":498, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415382668, "dur":1263, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415383938, "dur":40, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.0/settings.map" }}
+,{ "pid":12345, "tid":4, "ts":1651052415383982, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415384518, "dur":325, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.0/settings.map" }}
+,{ "pid":12345, "tid":4, "ts":1651052415384925, "dur":73, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/2.0/settings.map" }}
+,{ "pid":12345, "tid":4, "ts":1651052415385000, "dur":21, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415385282, "dur":314, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/2.0/settings.map" }}
+,{ "pid":12345, "tid":4, "ts":1651052415385644, "dur":6473, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415392120, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415392129, "dur":137, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415392269, "dur":690, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.TilemapModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415392961, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415392964, "dur":262, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.TilemapModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415393229, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Data.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415393234, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415393237, "dur":118, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Data.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415393357, "dur":1695, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415395053, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415395091, "dur":146, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415395239, "dur":1203, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityCurlModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415396444, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415396448, "dur":132, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityCurlModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415396582, "dur":5312, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UIElementsModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415401896, "dur":18, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415402158, "dur":518, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UIElementsModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415402767, "dur":324, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415403093, "dur":75, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415403236, "dur":397, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415403737, "dur":252, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ARModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415403991, "dur":14, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415404168, "dur":460, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ARModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415404664, "dur":438, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.SpriteMaskModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415405104, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415405121, "dur":253, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.SpriteMaskModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1651052415405421, "dur":81, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/level1.resS" }}
+,{ "pid":12345, "tid":4, "ts":1651052415405504, "dur":25, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415405665, "dur":293, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/level1.resS" }}
+,{ "pid":12345, "tid":4, "ts":1651052415405995, "dur":41, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/sharedassets1.assets.resS" }}
+,{ "pid":12345, "tid":4, "ts":1651052415406037, "dur":13, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1651052415406159, "dur":376, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/sharedassets1.assets.resS" }}
+,{ "pid":12345, "tid":4, "ts":1651052415406539, "dur":96, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415382188, "dur":481, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415382669, "dur":1271, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415383951, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":5, "ts":1651052415384010, "dur":25, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415384323, "dur":303, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":5, "ts":1651052415384693, "dur":49, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":5, "ts":1651052415384744, "dur":27, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415384974, "dur":307, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":5, "ts":1651052415385335, "dur":32, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/config" }}
+,{ "pid":12345, "tid":5, "ts":1651052415385369, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415385373, "dur":361, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/config" }}
+,{ "pid":12345, "tid":5, "ts":1651052415385736, "dur":3060, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory.exe" }}
+,{ "pid":12345, "tid":5, "ts":1651052415388798, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415388801, "dur":127, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory.exe" }}
+,{ "pid":12345, "tid":5, "ts":1651052415388930, "dur":2100, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.WindModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415391032, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415391036, "dur":119, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.WindModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415391157, "dur":1717, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415392889, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415392893, "dur":140, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415393035, "dur":1834, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Unity.Timeline.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415394871, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415394891, "dur":139, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Unity.Timeline.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415395033, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.ServiceModel.Internals.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415395038, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415395077, "dur":138, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.ServiceModel.Internals.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415395217, "dur":1643, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.SubstanceModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415396862, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415396865, "dur":112, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.SubstanceModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415396979, "dur":2124, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityConnectModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415399105, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415399110, "dur":116, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityConnectModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415399228, "dur":6, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.EnterpriseServices.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415399236, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415399239, "dur":107, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.EnterpriseServices.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415399348, "dur":1334, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.GameCenterModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415400683, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415400687, "dur":176, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.GameCenterModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415400865, "dur":544, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.InputModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415401411, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415401414, "dur":273, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.InputModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415401816, "dur":554, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.XRModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415402372, "dur":111, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415402562, "dur":370, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.XRModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415403001, "dur":362, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.TextRenderingModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415403365, "dur":12, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415403540, "dur":349, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.TextRenderingModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415403923, "dur":64, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/netstandard.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415403989, "dur":12, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415404165, "dur":453, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/netstandard.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415404620, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.IO.Compression.FileSystem.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415404625, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415404652, "dur":215, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.IO.Compression.FileSystem.dll" }}
+,{ "pid":12345, "tid":5, "ts":1651052415404870, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/StreamingAssets/build_info" }}
+,{ "pid":12345, "tid":5, "ts":1651052415404875, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415404949, "dur":173, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/StreamingAssets/build_info" }}
+,{ "pid":12345, "tid":5, "ts":1651052415405124, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/resources.assets.resS" }}
+,{ "pid":12345, "tid":5, "ts":1651052415405129, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415405137, "dur":240, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/resources.assets.resS" }}
+,{ "pid":12345, "tid":5, "ts":1651052415405431, "dur":62, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/sharedassets0.assets.resS" }}
+,{ "pid":12345, "tid":5, "ts":1651052415405495, "dur":11, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415405660, "dur":248, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/sharedassets0.assets.resS" }}
+,{ "pid":12345, "tid":5, "ts":1651052415405934, "dur":31, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/sharedassets1.assets" }}
+,{ "pid":12345, "tid":5, "ts":1651052415405980, "dur":11, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1651052415406130, "dur":375, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/sharedassets1.assets" }}
+,{ "pid":12345, "tid":5, "ts":1651052415406508, "dur":116, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415382207, "dur":464, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415382671, "dur":1242, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415383919, "dur":109, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":6, "ts":1651052415384030, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415384349, "dur":270, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":6, "ts":1651052415384690, "dur":37, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.5/settings.map" }}
+,{ "pid":12345, "tid":6, "ts":1651052415384729, "dur":25, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415384961, "dur":298, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.5/settings.map" }}
+,{ "pid":12345, "tid":6, "ts":1651052415385308, "dur":29, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/browscap.ini" }}
+,{ "pid":12345, "tid":6, "ts":1651052415385338, "dur":19, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415385381, "dur":291, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/browscap.ini" }}
+,{ "pid":12345, "tid":6, "ts":1651052415385750, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Resources/unity default resources" }}
+,{ "pid":12345, "tid":6, "ts":1651052415385756, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415385807, "dur":254, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Resources/unity default resources" }}
+,{ "pid":12345, "tid":6, "ts":1651052415386065, "dur":133, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Core.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415386200, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415386246, "dur":125, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Core.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415386373, "dur":308, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.TLSModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415386683, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415386687, "dur":113, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.TLSModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415386802, "dur":133, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Security.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415386936, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415386940, "dur":121, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Security.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415387063, "dur":2971, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.AndroidJNIModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415390036, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415390041, "dur":972, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.AndroidJNIModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415391016, "dur":2014, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.PhysicsModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415393032, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415393036, "dur":136, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.PhysicsModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415393174, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415393179, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415393182, "dur":158, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415393342, "dur":1414, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityTestProtocolModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415394758, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415394762, "dur":129, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UnityTestProtocolModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415394894, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Transactions.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415394899, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415394903, "dur":180, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Transactions.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415395085, "dur":2710, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UIElementsNativeModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415397797, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415397813, "dur":117, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UIElementsNativeModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415397932, "dur":2879, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.Physics2DModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415400813, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415400820, "dur":199, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.Physics2DModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415401022, "dur":635, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.VFXModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415401659, "dur":28, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415401919, "dur":322, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.VFXModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415402288, "dur":344, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.AssetBundleModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415402634, "dur":41, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415402882, "dur":455, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.AssetBundleModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415403401, "dur":278, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.SpriteShapeModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415403692, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415403698, "dur":297, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.SpriteShapeModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415404019, "dur":203, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415404236, "dur":24, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415404484, "dur":241, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415404728, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Xml.Linq.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415404747, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415404751, "dur":224, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Xml.Linq.dll" }}
+,{ "pid":12345, "tid":6, "ts":1651052415404977, "dur":7, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Resources/unity_builtin_extra" }}
+,{ "pid":12345, "tid":6, "ts":1651052415404985, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415404997, "dur":278, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Resources/unity_builtin_extra" }}
+,{ "pid":12345, "tid":6, "ts":1651052415405321, "dur":28, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/level0" }}
+,{ "pid":12345, "tid":6, "ts":1651052415405351, "dur":13, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415405397, "dur":320, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/level0" }}
+,{ "pid":12345, "tid":6, "ts":1651052415405739, "dur":31, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/RuntimeInitializeOnLoads.json" }}
+,{ "pid":12345, "tid":6, "ts":1651052415405772, "dur":8, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1651052415405935, "dur":376, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/RuntimeInitializeOnLoads.json" }}
+,{ "pid":12345, "tid":6, "ts":1651052415406397, "dur":257, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415382225, "dur":447, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415382672, "dur":1297, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415383969, "dur":351, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
+,{ "pid":12345, "tid":7, "ts":1651052415384371, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415384587, "dur":279, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
+,{ "pid":12345, "tid":7, "ts":1651052415384948, "dur":18, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":7, "ts":1651052415384968, "dur":27, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415385281, "dur":333, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":7, "ts":1651052415385660, "dur":2872, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/UnityCrashHandler64.exe" }}
+,{ "pid":12345, "tid":7, "ts":1651052415388534, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415388537, "dur":133, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/UnityCrashHandler64.exe" }}
+,{ "pid":12345, "tid":7, "ts":1651052415388674, "dur":1285, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ClusterRendererModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415389962, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415389966, "dur":141, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ClusterRendererModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415390109, "dur":2813, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415392925, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415392929, "dur":125, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415393057, "dur":320, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.SharedInternalsModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415393378, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415393384, "dur":129, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.SharedInternalsModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415393515, "dur":1746, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.TerrainModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415395262, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415395266, "dur":120, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.TerrainModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415395388, "dur":5209, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UI.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415400599, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415400603, "dur":183, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UI.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415400787, "dur":347, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.NVIDIAModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415401136, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415401139, "dur":151, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.NVIDIAModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415401293, "dur":293, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Unity.VisualScripting.State.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415401588, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415401592, "dur":348, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Unity.VisualScripting.State.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415401988, "dur":93, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Data.DataSetExtensions.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415402083, "dur":31, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415402270, "dur":488, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Data.DataSetExtensions.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415402803, "dur":140, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.DSPGraphModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415402953, "dur":42, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415403046, "dur":373, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.DSPGraphModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415403499, "dur":274, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.AccessibilityModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415403775, "dur":52, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415403984, "dur":312, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.AccessibilityModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415404366, "dur":159, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ProfilerModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415404586, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415404591, "dur":253, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.ProfilerModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415404846, "dur":789, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Unity.VisualScripting.Flow.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415405637, "dur":17, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415405757, "dur":324, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/Unity.VisualScripting.Flow.dll" }}
+,{ "pid":12345, "tid":7, "ts":1651052415406156, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/globalgamemanagers" }}
+,{ "pid":12345, "tid":7, "ts":1651052415406214, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1651052415406218, "dur":279, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/globalgamemanagers" }}
+,{ "pid":12345, "tid":7, "ts":1651052415406500, "dur":122, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1651052415382244, "dur":431, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1651052415382676, "dur":1285, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1651052415383961, "dur":416, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
+,{ "pid":12345, "tid":8, "ts":1651052415384379, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1651052415384457, "dur":359, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
+,{ "pid":12345, "tid":8, "ts":1651052415384890, "dur":312, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.5/web.config" }}
+,{ "pid":12345, "tid":8, "ts":1651052415385203, "dur":23, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1651052415385398, "dur":255, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/MonoBleedingEdge/etc/mono/4.5/web.config" }}
+,{ "pid":12345, "tid":8, "ts":1651052415385690, "dur":15049, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/UnityPlayer.dll" }}
+,{ "pid":12345, "tid":8, "ts":1651052415400741, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1651052415400744, "dur":243, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/UnityPlayer.dll" }}
+,{ "pid":12345, "tid":8, "ts":1651052415400990, "dur":624, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.InputLegacyModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1651052415401616, "dur":17, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1651052415401900, "dur":302, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.InputLegacyModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1651052415402259, "dur":37, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Runtime.Serialization.dll" }}
+,{ "pid":12345, "tid":8, "ts":1651052415402298, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1651052415402301, "dur":578, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Runtime.Serialization.dll" }}
+,{ "pid":12345, "tid":8, "ts":1651052415402903, "dur":35, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Net.Http.dll" }}
+,{ "pid":12345, "tid":8, "ts":1651052415402940, "dur":28, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1651052415403010, "dur":356, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Net.Http.dll" }}
+,{ "pid":12345, "tid":8, "ts":1651052415403423, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Configuration.dll" }}
+,{ "pid":12345, "tid":8, "ts":1651052415403481, "dur":26, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1651052415403778, "dur":342, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/System.Configuration.dll" }}
+,{ "pid":12345, "tid":8, "ts":1651052415404140, "dur":233, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UmbraModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1651052415404374, "dur":32, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1651052415404523, "dur":269, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.UmbraModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1651052415404795, "dur":399, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1651052415405196, "dur":15, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1651052415405365, "dur":287, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1651052415405691, "dur":25, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/resources.assets" }}
+,{ "pid":12345, "tid":8, "ts":1651052415405718, "dur":15, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1651052415405789, "dur":327, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/resources.assets" }}
+,{ "pid":12345, "tid":8, "ts":1651052415406182, "dur":64, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles /Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/sharedassets0.resource" }}
+,{ "pid":12345, "tid":8, "ts":1651052415406248, "dur":39, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1651052415406406, "dur":195, "ph":"X", "name": "CopyFiles",  "args": { "detail":"/Users/hanseong-il/Desktop/toytest/windowdemo/Toystory_demo/ToyStory_Data/sharedassets0.resource" }}
+,{ "pid":12345, "tid":8, "ts":1651052415406605, "dur":0, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"Player" }}
+,{ "pid":12345, "tid":8, "ts":1651052415406608, "dur":1, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1651052415408697, "dur":406, "ph":"X", "name": "ProfilerWriteOutput" }
+<<<<<<< HEAD
+>>>>>>> f0550e07330fa2e7ae7dcfb1dbed29cadfadfea9
+=======
+>>>>>>> f0550e07330fa2e7ae7dcfb1dbed29cadfadfea9
 ,

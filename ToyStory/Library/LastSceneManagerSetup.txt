@@ -1,5 +1,13 @@
 sceneSetups:
+<<<<<<< HEAD
+<<<<<<< HEAD
 - path: Assets/1_Scenes/Rope.unity
+=======
+- path: Assets/1_Scenes/Maps.unity
+>>>>>>> f0550e07330fa2e7ae7dcfb1dbed29cadfadfea9
+=======
+- path: Assets/1_Scenes/Maps.unity
+>>>>>>> f0550e07330fa2e7ae7dcfb1dbed29cadfadfea9
   isLoaded: 1
   isActive: 1
   isSubScene: 0

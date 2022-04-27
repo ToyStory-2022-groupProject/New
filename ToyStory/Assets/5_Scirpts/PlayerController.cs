@@ -33,7 +33,15 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
         Rope = GameObject.FindGameObjectWithTag("Rope");
+<<<<<<< HEAD
+<<<<<<< HEAD
         //Roperb = Rope.GetComponent<Rigidbody>();
+=======
+        // Roperb = Rope.GetComponent<Rigidbody>();
+>>>>>>> f0550e07330fa2e7ae7dcfb1dbed29cadfadfea9
+=======
+        // Roperb = Rope.GetComponent<Rigidbody>();
+>>>>>>> f0550e07330fa2e7ae7dcfb1dbed29cadfadfea9
 
         dataManager.Checking();
         Set();      

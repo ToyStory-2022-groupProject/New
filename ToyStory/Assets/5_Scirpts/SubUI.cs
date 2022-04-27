@@ -51,8 +51,6 @@ public class SubUI : MonoBehaviour
 
     public void Resume() // 게임 재개하기
     {
-        dataManager = FindObjectOfType<DataManager>();
-        dataManager.Load();
         Destroy(gameObject);
     }
 
@@ -63,19 +61,16 @@ public class SubUI : MonoBehaviour
     }
     public void ReturnMenu() // 서브메뉴에서 메인으로 돌아가기
     {
-        
-        PlayerPrefs.SetInt("Save", 1);
+        dataManager = FindObjectOfType<DataManager>();
+        dataManager.Save();
         LoadingSceneController.Instance.LoadScene(0);
     }
 
     public void ExitGame() // 서브메뉴에서 게임 종료
     {
-        PlayerPrefs.SetInt("Save", 0);
-        LoadingSceneController.Instance.LoadScene(0);
-
+        Application.Quit();
     }
     
-
    void Update()
    {
        if (Input.GetKeyDown(KeyCode.Escape))
