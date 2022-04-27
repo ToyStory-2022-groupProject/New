@@ -320,6 +320,7 @@ MonoBehaviour:
   runSpeed: 1
   jumpPower: 10
   CheckPointer: {fileID: 1288361861}
+  Ropes: {fileID: 664143672}
   dataManager: {fileID: 1288361862}
 --- !u!95 &132675318
 Animator:
@@ -912,7 +913,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664143672}
   m_LocalRotation: {x: -0.70709276, y: 0.005356498, z: -0.70708036, w: 0.0053564385}
-  m_LocalPosition: {x: -0.00004223543, y: -0.00899383, z: -0.00023678875}
+  m_LocalPosition: {x: -0, y: -0.0081, z: -0.0002}
   m_LocalScale: {x: -0.0011562549, y: 0.014999999, z: -0.0013786282}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -927,7 +928,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664143672}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}

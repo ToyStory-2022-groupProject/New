@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private AnimatorStateInfo currentBaseState;
     GameObject Rope;
-    private Rigidbody Roperb;
+    public GameObject Ropes;
     private bool onGround;
     private bool isGrab;
     private bool onRope;
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
         Rope = GameObject.FindGameObjectWithTag("Rope");
-        Roperb = Rope.GetComponent<Rigidbody>();
+        //Roperb = Rope.GetComponent<Rigidbody>();
 
         dataManager.Checking();
         Set();      
@@ -63,57 +63,35 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
         {
-            Debug.Log("잡기");
             isGrab = true;
             anim.SetBool("Grab",isGrab);
              if(onRope && !onGround)//잡기
             {
-            if(gameObject.transform.rotation == Quaternion.Euler(0,180,0))
-            {
                 if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
                 {
-                    anim.SetFloat("Swing", 1);
-                    Roperb.AddForce(Vector3.forward*speed, ForceMode.Acceleration);
+                    //anim.SetFloat("Swing", 1);
+                    Rope.GetComponent<Rigidbody>().AddForce(Vector3.back*jumpPower, ForceMode.Acceleration);
                     Debug.Log("swing");
                 }
                 else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
                 {
-                    anim.SetFloat("Swing", 0);
-                    Roperb.AddForce(Vector3.forward*speed, ForceMode.Acceleration);
+                    //anim.SetFloat("Swing", 0);
+                    Rope.GetComponent<Rigidbody>().AddForce(Vector3.forward*jumpPower, ForceMode.Acceleration);
                     Debug.Log("swing");
                 }
-                
-            }
-            if(gameObject.transform.rotation == Quaternion.Euler(0,0,0))
-            {
-                if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
-                {
-                    anim.SetFloat("Swing", 0);
-                    Roperb.AddForce(Vector3.forward*speed, ForceMode.Acceleration);
-                    Debug.Log("swing");
-                }
-                else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
-                {
-                    anim.SetFloat("Swing", 1);
-                    Roperb.AddForce(Vector3.forward*speed, ForceMode.Acceleration);
-                    Debug.Log("swing");
-                }  
-            }
             }       
 
         }
         else if(Input.GetKeyUp(KeySetting.keys[KeyAction.GRAB]))
         {
-            isGrab = false;
+            isGrab = onGround = false;
             anim.SetBool("Grab", isGrab);
             rb.isKinematic = isGrab;
             Rope.transform.DetachChildren();
         }
-        
     
-
         /////좌우이동
-        if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
+        else if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
         {
             transform.rotation = Quaternion.Euler(0,180,0);
             if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
@@ -188,13 +166,6 @@ public class PlayerController : MonoBehaviour
         {
             onGround = true;
         }
-        if (collision.gameObject.CompareTag("Rope") && isGrab)
-        {
-            Debug.Log("로프접촉");
-            rb.isKinematic = isGrab;
-            onRope = true;
-            transform.SetParent(Rope.transform);
-        }
     }
 
     private void OnTriggerEnter(Collider point)
@@ -208,6 +179,13 @@ public class PlayerController : MonoBehaviour
                     CheckPointer.TriggerCheck(i);
                 }       
             }
+        }
+        if(point.tag == "Rope")
+        {
+            Debug.Log("로프접촉");
+            rb.isKinematic = true;
+            onRope = true;
+            transform.SetParent(Rope.transform);
         }
     }
 }
