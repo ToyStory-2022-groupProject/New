@@ -16,12 +16,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private Animator anim;
     private AnimatorStateInfo currentBaseState;
-    GameObject Rope;
-    public GameObject Ropes;
+    
     private bool onGround;
+   /*GameObject Rope; 
     private bool isGrab;
     private bool onRope;
-    private float swing;
+    private float swing;*/ //주석처리된 부분은 현재 구현하고 있는, 아직 미완성인 부분입니다.
     static int jumpState = Animator.StringToHash("Base Layer.Jump"); 
 
     //시작위치 결정요소
@@ -32,16 +32,8 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         col = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
-        Rope = GameObject.FindGameObjectWithTag("Rope");
-<<<<<<< HEAD
-<<<<<<< HEAD
+        //Rope = GameObject.FindGameObjectWithTag("Rope");
         //Roperb = Rope.GetComponent<Rigidbody>();
-=======
-        // Roperb = Rope.GetComponent<Rigidbody>();
->>>>>>> f0550e07330fa2e7ae7dcfb1dbed29cadfadfea9
-=======
-        // Roperb = Rope.GetComponent<Rigidbody>();
->>>>>>> f0550e07330fa2e7ae7dcfb1dbed29cadfadfea9
 
         dataManager.Checking();
         Set();      
@@ -69,7 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
 
-        if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
+        /*if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
         {
             isGrab = true;
             anim.SetBool("Grab",isGrab);
@@ -96,10 +88,10 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("Grab", isGrab);
             rb.isKinematic = isGrab;
             Rope.transform.DetachChildren();
-        }
+        }*/
     
         /////좌우이동
-        else if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
+        if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
         {
             transform.rotation = Quaternion.Euler(0,180,0);
             if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
@@ -147,7 +139,7 @@ public class PlayerController : MonoBehaviour
                 }          
             }            
         }
-        else
+        else if(Input.GetKeyUp(KeySetting.keys[KeyAction.LEFT]) || Input.GetKeyUp(KeySetting.keys[KeyAction.RIGHT]))
         {
             SFXMgr.Instance.Stop_SFX();
             anim.SetBool("Move", false);
@@ -159,10 +151,12 @@ public class PlayerController : MonoBehaviour
                 onGround = false;
                 SFXMgr.Instance.Stop_SFX();
                 rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
-                anim.SetBool("Jump", true); // 점프
+                anim.SetBool("Jump", true); // 점프     
+                SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Jump); 
         } 
         if (currentBaseState.fullPathHash == jumpState && !anim.IsInTransition(0)) // 점프 중인 경우
         {
+            SFXMgr.Instance.Stop_SFX();
             anim.SetBool("Jump", false); // 이미 점프를 수행 중이므로 이제 FALSE로 설정
         }
         
@@ -188,12 +182,12 @@ public class PlayerController : MonoBehaviour
                 }       
             }
         }
-        if(point.tag == "Rope")
+        /*if(point.tag == "Rope")
         {
             Debug.Log("로프접촉");
             rb.isKinematic = true;
             onRope = true;
             transform.SetParent(Rope.transform);
-        }
+        }*/
     }
 }

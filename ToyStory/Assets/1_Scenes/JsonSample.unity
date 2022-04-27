@@ -356,6 +356,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SFXMgr
       objectReference: {fileID: 0}
+    - target: {fileID: 514369513619737101, guid: 02bfc1f094974fe4eb33b1379b6ab539, type: 3}
+      propertyPath: sfxs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 514369513619737101, guid: 02bfc1f094974fe4eb33b1379b6ab539, type: 3}
+      propertyPath: sfxs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: a9b5a55a035c7e8408234a46ce5fddda, type: 3}
     - target: {fileID: 8079049841785752411, guid: 02bfc1f094974fe4eb33b1379b6ab539, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -804,6 +812,7 @@ MonoBehaviour:
   clips: []
   mixer: {fileID: 24100000, guid: 951b9a6408b60450798a95be7074efd5, type: 2}
   audioMixerGroup: {fileID: 0}
+  StartPoint: -1
   lights: {fileID: 372081422}
 --- !u!4 &372081425
 Transform:
@@ -1029,6 +1038,7 @@ MonoBehaviour:
   runSpeed: 1
   jumpPower: 10
   CheckPointer: {fileID: 2055239469}
+  dataManager: {fileID: 0}
 --- !u!95 &566866549
 Animator:
   serializedVersion: 4
@@ -2647,6 +2657,7 @@ MonoBehaviour:
   - {fileID: 244898600}
   - {fileID: 1277564771}
   - {fileID: 1693875698}
+  checking: 
   pointNum: -1
 --- !u!114 &2055239470
 MonoBehaviour:
@@ -2873,6 +2884,7 @@ MonoBehaviour:
   - {fileID: 244898600}
   - {fileID: 1277564771}
   - {fileID: 1693875698}
+  checking: 
   pointNum: 0
 --- !u!1 &2111475559
 GameObject:
