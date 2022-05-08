@@ -34,6 +34,7 @@ public class DataManager : MonoBehaviour
     
     public void resetData() //데이터 초기화
     {
+        GameManager.isF1 = false; // 새로하기 눌렀을때 가이드창 다시 표시
         System.IO.File.Delete(path + filename);
         Debug.Log("데이터 초기화");
     }

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Switcher: MonoBehaviour
 {
+    
     // 스위치 트리거 이용
     public enum Type
     {
@@ -24,6 +25,7 @@ public class Switcher: MonoBehaviour
     }
     
     public PuzzleSet puzzleSet;
+    
     void Awake()
     {
         

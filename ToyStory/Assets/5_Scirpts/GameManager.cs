@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public static Scene scene;
     // 소리 관련
-    
+    [SerializeField] GameObject pressF1;
     [SerializeField] AudioClip[] clips;
     public AudioMixer mixer;
     [SerializeField] AudioMixerGroup audioMixerGroup;
@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     // 밝기 관련
     public Light lights;
 
+    public static bool isKeyGuide;
+    public  static bool isF1;
     void Awake()
     {
         scene = SceneManager.GetActiveScene();
@@ -49,17 +51,38 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(isF1);
+        Debug.Log(scene.buildIndex);
+        if (scene.buildIndex != 0 && !isF1)
+        {
+            Debug.Log("여기 들어옴");
+            pressF1.SetActive(true);
+        }
+        else
+            pressF1.SetActive(false);
+        
         Pause();
         Menu();
+        Keyguide();
         scene = SceneManager.GetActiveScene();
         lights.intensity = PlayerPrefs.GetFloat("Bright");
     }
     
     void Menu() // 서브메뉴창 켜기
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && isKeyGuide == false)
         {
             SubUI.Instance.LoadSubMenu();
+        }
+    }
+
+    void Keyguide() // 키 가이드 열기
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            isF1 = true;
+            isKeyGuide = true;
+            KeyGuide.Instance.LoadSubMenu();
         }
     }
     

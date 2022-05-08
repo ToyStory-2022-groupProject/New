@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    public Transform player;
-    public Vector3 offset;
+    [SerializeField] GameObject player; 
+    [SerializeField] Vector3 offset;
     public float speed;
     Quaternion initCameraRotate;
     Animator _animator;
@@ -22,7 +22,7 @@ public class CameraManager : MonoBehaviour
     {
         //Debug.Log(Convert.ToInt32(h)); 잠깐 꺼놓을게요
         CameraRotate();
-        transform.position = player.position + offset;
+        transform.position = player.transform.position + offset;
         // _animator = GetComponent<Animator>();
     }
 

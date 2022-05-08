@@ -50,9 +50,6 @@ public class SettingManager : MonoBehaviour
     {
         gameObject.SetActive(true);
         BackGround();
-        // var obj = FindObjectOfType<GameManager>();
-        // sliders[0].value = obj.brightnessValue;
-        // sliders[1].value = obj.bgmValue;
         sliders[0].value = PlayerPrefs.GetFloat("Bright");
         sliders[1].value = PlayerPrefs.GetFloat("BGM");
         sliders[2].value = PlayerPrefs.GetFloat("Effort");

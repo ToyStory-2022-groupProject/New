@@ -39,7 +39,6 @@ public class MainUI : MonoBehaviour
         if(!saveExist)
         {
             nextScene = GameManager.scene.buildIndex + 1;
- 
         }     
         else if(saveExist)
         {
