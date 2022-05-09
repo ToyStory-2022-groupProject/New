@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - CheckPoint
   - Rope
+  - Water
   layers:
   - Default
   - TransparentFX

@@ -21,9 +21,9 @@ public class PlayerController : MonoBehaviour
     GameObject Rope; 
     private bool isGrab;
     private bool onRope;
-    private float swing;
-    bool left;
-    bool right;
+    private bool inWater;
+    bool left, right;
+    
     static int jumpState = Animator.StringToHash("Base Layer.Jump"); 
 
     //시작위치 결정요소
@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
         {
             isGrab = true;
-            anim.SetBool("Grab",isGrab);
             if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
                 {
                     left = true;
@@ -75,8 +74,10 @@ public class PlayerController : MonoBehaviour
                     right = true;
                 }
 
-            if(onRope && !onGround)//잡기
+            //////////줄타기
+            if(onRope && !onGround)
             { 
+                anim.SetBool("Hang",isGrab);
                 transform.SetParent(Rope.transform);
                 transform.localPosition = new Vector3(0,-1,0);
                 if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
@@ -93,7 +94,7 @@ public class PlayerController : MonoBehaviour
         else if(Input.GetKeyUp(KeySetting.keys[KeyAction.GRAB]))
         {
             isGrab = onRope = left = right = false;
-            anim.SetBool("Grab", isGrab);
+            anim.SetBool("Hang", isGrab);
             rb.isKinematic = false;
             Rope.transform.DetachChildren();
         }
@@ -102,55 +103,74 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]) && !onRope)
         {
             transform.rotation = Quaternion.Euler(0,180,0);
-            if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
+            if(inWater) //수영
             {
                 transform.Translate(new Vector3(0,0,speed * 0.3f));
-                anim.SetFloat("Speed", walkSpeed);
-                if(onGround)
+                anim.SetBool("Swim", true);
+            }
+            else if(!inWater)
+            {
+                if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
                 {
-                    SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Walk);
-                    anim.SetBool("Move", true);
+                    transform.Translate(new Vector3(0,0,speed * 0.3f));
+                    anim.SetFloat("Speed", walkSpeed);
+                    if(onGround)
+                    {
+                        SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Walk);
+                        anim.SetBool("Move", true);
+                    }
+                }
+                else
+                {
+                    anim.SetFloat("Speed", runSpeed);
+                    transform.Translate(new Vector3(0,0,speed)); 
+                    if(onGround)
+                    {
+                        SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Run);
+                        anim.SetBool("Move", true); 
+                    }                 
                 }
             }
-            else
-            {
-                anim.SetFloat("Speed", runSpeed);
-                transform.Translate(new Vector3(0,0,speed)); 
-                if(onGround)
-                {
-                    SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Run);
-                    anim.SetBool("Move", true); 
-                }                 
-            }
+
+            
         }
         else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]) && !onRope)
         {
             transform.rotation = Quaternion.Euler(0,0,0);
-            if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
+            if(inWater) //수영
             {
-                anim.SetFloat("Speed", walkSpeed);
                 transform.Translate(new Vector3(0,0,speed * 0.3f));
-                if(onGround)
+                anim.SetBool("Swim", true);
+            }
+            else if(!inWater)
+            {
+                if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
                 {
-                    SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Walk);
-                    anim.SetBool("Move", true);
+                    transform.Translate(new Vector3(0,0,speed * 0.3f));
+                    anim.SetFloat("Speed", walkSpeed);
+                    if(onGround)
+                    {
+                        SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Walk);
+                        anim.SetBool("Move", true);
+                    }
+                }
+                else
+                {
+                    anim.SetFloat("Speed", runSpeed);
+                    transform.Translate(new Vector3(0,0,speed)); 
+                    if(onGround)
+                    {
+                        SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Run);
+                        anim.SetBool("Move", true); 
+                    }                 
                 }
             }
-            else
-            {
-                anim.SetFloat("Speed", runSpeed);
-                transform.Translate(new Vector3(0,0,speed));
-                if(onGround)
-                {
-                    SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Run);
-                    anim.SetBool("Move", true); 
-                }          
-            }            
         }
         else if(Input.GetKeyUp(KeySetting.keys[KeyAction.LEFT]) || Input.GetKeyUp(KeySetting.keys[KeyAction.RIGHT]))
         {
             SFXMgr.Instance.Stop_SFX();
             anim.SetBool("Move", false);
+            anim.SetBool("Swim", false);
         }
              
         //////점프
@@ -200,5 +220,17 @@ public class PlayerController : MonoBehaviour
             rb.isKinematic = true;
             onRope = true;
         }
+
+        if(point.tag == "Water")
+        {
+            inWater = true;
+            anim.SetBool("InWater", inWater);
+        }
+        if(point.tag != "Water")
+        {
+            inWater = false;
+            anim.SetBool("InWater", inWater);
+        }
+
     }
 }

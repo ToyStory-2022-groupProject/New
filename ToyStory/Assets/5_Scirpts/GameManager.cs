@@ -51,11 +51,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isF1);
-        Debug.Log(scene.buildIndex);
+        //Debug.Log(isF1);
+        //Debug.Log(scene.buildIndex);
         if (scene.buildIndex != 0 && !isF1)
         {
-            Debug.Log("여기 들어옴");
+            //Debug.Log("여기 들어옴");
             pressF1.SetActive(true);
         }
         else
