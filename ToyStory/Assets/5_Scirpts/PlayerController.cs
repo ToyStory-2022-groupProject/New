@@ -18,10 +18,12 @@ public class PlayerController : MonoBehaviour
     private AnimatorStateInfo currentBaseState;
     
     private bool onGround;
-   /*GameObject Rope; 
+    GameObject Rope; 
     private bool isGrab;
     private bool onRope;
-    private float swing;*/ //주석처리된 부분은 현재 구현하고 있는, 아직 미완성인 부분입니다.
+    private float swing;
+    bool left;
+    bool right;
     static int jumpState = Animator.StringToHash("Base Layer.Jump"); 
 
     //시작위치 결정요소
@@ -32,8 +34,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         col = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
-        //Rope = GameObject.FindGameObjectWithTag("Rope");
-        //Roperb = Rope.GetComponent<Rigidbody>();
+        Rope = GameObject.FindGameObjectWithTag("Rope");
 
         dataManager.Checking();
         Set();      
@@ -61,37 +62,44 @@ public class PlayerController : MonoBehaviour
     {
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
 
-        /*if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
+        if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
         {
             isGrab = true;
             anim.SetBool("Grab",isGrab);
-             if(onRope && !onGround)//잡기
-            {
+            if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
+                {
+                    left = true;
+                }
+            else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
+                {
+                    right = true;
+                }
+
+            if(onRope && !onGround)//잡기
+            { 
+                transform.SetParent(Rope.transform);
+                transform.localPosition = new Vector3(0,-1,0);
                 if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
                 {
-                    //anim.SetFloat("Swing", 1);
                     Rope.GetComponent<Rigidbody>().AddForce(Vector3.back*jumpPower, ForceMode.Acceleration);
-                    Debug.Log("swing");
                 }
                 else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
                 {
-                    //anim.SetFloat("Swing", 0);
                     Rope.GetComponent<Rigidbody>().AddForce(Vector3.forward*jumpPower, ForceMode.Acceleration);
-                    Debug.Log("swing");
                 }
             }       
 
         }
         else if(Input.GetKeyUp(KeySetting.keys[KeyAction.GRAB]))
         {
-            isGrab = onGround = false;
+            isGrab = onRope = left = right = false;
             anim.SetBool("Grab", isGrab);
-            rb.isKinematic = isGrab;
+            rb.isKinematic = false;
             Rope.transform.DetachChildren();
-        }*/
+        }
     
         /////좌우이동
-        if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
+        if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]) && !onRope)
         {
             transform.rotation = Quaternion.Euler(0,180,0);
             if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
@@ -115,7 +123,7 @@ public class PlayerController : MonoBehaviour
                 }                 
             }
         }
-        else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
+        else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]) && !onRope)
         {
             transform.rotation = Quaternion.Euler(0,0,0);
             if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
@@ -148,6 +156,10 @@ public class PlayerController : MonoBehaviour
         //////점프
         if (Input.GetKeyDown(KeySetting.keys[KeyAction.JUMP]) && onGround) // 점프키를 누르면
         {
+            if(onRope)
+            {
+                transform.Translate(new Vector3(0,0,speed));
+            }
                 onGround = false;
                 SFXMgr.Instance.Stop_SFX();
                 rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
@@ -182,12 +194,11 @@ public class PlayerController : MonoBehaviour
                 }       
             }
         }
-        /*if(point.tag == "Rope")
+        if(point.tag == "Rope" && isGrab)
         {
             Debug.Log("로프접촉");
             rb.isKinematic = true;
             onRope = true;
-            transform.SetParent(Rope.transform);
-        }*/
+        }
     }
 }
