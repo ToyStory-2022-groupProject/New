@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
             if(inWater) //수영
             {
                 transform.Translate(new Vector3(0,0,speed * 0.3f));
-                anim.SetBool("Swim", true);
+                anim.SetBool("Move", true);
             }
             else if(!inWater)
             {
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
             if(inWater) //수영
             {
                 transform.Translate(new Vector3(0,0,speed * 0.3f));
-                anim.SetBool("Swim", true);
+                anim.SetBool("Move", true);
             }
             else if(!inWater)
             {
@@ -170,21 +170,23 @@ public class PlayerController : MonoBehaviour
         {
             SFXMgr.Instance.Stop_SFX();
             anim.SetBool("Move", false);
-            anim.SetBool("Swim", false);
         }
              
         //////점프
-        if (Input.GetKeyDown(KeySetting.keys[KeyAction.JUMP]) && onGround) // 점프키를 누르면
+        if (Input.GetKeyDown(KeySetting.keys[KeyAction.JUMP])) // 점프키를 누르면
         {
             if(onRope)
             {
                 transform.Translate(new Vector3(0,0,speed));
             }
+            if(onGround || inWater)
+            {
                 onGround = false;
                 SFXMgr.Instance.Stop_SFX();
                 rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
                 anim.SetBool("Jump", true); // 점프     
-                SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Jump); 
+                SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Jump);
+            }
         } 
         if (currentBaseState.fullPathHash == jumpState && !anim.IsInTransition(0)) // 점프 중인 경우
         {
@@ -226,11 +228,14 @@ public class PlayerController : MonoBehaviour
             inWater = true;
             anim.SetBool("InWater", inWater);
         }
-        if(point.tag != "Water")
+    }
+
+    void OnTriggerExit(Collider point)
+    {
+        if(point.tag == "Water")
         {
             inWater = false;
             anim.SetBool("InWater", inWater);
         }
-
     }
 }
