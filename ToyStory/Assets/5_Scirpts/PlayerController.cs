@@ -19,10 +19,10 @@ public class PlayerController : MonoBehaviour
     
     private bool onGround;
     GameObject Rope; 
-    private bool isGrab;
+    private bool isGrab, canGrab;
     private bool onRope;
     private bool inWater;
-    bool left, right;
+    //bool left, right;
     
     static int jumpState = Animator.StringToHash("Base Layer.Jump"); 
 
@@ -65,14 +65,14 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
         {
             isGrab = true;
-            if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
+            /*if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
                 {
                     left = true;
                 }
             else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
                 {
                     right = true;
-                }
+                }*/
 
             //////////줄타기
             if(onRope && !onGround)
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(Input.GetKeyUp(KeySetting.keys[KeyAction.GRAB]))
         {
-            isGrab = onRope = left = right = false;
+            isGrab = onRope = false;
             anim.SetBool("Hang", isGrab);
             rb.isKinematic = false;
             Rope.transform.DetachChildren();
@@ -175,10 +175,6 @@ public class PlayerController : MonoBehaviour
         //////점프
         if (Input.GetKeyDown(KeySetting.keys[KeyAction.JUMP])) // 점프키를 누르면
         {
-            if(onRope)
-            {
-                transform.Translate(new Vector3(0,0,speed));
-            }
             if(onGround || inWater)
             {
                 onGround = false;
@@ -226,15 +222,24 @@ public class PlayerController : MonoBehaviour
         if(point.tag == "Water")
         {
             inWater = true;
+            rb.isKinematic = inWater;
             anim.SetBool("InWater", inWater);
         }
     }
 
     void OnTriggerExit(Collider point)
     {
-        if(point.tag == "Water")
+        if(point.tag == "Rope")
+        {
+            if(Input.GetKey(KeySetting.keys[KeyAction.JUMP]))
+            {
+                transform.Translate(new Vector3(0,0,speed));
+            }
+        }
+        if(point.tag == "Water") 
         {
             inWater = false;
+            rb.isKinematic = inWater;
             anim.SetBool("InWater", inWater);
         }
     }
