@@ -22,15 +22,6 @@ public class DataManager : MonoBehaviour
     {
         path = Application.persistentDataPath + "/"; //Unity에서 지원하는 파일 경로
     }
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.F1))
-            Save();
-        /*else if(Input.GetKeyDown(KeyCode.F2))
-            Load();
-        else if(Input.GetKeyDown(KeyCode.R))
-            resetData();*/
-    }
     
     public void resetData() //데이터 초기화
     {

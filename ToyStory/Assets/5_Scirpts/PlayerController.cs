@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
-
+            
         if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
         {
             isGrab = true;
@@ -89,7 +89,6 @@ public class PlayerController : MonoBehaviour
                     Rope.GetComponent<Rigidbody>().AddForce(Vector3.forward*jumpPower, ForceMode.Acceleration);
                 }
             }       
-
         }
         else if(Input.GetKeyUp(KeySetting.keys[KeyAction.GRAB]))
         {
@@ -218,11 +217,9 @@ public class PlayerController : MonoBehaviour
             rb.isKinematic = true;
             onRope = true;
         }
-
         if(point.tag == "Water")
         {
             inWater = true;
-            rb.isKinematic = inWater;
             anim.SetBool("InWater", inWater);
         }
     }
@@ -239,8 +236,8 @@ public class PlayerController : MonoBehaviour
         if(point.tag == "Water") 
         {
             inWater = false;
-            rb.isKinematic = inWater;
             anim.SetBool("InWater", inWater);
+            Debug.Log(inWater);
         }
     }
 }
