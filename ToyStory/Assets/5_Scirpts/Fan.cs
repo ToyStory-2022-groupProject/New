@@ -29,6 +29,7 @@ public class Fan : MonoBehaviour
     public void deactivating()
     {
         windspeed = 0;
-        Destroy(gameObject);
+        Destroy(gameObject, 4f);
     }
 }
+    

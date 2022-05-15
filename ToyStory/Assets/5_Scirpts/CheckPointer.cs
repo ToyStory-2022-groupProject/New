@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckPointer : MonoBehaviour
-{   public GameObject[] checkPoint;
+{   
+    public GameObject[] checkPoint;
     public bool[] checking;
 
     public int pointNum;

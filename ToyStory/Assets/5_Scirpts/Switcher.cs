@@ -6,12 +6,11 @@ using UnityEngine;
 
 public class Switcher: MonoBehaviour
 {
-    
     // 스위치 트리거 이용
     public enum Type
     {
         fan,
-        pop
+        pop,
     }
     public Type puzzleType;
     
@@ -26,10 +25,7 @@ public class Switcher: MonoBehaviour
     
     public PuzzleSet puzzleSet;
     
-    void Awake()
-    {
-        
-    }
+    
 
     void OnTriggerEnter(Collider other)
     {
@@ -67,20 +63,24 @@ public class Switcher: MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        switch (puzzleType)
+        if (other.gameObject.tag == "Player")
         {
-            case Type.fan:
-                puzzleSet.effect.SetActive(false);
-                puzzleSet.puzzleGameObject.transform.Rotate((new Vector3(0,0,1)) * Time.deltaTime*0);
-                foreach (GameObject obj in puzzleSet.puzzleGameObjects)
-                {
-                    if(obj.gameObject != null)
-                        obj.GetComponent<Fan>().deactivating();
-                }
-                break;
-            case Type.pop:
-                //puzzleGameObject.GetComponent<PuzzlePopping>().deactivating();
-                break;
+            switch (puzzleType)
+            {
+                case Type.fan:
+                    puzzleSet.effect.SetActive(false);
+                    puzzleSet.puzzleGameObject.transform.Rotate((new Vector3(0, 0, 1)) * Time.deltaTime * 0);
+                    foreach (GameObject obj in puzzleSet.puzzleGameObjects)
+                    {
+                        if (obj.gameObject != null)
+                            obj.GetComponent<Fan>().deactivating();
+                    }
+
+                    break;
+                case Type.pop:
+                    //puzzleGameObject.GetComponent<PuzzlePopping>().deactivating();
+                    break;
+            }
         }
     }
 }

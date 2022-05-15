@@ -18,8 +18,9 @@ public class PlayerController : MonoBehaviour
     private AnimatorStateInfo currentBaseState;
     
     private bool onGround;
-    GameObject Rope; 
-    private bool isGrab, canGrab;
+    GameObject Rope;
+    static public bool isGrab;
+    private bool canGrab;
     private bool onRope;
     private bool inWater;
     //bool left, right;
@@ -95,7 +96,7 @@ public class PlayerController : MonoBehaviour
             isGrab = onRope = false;
             anim.SetBool("Hang", isGrab);
             rb.isKinematic = false;
-            Rope.transform.DetachChildren();
+            //Rope.transform.DetachChildren();
         }
     
         /////좌우이동

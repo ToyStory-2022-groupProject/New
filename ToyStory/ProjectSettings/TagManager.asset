@@ -11,19 +11,20 @@ TagManager:
   - Rope
   - Water
   - Climb
+  - TopView
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Wall
   - CameraMove
   - Candy
   - PuzzleTool
-  - 
-  - 
+  - Ground
+  - Swim
   - 
   - 
   - 
