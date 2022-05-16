@@ -12,6 +12,8 @@ TagManager:
   - Water
   - Climb
   - TopView
+  - Hand
+  - Falling
   layers:
   - Default
   - TransparentFX

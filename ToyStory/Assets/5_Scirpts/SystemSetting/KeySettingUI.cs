@@ -35,12 +35,15 @@ public class KeySettingUI : MonoBehaviour
                 if(Input.GetKey(KeyCode.Backspace)) //백스페이스 누를 시 키 삭제
                 {
                     KeySetting.keys[(KeyAction) key] = KeyCode.None;
+                    PlayerPrefs.SetInt(key.ToString(), (int)KeyCode.None);
                     key = -1;
                 }
                     
                 else if(!KeySetting.keys.ContainsValue(current)) //같은 값 없을 시 추가
                 {
                     KeySetting.keys[(KeyAction) key] = current;
+                    PlayerPrefs.SetInt(key.ToString(), (int)current);
+                    Debug.Log((int)current);
                     key = -1;
                 }
                     
@@ -48,6 +51,7 @@ public class KeySettingUI : MonoBehaviour
                 {
                     KeyAction exist = KeySetting.keys.FirstOrDefault(x => x.Value == current).Key;
                     KeySetting.keys[(KeyAction) key] = current;
+                    PlayerPrefs.SetInt(key.ToString(), (int)current);  
                     key = -1;
                     KeySetting.keys[exist] = KeyCode.None;
                 }

@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float runSpeed = 1.0f;
     [SerializeField] float jumpPower = 1.0f;
     public CheckPointer CheckPointer;
+    public GameOver GameOver;
     private CapsuleCollider col;
     private Rigidbody rb;
     private Animator anim;
@@ -62,20 +63,11 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
-            
+        ///////////////////////////////////////////////////////잡기//////////////////////////////////////////////////////////    
         if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
         {
             isGrab = true;
-            /*if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
-                {
-                    left = true;
-                }
-            else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
-                {
-                    right = true;
-                }*/
-
-            //////////줄타기
+            //////////////////////////////////////////줄타기
             if(onRope && !onGround)
             { 
                 anim.SetBool("Hang",isGrab);
@@ -89,17 +81,27 @@ public class PlayerController : MonoBehaviour
                 {
                     Rope.GetComponent<Rigidbody>().AddForce(Vector3.forward*jumpPower, ForceMode.Acceleration);
                 }
-            }       
+            }
+            else if(!inWater)
+                anim.SetBool("Grab", isGrab);       
         }
         else if(Input.GetKeyUp(KeySetting.keys[KeyAction.GRAB]))
         {
-            isGrab = onRope = false;
-            anim.SetBool("Hang", isGrab);
-            rb.isKinematic = false;
-            //Rope.transform.DetachChildren();
+            if(onRope)
+            {
+                isGrab = onRope = false;
+                anim.SetBool("Hang", isGrab);
+                Rope.transform.DetachChildren();
+                rb.isKinematic = onRope;
+            }
+            else
+            {
+                isGrab = false;
+                anim.SetBool("Grab", isGrab);
+            }       
         }
     
-        /////좌우이동
+        /////////////////////////////////////////////////////////좌우이동//////////////////////////////////////////////////////////////////
         if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]) && !onRope)
         {
             transform.rotation = Quaternion.Euler(0,180,0);
@@ -166,13 +168,77 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if(Input.GetKeyUp(KeySetting.keys[KeyAction.LEFT]) || Input.GetKeyUp(KeySetting.keys[KeyAction.RIGHT]))
+        else if(Input.GetKey(KeySetting.keys[KeyAction.UP]) && !onRope)
+        {
+            transform.rotation = Quaternion.Euler(0,-90,0);
+            if(inWater) //수영
+            {
+                transform.Translate(new Vector3(0,0,speed * 0.3f));
+                anim.SetBool("Move", true);
+            }
+            else if(!inWater)
+            {
+                if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
+                {
+                    transform.Translate(new Vector3(0,0,speed * 0.3f));
+                    anim.SetFloat("Speed", walkSpeed);
+                    if(onGround)
+                    {
+                        SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Walk);
+                        anim.SetBool("Move", true);
+                    }
+                }
+                else
+                {
+                    anim.SetFloat("Speed", runSpeed);
+                    transform.Translate(new Vector3(0,0,speed)); 
+                    if(onGround)
+                    {
+                        SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Run);
+                        anim.SetBool("Move", true); 
+                    }                 
+                }
+            }
+        }
+        else if(Input.GetKey(KeySetting.keys[KeyAction.Down]) && !onRope)
+        {
+            transform.rotation = Quaternion.Euler(0,90,0);
+            if(inWater) //수영
+            {
+                transform.Translate(new Vector3(0,0,speed * 0.3f));
+                anim.SetBool("Move", true);
+            }
+            else if(!inWater)
+            {
+                if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
+                {
+                    transform.Translate(new Vector3(0,0,speed * 0.3f));
+                    anim.SetFloat("Speed", walkSpeed);
+                    if(onGround)
+                    {
+                        SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Walk);
+                        anim.SetBool("Move", true);
+                    }
+                }
+                else
+                {
+                    anim.SetFloat("Speed", runSpeed);
+                    transform.Translate(new Vector3(0,0,speed)); 
+                    if(onGround)
+                    {
+                        SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Run);
+                        anim.SetBool("Move", true); 
+                    }                 
+                }
+            }
+        }
+        else if(Input.GetKeyUp(KeySetting.keys[KeyAction.LEFT]) || Input.GetKeyUp(KeySetting.keys[KeyAction.RIGHT]) || Input.GetKeyUp(KeySetting.keys[KeyAction.UP]) || Input.GetKeyUp(KeySetting.keys[KeyAction.Down]))
         {
             SFXMgr.Instance.Stop_SFX();
             anim.SetBool("Move", false);
         }
              
-        //////점프
+        //////////////////////////////////////////////////////////점프///////////////////////////////////////////////////////////////
         if (Input.GetKeyDown(KeySetting.keys[KeyAction.JUMP])) // 점프키를 누르면
         {
             if(onGround || inWater)
@@ -192,11 +258,16 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    /////////////////////////////////////////////////////////충돌 및 트리거//////////////////////////////////////////////////////////
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
             onGround = true;
+        }
+        if(collision.gameObject.CompareTag("Falling"))
+        {
+            GameOver.Restart();
         }
     }
 
@@ -214,7 +285,6 @@ public class PlayerController : MonoBehaviour
         }
         if(point.tag == "Rope" && isGrab)
         {
-            Debug.Log("로프접촉");
             rb.isKinematic = true;
             onRope = true;
         }
