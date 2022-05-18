@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(Input.GetKeyUp(KeySetting.keys[KeyAction.GRAB]))
         {
-            if(onRope)
+            if(!onGround)
             {
                 isGrab = onRope = false;
                 anim.SetBool("Hang", isGrab);

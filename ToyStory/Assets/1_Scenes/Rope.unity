@@ -192,6 +192,7 @@ MonoBehaviour:
   runSpeed: 1
   jumpPower: 10
   CheckPointer: {fileID: 1288361861}
+  GameOver: {fileID: 0}
   dataManager: {fileID: 1288361862}
 --- !u!95 &118270868
 Animator:
@@ -959,6 +960,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_PROP_plate_interior_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2752723806166104125, guid: 0b250cc73f4873c45af6a3d98cacd096, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b250cc73f4873c45af6a3d98cacd096, type: 3}
 --- !u!1 &638228497
@@ -1257,7 +1262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &783422580
 Transform:
   m_ObjectHideFlags: 0
@@ -1908,7 +1913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0ce20ed86fcee48b77cc0adf1ad4df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkPointer: {fileID: 1288361861}
   StageNum: 0
   PointNum: 0
   dataExist: 0
@@ -2546,6 +2550,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 12551519c72530748bcfb060dfc2db09, type: 3}
       propertyPath: m_Name
       value: Crate_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 12551519c72530748bcfb060dfc2db09, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 12551519c72530748bcfb060dfc2db09, type: 3}
       propertyPath: m_TagString
@@ -5683,7 +5691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &8135574223823196325
 GameObject:
   m_ObjectHideFlags: 0

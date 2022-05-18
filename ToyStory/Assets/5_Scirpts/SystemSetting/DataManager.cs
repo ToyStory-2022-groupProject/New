@@ -11,7 +11,7 @@ public class Data //저장할 데이터
 }
 public class DataManager : MonoBehaviour
 {
-    public CheckPointer checkPointer; //체크포인트 확인
+    CheckPointer checkPointer; //체크포인트 확인
     public int StageNum; //스테이지 번호 확인
     public int PointNum;
     string jsonData; //저장하고 불러올 데이터
@@ -20,6 +20,7 @@ public class DataManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        checkPointer = GetComponent<CheckPointer>();
         path = Application.persistentDataPath + "/"; //Unity에서 지원하는 파일 경로
     }
     

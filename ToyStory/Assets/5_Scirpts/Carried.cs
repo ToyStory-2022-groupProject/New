@@ -37,7 +37,6 @@ public class Carried : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Touch");
             OnHand = true;
         }
     }
