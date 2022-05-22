@@ -29,7 +29,7 @@ public class GuideCamera : MonoBehaviour
         if (isSee)
         {
             isSee = false;
-            ChangeCam();
+            StartCoroutine(ConvertingTransform());
         }
     }
 
@@ -37,6 +37,7 @@ public class GuideCamera : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            mainCam.SetActive(false);
             player.GetComponent<PlayerController>().enabled = false;
             gameObject.AddComponent<Camera>();
             gameObject.AddComponent<AudioListener>();
@@ -44,12 +45,6 @@ public class GuideCamera : MonoBehaviour
         }
     }
 
-    void ChangeCam()
-    {
-        mainCam.SetActive(false);
-        StartCoroutine(ConvertingTransform());
-    }
-    
     IEnumerator ConvertingTransform()
     {
         int i;
@@ -62,9 +57,9 @@ public class GuideCamera : MonoBehaviour
 
         if (i > 1)
         {
-            mainCam.SetActive(true);
             player.GetComponent<PlayerController>().enabled = true;
-            Destroy(gameObject); 
+            Destroy(gameObject);
+            mainCam.SetActive(true);
         }
     }
 }

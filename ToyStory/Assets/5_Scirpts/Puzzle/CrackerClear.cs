@@ -6,14 +6,21 @@ using UnityEngine;
 public class CrackerClear : MonoBehaviour
 {
     public CheckingPuzzle[] answers;
+    public GameObject effect;
     public int count;
-    bool _clear;
+    bool isclear;
+    bool isWork;
 
     void Update()
     {
-        Complete();
-        if (_clear)
+        if (!isWork)
         {
+            Complete();
+        }
+        if (isclear)
+        {
+            isclear = false;
+            effect.SetActive(true);
             StartCoroutine("End");
         }
     }
@@ -26,7 +33,8 @@ public class CrackerClear : MonoBehaviour
             Destroy(answers[i].floor);
             Destroy(answers[i].Candy);
         }
-
+        yield return new WaitForSeconds(3);
+        Destroy(effect);
         yield return null;
     }
 
@@ -39,6 +47,8 @@ public class CrackerClear : MonoBehaviour
                 return;
             }
         }
-        _clear = true;
+
+        isWork = true;
+        isclear = true;
     }
 }

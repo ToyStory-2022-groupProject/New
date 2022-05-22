@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PuzzlePopping : MonoBehaviour
-{
+{   
+    // 토스터 퍼즐
     [SerializeField] float rise;
     Rigidbody _rigidbody;
 

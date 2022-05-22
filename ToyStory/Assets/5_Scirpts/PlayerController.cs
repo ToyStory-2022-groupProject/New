@@ -100,10 +100,16 @@ public class PlayerController : MonoBehaviour
                 anim.SetBool("Grab", isGrab);
             }       
         }
-    
+
+        void StopMove()
+        {
+            Debug.DrawRay(transform.position, transform.forward * 3, Color.magenta);
+        }
+        
         /////////////////////////////////////////////////////////좌우이동//////////////////////////////////////////////////////////////////
         if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]) && !onRope)
         {
+            StopMove();
             transform.rotation = Quaternion.Euler(0,180,0);
             if(inWater) //수영
             {

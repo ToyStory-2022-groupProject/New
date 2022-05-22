@@ -9,25 +9,34 @@ public class Sink : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject effect;
     [SerializeField] GameObject water;
+    AudioSource _audioSource;
     public float speed;
     PlayerController playerController;
     bool isSwitch;
+    bool isSound;
     void Awake()
     {
         playerController = player.GetComponent<PlayerController>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         if (isSwitch && PlayerController.isGrab)
         {
+            if (!isSound)
+            {
+                _audioSource.Play();
+                isSound = true;
+            }
             effect.SetActive(true);
-            //StartCoroutine("SinkOn");
             WaterUp();
         }
         else
         {
+            _audioSource.Pause();
             effect.SetActive(false);
+            isSound = false;
         }
     }
     
