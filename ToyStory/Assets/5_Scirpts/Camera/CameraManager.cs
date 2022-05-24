@@ -13,7 +13,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] float speed; // 카메라 시점 회전 속도 w/s
     
     public bool isTopView;
-
+    public KeyManager keyManager;
     float h;
     void Update()
     {
@@ -55,6 +55,8 @@ public class CameraManager : MonoBehaviour
         isTopView = true;
         transform.position = Vector3.Slerp(transform.position, topViewOffset, 0.1f);
         transform.rotation = Quaternion.Lerp(sideViewRotOffset, topViewRotOffset, 0.1f);
+        keyManager = FindObjectOfType<KeyManager>();
+        keyManager.TopViewKey();
     }
     
     public void TopViewOut()
@@ -63,5 +65,7 @@ public class CameraManager : MonoBehaviour
         isTopView = false;
         transform.position = Vector3.Slerp(topViewOffset, sideViewOffset, 0.1f);
         transform.rotation = Quaternion.Lerp(topViewRotOffset, sideViewRotOffset, 0.1f);
+        keyManager = FindObjectOfType<KeyManager>();
+        keyManager.NormalKey();
     }
 }
