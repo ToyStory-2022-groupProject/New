@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6650,16 +6650,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 394215879301163089, guid: 02bfc1f094974fe4eb33b1379b6ab539, type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 514369513619737101, guid: 02bfc1f094974fe4eb33b1379b6ab539, type: 3}
       propertyPath: sfxs.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 514369513619737101, guid: 02bfc1f094974fe4eb33b1379b6ab539, type: 3}
       propertyPath: sfxs.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: a9b5a55a035c7e8408234a46ce5fddda, type: 3}
+    - target: {fileID: 514369513619737101, guid: 02bfc1f094974fe4eb33b1379b6ab539, type: 3}
+      propertyPath: sfxs.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: e59c1cfbd50f35a47b512b85080cb8b9, type: 3}
     - target: {fileID: 8079049841785752411, guid: 02bfc1f094974fe4eb33b1379b6ab539, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -7635,6 +7639,7 @@ MonoBehaviour:
   topViewRotOffset: {x: 0.5, y: 0, z: 0, w: 0.8660254}
   speed: 50
   isTopView: 0
+  keyManager: {fileID: 0}
 --- !u!81 &1414837401
 AudioListener:
   m_ObjectHideFlags: 0

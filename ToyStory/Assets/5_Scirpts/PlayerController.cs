@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(Input.GetKeyUp(KeySetting.keys[KeyAction.GRAB]))
         {
-            if(!onGround)
+            if(onRope)
             {
                 isGrab = onRope = false;
                 anim.SetBool("Hang", isGrab);
@@ -115,6 +115,7 @@ public class PlayerController : MonoBehaviour
             {
                 transform.Translate(new Vector3(0,0,speed * 0.3f));
                 anim.SetBool("Move", true);
+                SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Swim);
             }
             else if(!inWater)
             {
@@ -149,6 +150,7 @@ public class PlayerController : MonoBehaviour
             {
                 transform.Translate(new Vector3(0,0,speed * 0.3f));
                 anim.SetBool("Move", true);
+                SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Swim);
             }
             else if(!inWater)
             {
@@ -181,6 +183,7 @@ public class PlayerController : MonoBehaviour
             {
                 transform.Translate(new Vector3(0,0,speed * 0.3f));
                 anim.SetBool("Move", true);
+                SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Swim);
             }
             else if(!inWater)
             {
@@ -213,6 +216,7 @@ public class PlayerController : MonoBehaviour
             {
                 transform.Translate(new Vector3(0,0,speed * 0.3f));
                 anim.SetBool("Move", true);
+                SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Swim);
             }
             else if(!inWater)
             {
@@ -245,9 +249,9 @@ public class PlayerController : MonoBehaviour
         }
              
         //////////////////////////////////////////////////////////점프///////////////////////////////////////////////////////////////
-        if (Input.GetKeyDown(KeySetting.keys[KeyAction.JUMP])) // 점프키를 누르면
+        if (Input.GetKeyDown(KeySetting.keys[KeyAction.JUMP]) && !inWater) // 점프키를 누르면
         {
-            if(onGround || inWater)
+            if(onGround)
             {
                 onGround = false;
                 SFXMgr.Instance.Stop_SFX();

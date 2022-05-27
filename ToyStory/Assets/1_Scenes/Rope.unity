@@ -626,6 +626,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7200117407283584026, guid: 68e13178a69d64d468bf690cb4aacef3, type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281268508696805429, guid: 68e13178a69d64d468bf690cb4aacef3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281268508696805429, guid: 68e13178a69d64d468bf690cb4aacef3, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8923639321264433350, guid: 68e13178a69d64d468bf690cb4aacef3, type: 3}
       propertyPath: m_Name
       value: P_PROP_bread_interior_04 (1)
@@ -962,7 +974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2752723806166104125, guid: 0b250cc73f4873c45af6a3d98cacd096, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b250cc73f4873c45af6a3d98cacd096, type: 3}
@@ -1262,7 +1274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &783422580
 Transform:
   m_ObjectHideFlags: 0
@@ -1682,12 +1694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f1991d398ee4c3abb37d199723e8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleType: 1
-  puzzleSet:
-    effect: {fileID: 0}
-    puzzleGameObject: {fileID: 991709603}
-    puzzleGameObjects: []
-    delayTime: 5
 --- !u!136 &1143094043
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1955,7 +1961,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 10
   m_CollisionDetection: 0
 --- !u!114 &1309075901
 MonoBehaviour:
@@ -2096,8 +2102,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 118270866}
   sideViewOffset: {x: 0, y: 0, z: 0}
+  topViewOffset: {x: 0, y: 0, z: 0}
+  sideViewRotOffset: {x: 0, y: 0, z: 0, w: 0}
+  topViewRotOffset: {x: 0, y: 0, z: 0, w: 0}
   speed: 10
   isTopView: 0
+  keyManager: {fileID: 0}
 --- !u!81 &1414837401
 AudioListener:
   m_ObjectHideFlags: 0
@@ -5691,7 +5701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &8135574223823196325
 GameObject:
   m_ObjectHideFlags: 0

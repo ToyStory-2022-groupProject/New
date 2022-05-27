@@ -5,13 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Carried : MonoBehaviour
 {
-    private BoxCollider col;
+    
     private Rigidbody rb;
     GameObject Hand;
     bool OnHand;
     void Start()
     {
-        col = GetComponent<BoxCollider>();
         rb = GetComponent<Rigidbody>();
         Hand = GameObject.FindGameObjectWithTag("Hand");
     }
