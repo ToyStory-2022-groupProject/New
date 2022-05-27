@@ -46,10 +46,6 @@ public class Sink : MonoBehaviour
         {
             
             water.transform.Translate(Vector3.up * Time.deltaTime * speed);
-            //water.transform.position += new Vector3(0, 0.05f, 0);
-            //water.transform.position += new Vector3(0, 0.05f, 0);
-            if (water.transform.position.y > 7.75f)
-                Floater.isfull = true;
         }
         
     }

@@ -7,9 +7,15 @@ public class CrackerClear : MonoBehaviour
 {
     public CheckingPuzzle[] answers;
     public GameObject effect;
+    AudioSource _audioSource;
     public int count;
     bool isclear;
     bool isWork;
+
+    void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -21,13 +27,14 @@ public class CrackerClear : MonoBehaviour
         {
             isclear = false;
             effect.SetActive(true);
+            _audioSource.Play();
             StartCoroutine("End");
         }
     }
 
     IEnumerator End()
     {
-        yield return new WaitForSeconds(2);
+        //yield return new WaitForSeconds(2);
         for (int i = 0; i < count; i++)
         {
             Destroy(answers[i].floor);

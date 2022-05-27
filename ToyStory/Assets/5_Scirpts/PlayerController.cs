@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool canGrab;
     private bool onRope;
     private bool inWater;
+    private bool isBarrier; // 배리어 여부 확인 
     //bool left, right;
     
     static int jumpState = Animator.StringToHash("Base Layer.Jump"); 
@@ -62,6 +63,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        StopMove();
+        Debug.Log("speed" + speed);
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
         ///////////////////////////////////////////////////////잡기//////////////////////////////////////////////////////////    
         if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
@@ -100,20 +103,15 @@ public class PlayerController : MonoBehaviour
                 anim.SetBool("Grab", isGrab);
             }       
         }
-
-        void StopMove()
-        {
-            Debug.DrawRay(transform.position, transform.forward * 3, Color.magenta);
-        }
         
         /////////////////////////////////////////////////////////좌우이동//////////////////////////////////////////////////////////////////
         if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]) && !onRope)
         {
-            StopMove();
             transform.rotation = Quaternion.Euler(0,180,0);
             if(inWater) //수영
             {
-                transform.Translate(new Vector3(0,0,speed * 0.3f));
+                if(!isBarrier)
+                    transform.Translate(new Vector3(0,0,speed * 0.3f));
                 anim.SetBool("Move", true);
                 SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Swim);
             }
@@ -121,7 +119,8 @@ public class PlayerController : MonoBehaviour
             {
                 if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
                 {
-                    transform.Translate(new Vector3(0,0,speed * 0.3f));
+                    if(!isBarrier)
+                        transform.Translate(new Vector3(0,0,speed * 0.3f));
                     anim.SetFloat("Speed", walkSpeed);
                     if(onGround)
                     {
@@ -132,7 +131,8 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     anim.SetFloat("Speed", runSpeed);
-                    transform.Translate(new Vector3(0,0,speed)); 
+                    if(!isBarrier)
+                        transform.Translate(new Vector3(0,0,speed));
                     if(onGround)
                     {
                         SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Run);
@@ -148,7 +148,8 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0,0,0);
             if(inWater) //수영
             {
-                transform.Translate(new Vector3(0,0,speed * 0.3f));
+                if(!isBarrier)
+                    transform.Translate(new Vector3(0,0,speed * 0.3f));
                 anim.SetBool("Move", true);
                 SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Swim);
             }
@@ -156,7 +157,8 @@ public class PlayerController : MonoBehaviour
             {
                 if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
                 {
-                    transform.Translate(new Vector3(0,0,speed * 0.3f));
+                    if(!isBarrier)
+                        transform.Translate(new Vector3(0,0,speed * 0.3f));
                     anim.SetFloat("Speed", walkSpeed);
                     if(onGround)
                     {
@@ -167,7 +169,8 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     anim.SetFloat("Speed", runSpeed);
-                    transform.Translate(new Vector3(0,0,speed)); 
+                    if(!isBarrier)
+                        transform.Translate(new Vector3(0,0,speed)); 
                     if(onGround)
                     {
                         SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Run);
@@ -181,7 +184,8 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0,-90,0);
             if(inWater) //수영
             {
-                transform.Translate(new Vector3(0,0,speed * 0.3f));
+                if(!isBarrier)
+                    transform.Translate(new Vector3(0,0,speed * 0.3f));
                 anim.SetBool("Move", true);
                 SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Swim);
             }
@@ -189,7 +193,8 @@ public class PlayerController : MonoBehaviour
             {
                 if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
                 {
-                    transform.Translate(new Vector3(0,0,speed * 0.3f));
+                    if(!isBarrier)
+                        transform.Translate(new Vector3(0,0,speed * 0.3f));
                     anim.SetFloat("Speed", walkSpeed);
                     if(onGround)
                     {
@@ -200,7 +205,8 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     anim.SetFloat("Speed", runSpeed);
-                    transform.Translate(new Vector3(0,0,speed)); 
+                    if(!isBarrier)
+                        transform.Translate(new Vector3(0,0,speed)); 
                     if(onGround)
                     {
                         SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Run);
@@ -214,7 +220,8 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0,90,0);
             if(inWater) //수영
             {
-                transform.Translate(new Vector3(0,0,speed * 0.3f));
+                if(!isBarrier)
+                    transform.Translate(new Vector3(0,0,speed * 0.3f));
                 anim.SetBool("Move", true);
                 SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Swim);
             }
@@ -222,7 +229,8 @@ public class PlayerController : MonoBehaviour
             {
                 if(Input.GetKey(KeySetting.keys[KeyAction.WALK]))
                 {
-                    transform.Translate(new Vector3(0,0,speed * 0.3f));
+                    if(!isBarrier)
+                        transform.Translate(new Vector3(0,0,speed * 0.3f));
                     anim.SetFloat("Speed", walkSpeed);
                     if(onGround)
                     {
@@ -233,7 +241,8 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     anim.SetFloat("Speed", runSpeed);
-                    transform.Translate(new Vector3(0,0,speed)); 
+                    if(!isBarrier)
+                        transform.Translate(new Vector3(0,0,speed)); 
                     if(onGround)
                     {
                         SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Run);
@@ -267,7 +276,13 @@ public class PlayerController : MonoBehaviour
         }
         
     }
-
+    
+    void StopMove() // 범위 외로 이동하려고 하는 경우
+    {
+        Debug.DrawRay(transform.position, transform.forward * 0.6f, Color.magenta);
+        isBarrier = Physics.Raycast(transform.position, transform.forward, 0.6f, 
+            LayerMask.GetMask("Barrier", "Wall", "UnPassPuzzleTool"));
+    }
     /////////////////////////////////////////////////////////충돌 및 트리거//////////////////////////////////////////////////////////
     private void OnCollisionEnter(Collision collision)
     {

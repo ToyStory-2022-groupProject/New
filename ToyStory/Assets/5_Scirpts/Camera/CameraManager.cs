@@ -15,6 +15,7 @@ public class CameraManager : MonoBehaviour
     public bool isTopView;
     public KeyManager keyManager;
     float h;
+    bool isMoving;
     void Update()
     {
         CameraRotate();
@@ -48,13 +49,12 @@ public class CameraManager : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, topViewRotOffset, 0.1f);
         }
     }
-
+    
     public void TopViewIn()
     {
         Debug.Log("ti");
         isTopView = true;
-        transform.position = Vector3.Slerp(transform.position, topViewOffset, 0.1f);
-        transform.rotation = Quaternion.Lerp(sideViewRotOffset, topViewRotOffset, 0.1f);
+        StartCoroutine("ViewTop");
         keyManager = FindObjectOfType<KeyManager>();
         keyManager.TopViewKey();
     }
@@ -63,9 +63,25 @@ public class CameraManager : MonoBehaviour
     {
         Debug.Log("to");
         isTopView = false;
-        transform.position = Vector3.Slerp(topViewOffset, sideViewOffset, 0.1f);
-        transform.rotation = Quaternion.Lerp(topViewRotOffset, sideViewRotOffset, 0.1f);
+        StartCoroutine("ViewTop");
         keyManager = FindObjectOfType<KeyManager>();
         keyManager.NormalKey();
+    }
+
+    IEnumerator ViewTop() // 뷰 전환 코루틴
+    {
+        player.GetComponent<PlayerController>().enabled = false;
+        if (isTopView)
+        {
+            transform.position = Vector3.Slerp(transform.position, topViewOffset, 0.001f);
+            transform.rotation = Quaternion.Lerp(sideViewRotOffset, topViewRotOffset, 0.001f);
+        }
+        else
+        {
+            transform.position = Vector3.Slerp(topViewOffset, sideViewOffset, 0.001f);
+            transform.rotation = Quaternion.Lerp(topViewRotOffset, sideViewRotOffset, 0.001f);
+        }
+        yield return new WaitForSeconds(1f); 
+        player.GetComponent<PlayerController>().enabled = true;
     }
 }

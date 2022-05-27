@@ -13,40 +13,39 @@ public class Fan : MonoBehaviour
     [Tooltip("날려버릴 오브젝트")]
     [SerializeField] GameObject[] trashObject; // 퍼즐 관련 도구가 집합체일경우
     [SerializeField] Rigidbody[] _rigidbodys;
-    
-    
+
+    float timer = 2.7f;
     float windspeed; // 바람 세기
     bool isSet;
     bool isComplete;
     
-    void FixedUpdate () 
+    void Update ()
     {
         if (isSet && !isComplete)
         {
-            StartCoroutine("Work");
-        }
-        else
-        {
-            StopCoroutine("Work");
+            timer -= Time.deltaTime;
+            if(timer < 0)
+                BlowUp();
         }
     }
 
-    IEnumerator Work()
+    void BlowUp()
     {
-        yield return new WaitForSeconds(2.5f);
         windspeed = 3f;
         for (int i = 0; i < trashObject.Length; i++)
         {
             _rigidbodys[i].AddForce(trashObject[i].transform.forward * windspeed,ForceMode.Impulse);
         }
-        yield return new WaitForSeconds(4);
+        Invoke("CandyDestroy", 4f);
+    }
+
+    void CandyDestroy()
+    {
+        isComplete = true;
         for (int i = 0; i < trashObject.Length; i++)
         {
             Destroy(trashObject[i]);
         }
-        isComplete = true;
-        yield return new WaitForFixedUpdate();
-
     }
     
     void OnTriggerEnter(Collider other)
@@ -54,7 +53,6 @@ public class Fan : MonoBehaviour
         if (other.gameObject.tag == "Player" && !isComplete)
         {
             Debug.Log("inEnter");
-            Fan_Audio.isSwitchOn = true;
             isSet = true;
         }    
     }
@@ -77,4 +75,3 @@ public class Fan : MonoBehaviour
         }
     }
 }
-    
