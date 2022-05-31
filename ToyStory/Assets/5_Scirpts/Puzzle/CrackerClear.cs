@@ -26,15 +26,15 @@ public class CrackerClear : MonoBehaviour
         if (isclear)
         {
             isclear = false;
-            effect.SetActive(true);
-            _audioSource.Play();
             StartCoroutine("End");
         }
     }
 
     IEnumerator End()
     {
-        //yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2);
+        effect.SetActive(true);
+        _audioSource.Play();
         for (int i = 0; i < count; i++)
         {
             Destroy(answers[i].floor);

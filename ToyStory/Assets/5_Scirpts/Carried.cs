@@ -9,10 +9,12 @@ public class Carried : MonoBehaviour
     private Rigidbody rb;
     GameObject Hand;
     bool OnHand;
+    int layerNum;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         Hand = GameObject.FindGameObjectWithTag("Hand");
+        layerNum = gameObject.layer;
     }
    
     void Update()
@@ -22,13 +24,14 @@ public class Carried : MonoBehaviour
             Debug.Log("Grab");
             rb.isKinematic = OnHand;
             transform.SetParent(Hand.transform);
-
+            gameObject.layer = 16;
         }
         else if(!PlayerController.isGrab)
         {
             OnHand = false;
             Hand.transform.DetachChildren();
             rb.isKinematic = OnHand;
+            gameObject.layer = layerNum;
         }
     }
 
