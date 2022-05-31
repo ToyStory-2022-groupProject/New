@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public  static bool isF1;
     void Awake()
     {
+        //PlayerPrefs.DeleteAll();
         scene = SceneManager.GetActiveScene();
         audioSource = gameObject.AddComponent<AudioSource>();
         if (PlayerPrefs.GetInt("init") == 0)

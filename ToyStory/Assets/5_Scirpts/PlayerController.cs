@@ -24,7 +24,8 @@ public class PlayerController : MonoBehaviour
     private bool canGrab;
     private bool onRope;
     private bool inWater;
-    private bool isBarrier; // 배리어 여부 확인 
+    private bool isBarrier; // 배리어 여부 확인
+    private bool isWaterOut;
     //bool left, right;
     
     static int jumpState = Animator.StringToHash("Base Layer.Jump"); 
@@ -108,7 +109,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]) && !onRope)
         {
             transform.rotation = Quaternion.Euler(0,180,0);
-            if(inWater) //수영
+            if(inWater && !isWaterOut) //수영
             {
                 if(!isBarrier)
                     transform.Translate(new Vector3(0,0,speed * 0.3f));
@@ -146,7 +147,7 @@ public class PlayerController : MonoBehaviour
         else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]) && !onRope)
         {
             transform.rotation = Quaternion.Euler(0,0,0);
-            if(inWater) //수영
+            if(inWater && !isWaterOut) //수영
             {
                 if(!isBarrier)
                     transform.Translate(new Vector3(0,0,speed * 0.3f));
@@ -182,7 +183,7 @@ public class PlayerController : MonoBehaviour
         else if(Input.GetKey(KeySetting.keys[KeyAction.UP]) && !onRope)
         {
             transform.rotation = Quaternion.Euler(0,-90,0);
-            if(inWater) //수영
+            if(inWater && !isWaterOut) //수영
             {
                 if(!isBarrier)
                     transform.Translate(new Vector3(0,0,speed * 0.3f));
@@ -218,7 +219,7 @@ public class PlayerController : MonoBehaviour
         else if(Input.GetKey(KeySetting.keys[KeyAction.Down]) && !onRope)
         {
             transform.rotation = Quaternion.Euler(0,90,0);
-            if(inWater) //수영
+            if(inWater && !isWaterOut) //수영
             {
                 if(!isBarrier)
                     transform.Translate(new Vector3(0,0,speed * 0.3f));
@@ -282,7 +283,13 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * 0.6f, Color.magenta);
         isBarrier = Physics.Raycast(transform.position, transform.forward, 0.6f, 
             LayerMask.GetMask("Barrier", "Wall", "UnPassPuzzleTool"));
+        if (inWater)
+        {
+            isWaterOut = Physics.Raycast(transform.position, transform.forward, 0.6f, 
+                LayerMask.GetMask("Ground"));
+        }
     }
+    
     /////////////////////////////////////////////////////////충돌 및 트리거//////////////////////////////////////////////////////////
     private void OnCollisionEnter(Collision collision)
     {

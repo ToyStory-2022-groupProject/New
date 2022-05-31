@@ -32,7 +32,7 @@ public class CrackerClear : MonoBehaviour
 
     IEnumerator End()
     {
-        yield return new WaitForSeconds(2);
+        //yield return new WaitForSeconds(2);
         effect.SetActive(true);
         _audioSource.Play();
         for (int i = 0; i < count; i++)

@@ -22,7 +22,7 @@ public class Floater : MonoBehaviour
     
     void OnTriggerStay(Collider other) // 물에 닿았을 때
     {
-        if (other.gameObject.layer == 4)
+        if (other.gameObject.layer == 4 && gameObject.layer == 8)
         {
             _rigidbody.AddForce(Vector3.up * floatingPower, ForceMode.Acceleration);
         }
