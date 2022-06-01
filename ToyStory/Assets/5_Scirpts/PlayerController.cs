@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         StopMove();
-        Debug.Log("speed" + speed);
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
         ///////////////////////////////////////////////////////잡기//////////////////////////////////////////////////////////    
         if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
@@ -257,6 +256,7 @@ public class PlayerController : MonoBehaviour
             SFXMgr.Instance.Stop_SFX();
             anim.SetBool("Move", false);
         }
+        
              
         //////////////////////////////////////////////////////////점프///////////////////////////////////////////////////////////////
         if (Input.GetKeyDown(KeySetting.keys[KeyAction.JUMP]) && !inWater) // 점프키를 누르면
@@ -291,10 +291,24 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.CompareTag("Ground"))
         {
             onGround = true;
+            inWater = false;
+            anim.SetBool("InWater", inWater);
         }
         if(collision.gameObject.CompareTag("Falling"))
         {
-            GameOver.Restart();
+            scriptOff();
+            GameOver = FindObjectOfType<GameOver>();
+            GameOver.Restart(0.1f, 0.1f);
+            
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            onGround = false;
+            anim.SetBool("Move", false);
         }
     }
 
@@ -314,6 +328,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.isKinematic = true;
             onRope = true;
+            SFXMgr.Instance.Stop_SFX();
         }
         if(point.tag == "Water")
         {
@@ -331,11 +346,17 @@ public class PlayerController : MonoBehaviour
                 transform.Translate(new Vector3(0,0,speed));
             }
         }
-        if(point.tag == "Water") 
+        /*if(point.tag == "Water") 
         {
             inWater = false;
             anim.SetBool("InWater", inWater);
             Debug.Log(inWater);
-        }
+        }*/
+    }
+
+    public void scriptOff()
+    {
+        this.GetComponent<PlayerController>().enabled = false;
+        SFXMgr.Instance.Stop_SFX();
     }
 }

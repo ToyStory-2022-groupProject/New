@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Falling : MonoBehaviour
 {
-    public GameOver GameOver;
+   /* public GameOver GameOver;
     void Start()
     {
 
@@ -20,7 +20,7 @@ public class Falling : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            GameOver.Restart();
+            GameOver.Restart(0.1f, 1.0f);
         }
-    }
+    }*/
 }

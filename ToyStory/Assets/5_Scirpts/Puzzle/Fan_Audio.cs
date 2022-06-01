@@ -22,7 +22,7 @@ public class Fan_Audio : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("isswi" + isSwitchOn);
+        //Debug.Log("isswi" + isSwitchOn);
         if(isSwitchOn) 
             OnMusic();
         else

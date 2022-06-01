@@ -6,20 +6,12 @@ using UnityEngine.UI;
 public class GameOver : MonoBehaviour
 {
     GameObject Player;
-    public Image Shade;
-    CheckPointer checkPointer;
-
-    [SerializeField]
-    [Range(0.01f, 5f)]
-    private float fadeTime;
-    [SerializeField]
-    private AnimationCurve fadeCurve;
+    public CheckPointer checkPointer;
+    public Image panel;
 
     void Start()
     {
-        checkPointer = GetComponent<CheckPointer>();
-        Player = GameObject.FindGameObjectWithTag("Player");
-        Shade = GetComponent<Image>();
+
     }
 
     // Update is called once per frame()
@@ -29,36 +21,37 @@ public class GameOver : MonoBehaviour
         
     }
 
-    public void Restart()
+    public void Restart(float fadeout, float fadein)
     {
-        Replace();
-
+        StartCoroutine(FadeCoroutine(fadeout, fadein));
     }
     public void Replace()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        checkPointer = FindObjectOfType<CheckPointer>();
         checkPointer.FindCheckPoint();
         Player.transform.position = checkPointer.checkPoint[checkPointer.pointNum].transform.position;
     }
 
-    private IEnumerator FadeIn(float Start, float end)
+    IEnumerator FadeCoroutine(float fadeout, float fadein)
     {
-        float currentTime = 0.0f;
-        float percent = 0.0f;
+        float fadecount = 0;
 
-        while (percent < 1)
+        while(fadecount < 1.0f)
         {
-            currentTime += Time.deltaTime;
-            percent = currentTime / fadeTime;
-
-            Color color = Shade.color;
-            color.a = Mathf.Lerp(Start, end, fadeCurve.Evaluate(percent));
-            Shade.color = color;
-
-            yield return null;
+            fadecount += fadeout;
+            yield return new WaitForSeconds(0.01f);
+            panel.color = new Color(0,0,0,fadecount);
         }
+        Replace();
+        while(fadecount > 0.0f)
+        {
+            fadecount -= fadein;
+            yield return new WaitForSeconds(0.01f);
+            panel.color = new Color(0,0,0,fadecount);
+        }
+        Player.GetComponent<PlayerController>().enabled = true;
+        yield return null;
     }
-    private void FadeOut()
-    {
 
-    }
 }

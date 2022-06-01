@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311912, g: 0.3807398, b: 0.3587271, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12652,7 +12652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5209466614735546012, guid: 23d9f5b59d2f24b1b9966648a9274cdf, type: 3}
       propertyPath: m_Size.x
-      value: 10
+      value: 10.648459
       objectReference: {fileID: 0}
     - target: {fileID: 5209466614735546012, guid: 23d9f5b59d2f24b1b9966648a9274cdf, type: 3}
       propertyPath: m_Size.y
@@ -12668,7 +12668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5209466614735546012, guid: 23d9f5b59d2f24b1b9966648a9274cdf, type: 3}
       propertyPath: m_Center.x
-      value: 0
+      value: -0.09641453
       objectReference: {fileID: 0}
     - target: {fileID: 5209466614735546012, guid: 23d9f5b59d2f24b1b9966648a9274cdf, type: 3}
       propertyPath: m_Center.y
@@ -12676,7 +12676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5209466614735546012, guid: 23d9f5b59d2f24b1b9966648a9274cdf, type: 3}
       propertyPath: m_Center.z
-      value: 0
+      value: 1.0739658e-16
       objectReference: {fileID: 0}
     - target: {fileID: 5209466614735546012, guid: 23d9f5b59d2f24b1b9966648a9274cdf, type: 3}
       propertyPath: m_IsTrigger
@@ -22857,7 +22857,6 @@ GameObject:
   - component: {fileID: 1703030770}
   - component: {fileID: 1703030769}
   - component: {fileID: 1703030768}
-  - component: {fileID: 1703030771}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -22916,26 +22915,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1703030771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703030767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86971b6781dfd6e4f9039fd2ce1dbfc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Shade: {fileID: 1204528305}
-  fadeTime: 0
-  fadeCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1708717869
 GameObject:
   m_ObjectHideFlags: 0
@@ -27888,7 +27867,7 @@ MonoBehaviour:
   runSpeed: 1
   jumpPower: 10
   CheckPointer: {fileID: 1703030768}
-  GameOver: {fileID: 1703030771}
+  GameOver: {fileID: 0}
   dataManager: {fileID: 1703030769}
 --- !u!137 &137001387129846496
 SkinnedMeshRenderer:

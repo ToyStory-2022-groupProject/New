@@ -70,7 +70,7 @@ public class CameraManager : MonoBehaviour
 
     IEnumerator ViewTop() // 뷰 전환 코루틴
     {
-        player.GetComponent<PlayerController>().enabled = false;
+        player.GetComponent<PlayerController>().scriptOff();
         if (isTopView)
         {
             transform.position = Vector3.Slerp(transform.position, topViewOffset, 0.001f);
