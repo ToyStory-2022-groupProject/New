@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 79
+  controlID: 97
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 77
+  controlID: 95
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 78
+  controlID: 96
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -319,8 +319,8 @@ MonoBehaviour:
     y: 0
     width: 330
     height: 731
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -643,9 +643,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -5.1604652, y: 10.046713, z: 27.728415}
+    m_Target: {x: -1.5288446, y: 9.41, z: 49.37}
     speed: 2
-    m_Value: {x: -5.1604652, y: 10.046713, z: 27.728415}
+    m_Value: {x: -1.5288446, y: 9.41, z: 49.37}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -692,13 +692,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.24279718, y: 0.44065684, z: -0.123847224, w: -0.8554858}
+    m_Target: {x: -0.26999813, y: 0.09096827, z: -0.024596944, w: -0.9584085}
     speed: 2
-    m_Value: {x: -0.24275799, y: 0.44058573, z: -0.123827234, w: -0.85534775}
+    m_Value: {x: -0.26995414, y: 0.090953454, z: -0.024592936, w: -0.9582523}
   m_Size:
-    m_Target: 3.8460233
+    m_Target: 0.8660254
     speed: 2
-    m_Value: 3.8460233
+    m_Value: 0.8660254
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -754,9 +754,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: f25b0000
       m_LastClickedID: 0
-      m_ExpandedIDs: e896ffff0ca9ffff0ab1ffffbeb6ffff98c1ffff42c7ffffe0c8ffff48cfffffa6d3ffffe0d8ffff64dbfffff2dbffffd2e4ffff10eaffff20f8ffff3afbfffff4ffffffbe7c00000c7d0000c07f0000de7f0000e082000030830000aa8400003286000008ac000052ac000056ac00000aaf000028af000070b20000bab2000072b50000e8c00000eac3000050c8000052cb000042da000046e5000054ec000080fe0000cafe000082010100a0010100
+      m_ExpandedIDs: 84e4ffff5ce9ffff54eaffff2cf3ffffe6f9ffff3afbffffc25c0000b65d000014600000ee600000ac6d0000567300004a740000a876000082770000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -833,24 +833,24 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 86.772156}
-    m_SelectedIDs: e2620000
-    m_LastClickedID: 25314
-    m_ExpandedIDs: 0000000080620000826200008462000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 62.770996}
+    m_SelectedIDs: 8a5b0000
+    m_LastClickedID: 23434
+    m_ExpandedIDs: 000000005a5b00005c5b00005e5b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: 2_Materials
+      m_OriginalName: 2_Materials
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 23436
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 12}
     m_SearchString: 
@@ -864,7 +864,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000806200008262000084620000
+    m_ExpandedIDs: 000000005a5b00005c5b00005e5b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -908,7 +908,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 12}
+      m_ClientGUIView: {fileID: 0}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
