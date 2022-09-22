@@ -12,11 +12,17 @@ public class GameManager : MonoBehaviour
     // 소리 관련
     [SerializeField] GameObject pressF1;
     [SerializeField] AudioClip[] clips;
-    public AudioMixer mixer;
+    
     [SerializeField] AudioMixerGroup audioMixerGroup;
-    AudioSource audioSource;
-    int nowSceneNum;
-    public int StartPoint = -1;
+
+    public AudioFade audioFade;
+    public AudioMixer mixer;
+    public float fadeTime = 0.5f; // 음악 재생 시간
+    public float volumeSetZero = 0.5f; // 특정 지점에서 볼륨 0 설정
+    public AudioSource audioSource;
+    
+    private int nowSceneNum;
+
     // 밝기 관련
     public Light lights;
 
@@ -64,6 +70,19 @@ public class GameManager : MonoBehaviour
         Keyguide();
         scene = SceneManager.GetActiveScene();
         lights.intensity = PlayerPrefs.GetFloat("Bright");
+        if (nowSceneNum == 1)
+        {
+            audioSource.loop = false;
+            audioFade.enabled = true;
+            nowSceneNum = 2;
+        }
+
+        if (audioSource.volume < volumeSetZero)
+        {
+            audioSource.volume = 0;
+            audioFade.StopCoroutine("BgmFadeOut");
+            audioFade.enabled = false;
+        }
     }
     
     void Menu() // 서브메뉴창 켜기
@@ -92,6 +111,7 @@ public class GameManager : MonoBehaviour
     
     public void PlayBGM(int num)
     {
+        nowSceneNum = num;
         audioSource.clip = clips[num];
         audioSource.Play();
     }

@@ -5,18 +5,54 @@ using UnityEngine;
 
 public class CameraConversion : MonoBehaviour
 {
-    [SerializeField] Vector3 posOffset;
-    [SerializeField] Vector3 rotOffset;
-    void OnTriggerEnter(Collider other)
+    [SerializeField] private GameObject[] offGameObjects;
+    [SerializeField] private GameObject[] onGameObjects;
+
+    public bool isCinematic;
+    public bool isCinematicPlayed;
+    
+    // 만약 선풍기로 인해 시네마틱이 재생시 실행해야할 함수 일반 캠에서 시네마틱 캠으로 전환
+    public void PlayCinematicCam() 
     {
-        if (other.transform.tag == "Player")
+        if (!isCinematicPlayed)
         {
-            Debug.Log("인 콜라이더");
-            CameraManager.offset = posOffset;
-            CameraManager.isRotate = true;
-            CameraManager.targetRot = rotOffset;
-            //Conversion();
+            for (int i = 0; i < offGameObjects.Length; i++)
+            {
+                offGameObjects[i].SetActive(false);
+            }
+            for (int i = 0; i < onGameObjects.Length; i++)
+            {
+                onGameObjects[i].SetActive(true);
+            }
         }
     }
-    
+
+    // 시네마틱이 끝나고 시네마틱 캠에서 일반캠으로 전환
+    public void PlayNormalCam()
+    {
+        for (int i = 0; i < offGameObjects.Length; i++)
+        {
+            offGameObjects[i].SetActive(true);
+        }
+        for (int i = 0; i < onGameObjects.Length; i++)
+        {
+            onGameObjects[i].SetActive(false);
+        }
+        isCinematicPlayed = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player" && !isCinematic && !isCinematicPlayed)
+        {
+            for (int i = 0; i < offGameObjects.Length; i++)
+            {
+                offGameObjects[i].SetActive(false);
+            }
+
+            for (int i = 0; i < onGameObjects.Length; i++)
+            {
+                onGameObjects[i].SetActive(true);
+            }
+        }
+    }
 }

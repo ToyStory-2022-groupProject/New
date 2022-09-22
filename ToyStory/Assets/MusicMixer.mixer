@@ -26,6 +26,7 @@ AudioMixerController:
   - guids:
     - 61f3afe16bb524b7c89e9e20e87f2b06
     - 61c77913d6c674242808fdf7bed6028c
+    - f70ac450e301345a0ac15b1f2a7321e3
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}

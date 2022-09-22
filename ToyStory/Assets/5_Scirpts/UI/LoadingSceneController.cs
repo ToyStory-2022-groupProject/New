@@ -139,4 +139,5 @@ public class LoadingSceneController : MonoBehaviour
         ran = UnityEngine.Random.Range(0, tips.Length);
         tip.text = string.Format("Tip : " + tips[ran]);
     }
+    
 }

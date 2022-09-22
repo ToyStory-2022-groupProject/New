@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -688,6 +688,7 @@ GameObject:
   - component: {fileID: 973119356}
   - component: {fileID: 973119357}
   - component: {fileID: 973119358}
+  - component: {fileID: 973119359}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -711,9 +712,12 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: d705ce891f1a74ecab276164fdc1a3c3, type: 3}
   - {fileID: 8300000, guid: 7855f043436ab42a3bece93f3f126b1a, type: 3}
-  mixer: {fileID: 24100000, guid: 951b9a6408b60450798a95be7074efd5, type: 2}
   audioMixerGroup: {fileID: 750378812496599303, guid: 951b9a6408b60450798a95be7074efd5, type: 2}
-  StartPoint: -1
+  audioFade: {fileID: 973119359}
+  mixer: {fileID: 24100000, guid: 951b9a6408b60450798a95be7074efd5, type: 2}
+  fadeTime: 500
+  volumeSetZero: 0.05
+  audioSource: {fileID: 0}
   lights: {fileID: 973119356}
 --- !u!4 &973119354
 Transform:
@@ -820,6 +824,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPointer: {fileID: 0}
   panel: {fileID: 303609537}
+--- !u!114 &973119359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973119351}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3a3020846b34bcabd6354105ceeb21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1109272250
 GameObject:
   m_ObjectHideFlags: 0
