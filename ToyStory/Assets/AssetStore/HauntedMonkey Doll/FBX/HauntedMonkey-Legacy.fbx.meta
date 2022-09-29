@@ -1,0 +1,426 @@
+fileFormatVersion: 2
+guid: 0cd53004770a919458343222b50cd030
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: cluster1Handle
+    100002: cluster2Handle
+    100004: cluster3Handle
+    100006: cluster4Handle
+    100008: group3
+    100010: group4
+    100012: //RootNode
+    100014: HauntedMonkeyDoll
+    100016: ikHandle1
+    100018: ikHandle2
+    100020: J_Ankle_L
+    100022: J_Ankle_R
+    100024: J_Chest
+    100026: J_Codo_L
+    100028: J_Codo_L 1
+    100030: J_HandBase_L1
+    100032: J_HandBase_L1 1
+    100034: J_HandTop_L
+    100036: J_HandTop_L 1
+    100038: J_HeadTop
+    100040: J_Knee_L
+    100042: J_Knee_R
+    100044: J_Neck
+    100046: J_Shoulder_L2
+    100048: J_Shoulder_L3
+    100050: J_Spine
+    100052: J_Spine2
+    100054: J_Spine2 1
+    100056: J_Thigh_L
+    100058: J_Thigh_R
+    100060: J_Toe_L
+    100062: J_Toe_R
+    100064: M_Arm_L
+    100066: M_Arm_R
+    100068: M_Body
+    100070: M_Chest
+    100072: M_Hand_L
+    100074: M_Hand_R
+    100076: M_Hip
+    100078: M_Leg_L
+    100080: M_Leg_R
+    100082: M_Shoulder_L
+    100084: M_Shoulder_R
+    100086: pointLight1
+    100088: pointLight2
+    100090: pointLight3
+    100092: pointLight4
+    100094: pointLight5
+    100096: pointLight6
+    100098: SplineIK
+    100100: SplineIk_Curve
+    400000: cluster1Handle
+    400002: cluster2Handle
+    400004: cluster3Handle
+    400006: cluster4Handle
+    400008: group3
+    400010: group4
+    400012: //RootNode
+    400014: HauntedMonkeyDoll
+    400016: ikHandle1
+    400018: ikHandle2
+    400020: J_Ankle_L
+    400022: J_Ankle_R
+    400024: J_Chest
+    400026: J_Codo_L
+    400028: J_Codo_L 1
+    400030: J_HandBase_L1
+    400032: J_HandBase_L1 1
+    400034: J_HandTop_L
+    400036: J_HandTop_L 1
+    400038: J_HeadTop
+    400040: J_Knee_L
+    400042: J_Knee_R
+    400044: J_Neck
+    400046: J_Shoulder_L2
+    400048: J_Shoulder_L3
+    400050: J_Spine
+    400052: J_Spine2
+    400054: J_Spine2 1
+    400056: J_Thigh_L
+    400058: J_Thigh_R
+    400060: J_Toe_L
+    400062: J_Toe_R
+    400064: M_Arm_L
+    400066: M_Arm_R
+    400068: M_Body
+    400070: M_Chest
+    400072: M_Hand_L
+    400074: M_Hand_R
+    400076: M_Hip
+    400078: M_Leg_L
+    400080: M_Leg_R
+    400082: M_Shoulder_L
+    400084: M_Shoulder_R
+    400086: pointLight1
+    400088: pointLight2
+    400090: pointLight3
+    400092: pointLight4
+    400094: pointLight5
+    400096: pointLight6
+    400098: SplineIK
+    400100: SplineIk_Curve
+    4300000: HauntedMonkeyDoll
+    7400000: Cymbals
+    7400002: Breath
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: HauntedMonkeyDoll
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Cymbals
+      takeName: Take 001
+      firstFrame: 2
+      lastFrame: 12
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: HauntedMonkeyDoll
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: J_Spine2
+        weight: 1
+      - path: J_Spine2/J_Spine2 1
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Neck
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Neck/J_HeadTop
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L2
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L2/J_Codo_L
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L2/J_Codo_L/J_HandBase_L1
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L2/J_Codo_L/J_HandBase_L1/J_HandTop_L
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L3
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L3/J_Codo_L 1
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L3/J_Codo_L 1/J_HandBase_L1
+          1
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L3/J_Codo_L 1/J_HandBase_L1
+          1/J_HandTop_L 1
+        weight: 1
+      - path: J_Spine2/J_Thigh_L
+        weight: 1
+      - path: J_Spine2/J_Thigh_L/J_Knee_L
+        weight: 1
+      - path: J_Spine2/J_Thigh_L/J_Knee_L/J_Ankle_L
+        weight: 1
+      - path: J_Spine2/J_Thigh_L/J_Knee_L/J_Ankle_L/J_Toe_L
+        weight: 1
+      - path: J_Spine2/J_Thigh_R
+        weight: 1
+      - path: J_Spine2/J_Thigh_R/J_Knee_R
+        weight: 1
+      - path: J_Spine2/J_Thigh_R/J_Knee_R/J_Ankle_R
+        weight: 1
+      - path: J_Spine2/J_Thigh_R/J_Knee_R/J_Ankle_R/J_Toe_R
+        weight: 1
+      - path: M_Body
+        weight: 1
+      - path: M_Body/M_Arm_L
+        weight: 1
+      - path: M_Body/M_Arm_R
+        weight: 1
+      - path: M_Body/M_Chest
+        weight: 1
+      - path: M_Body/M_Chest/cluster1Handle
+        weight: 1
+      - path: M_Body/M_Chest/cluster2Handle
+        weight: 1
+      - path: M_Body/M_Hand_L
+        weight: 1
+      - path: M_Body/M_Hand_R
+        weight: 1
+      - path: M_Body/M_Hip
+        weight: 1
+      - path: M_Body/M_Hip/group3
+        weight: 1
+      - path: M_Body/M_Hip/group3/cluster3Handle
+        weight: 1
+      - path: M_Body/M_Hip/group4
+        weight: 1
+      - path: M_Body/M_Hip/group4/cluster4Handle
+        weight: 1
+      - path: M_Body/M_Leg_L
+        weight: 1
+      - path: M_Body/M_Leg_R
+        weight: 1
+      - path: M_Body/M_Shoulder_L
+        weight: 1
+      - path: M_Body/M_Shoulder_R
+        weight: 1
+      - path: pointLight1
+        weight: 1
+      - path: pointLight2
+        weight: 1
+      - path: pointLight3
+        weight: 1
+      - path: pointLight4
+        weight: 1
+      - path: pointLight5
+        weight: 1
+      - path: pointLight6
+        weight: 1
+      - path: SplineIK
+        weight: 1
+      - path: SplineIk_Curve
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Breath
+      takeName: Take 001
+      firstFrame: 13
+      lastFrame: 60
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 1
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: HauntedMonkeyDoll
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: J_Spine2
+        weight: 1
+      - path: J_Spine2/J_Spine2 1
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Neck
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Neck/J_HeadTop
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L2
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L2/J_Codo_L
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L2/J_Codo_L/J_HandBase_L1
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L2/J_Codo_L/J_HandBase_L1/J_HandTop_L
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L3
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L3/J_Codo_L 1
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L3/J_Codo_L 1/J_HandBase_L1
+          1
+        weight: 1
+      - path: J_Spine2/J_Spine2 1/J_Spine/J_Chest/J_Shoulder_L3/J_Codo_L 1/J_HandBase_L1
+          1/J_HandTop_L 1
+        weight: 1
+      - path: J_Spine2/J_Thigh_L
+        weight: 1
+      - path: J_Spine2/J_Thigh_L/J_Knee_L
+        weight: 1
+      - path: J_Spine2/J_Thigh_L/J_Knee_L/J_Ankle_L
+        weight: 1
+      - path: J_Spine2/J_Thigh_L/J_Knee_L/J_Ankle_L/J_Toe_L
+        weight: 1
+      - path: J_Spine2/J_Thigh_R
+        weight: 1
+      - path: J_Spine2/J_Thigh_R/J_Knee_R
+        weight: 1
+      - path: J_Spine2/J_Thigh_R/J_Knee_R/J_Ankle_R
+        weight: 1
+      - path: J_Spine2/J_Thigh_R/J_Knee_R/J_Ankle_R/J_Toe_R
+        weight: 1
+      - path: M_Body
+        weight: 1
+      - path: M_Body/M_Arm_L
+        weight: 1
+      - path: M_Body/M_Arm_R
+        weight: 1
+      - path: M_Body/M_Chest
+        weight: 1
+      - path: M_Body/M_Chest/cluster1Handle
+        weight: 1
+      - path: M_Body/M_Chest/cluster2Handle
+        weight: 1
+      - path: M_Body/M_Hand_L
+        weight: 1
+      - path: M_Body/M_Hand_R
+        weight: 1
+      - path: M_Body/M_Hip
+        weight: 1
+      - path: M_Body/M_Hip/group3
+        weight: 1
+      - path: M_Body/M_Hip/group3/cluster3Handle
+        weight: 1
+      - path: M_Body/M_Hip/group4
+        weight: 1
+      - path: M_Body/M_Hip/group4/cluster4Handle
+        weight: 1
+      - path: M_Body/M_Leg_L
+        weight: 1
+      - path: M_Body/M_Leg_R
+        weight: 1
+      - path: M_Body/M_Shoulder_L
+        weight: 1
+      - path: M_Body/M_Shoulder_R
+        weight: 1
+      - path: pointLight1
+        weight: 1
+      - path: pointLight2
+        weight: 1
+      - path: pointLight3
+        weight: 1
+      - path: pointLight4
+        weight: 1
+      - path: pointLight5
+        weight: 1
+      - path: pointLight6
+        weight: 1
+      - path: SplineIK
+        weight: 1
+      - path: SplineIk_Curve
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
