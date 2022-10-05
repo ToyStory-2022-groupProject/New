@@ -26,25 +26,10 @@ public class CymbalSound : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-	
-		if (gameObject.name == "HauntedMonkey-Legacy") {
-
-			StartCoroutine (_legacySound());
-				
-		} else {
-
-			StartCoroutine (_mecanimSound());
-				
-		}
-
 	}
 
 	private IEnumerator _legacySound(){
 
-		while (true) {
-
-						
 			if (GetComponent<Animation>().IsPlaying ("Cymbals") && !GetComponent<AudioSource>().isPlaying) {
 			
 						
@@ -59,8 +44,6 @@ public class CymbalSound : MonoBehaviour {
 			
 			}
 			yield return null;
-				
-		}
 
 	}
 
