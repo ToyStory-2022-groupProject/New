@@ -10,6 +10,7 @@ public class CheckSight : MonoBehaviour
 
     public LayerMask targetMask;
     public LayerMask obstacleMask;
+    public bool isDetected;
 
     [HideInInspector]
     public List<Transform> visibleTarget = new List<Transform>();
@@ -31,6 +32,7 @@ public class CheckSight : MonoBehaviour
     void FindTarget()
     {
         visibleTarget.Clear();
+        isDetected = false;
         Collider[] targetInView = Physics.OverlapSphere (transform.position, viewRadius, targetMask);
 
         for(int i = 0; i < targetInView.Length; i++)
@@ -44,6 +46,7 @@ public class CheckSight : MonoBehaviour
             if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
             {
                 visibleTarget.Add(target);
+                isDetected = true;
             }
         }
         }

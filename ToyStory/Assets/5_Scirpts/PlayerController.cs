@@ -303,14 +303,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    /*private void OnCollisionExit(Collision collision)
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
             onGround = false;
             anim.SetBool("Move", false);
         }
-    }
+    }*/
 
     private void OnTriggerEnter(Collider point)
     {
