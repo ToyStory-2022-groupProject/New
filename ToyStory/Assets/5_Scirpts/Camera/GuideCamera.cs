@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GuideCamera : MonoBehaviour
 {
+    // 삭제해도 무방
     [SerializeField] GameObject player;
     public GameObject mainCam;
     Camera cam;

@@ -23,7 +23,11 @@ public class ToasterSwitch : MonoBehaviour
     {
         if (_isSet)
         {
-            StartCoroutine("StartTimer");
+            StartCoroutine(StartTimer());
+        }
+        else
+        {
+            StopCoroutine(StartTimer());
         }
     }
 
@@ -48,7 +52,6 @@ public class ToasterSwitch : MonoBehaviour
     {
         if (PlayerController.isGrab && other.gameObject.layer == 3)
         {
-            Debug.Log("눌렀다.");
             _isSet = true;
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
         }

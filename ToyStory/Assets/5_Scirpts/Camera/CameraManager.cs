@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
+    
+    // 이제 안씀 삭제해도 무방
     [SerializeField] Transform player;
     [SerializeField] float speed; // 카메라 시점 회전 속도 w/s
     
