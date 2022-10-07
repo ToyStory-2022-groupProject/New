@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Monkey : MonoBehaviour
 {
-    public CheckSight checkSight;
+    public CheckSight CheckSight;
     private Animator anim;
     
     void Start()
@@ -17,10 +17,17 @@ public class Monkey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        while(checkSight.isDetected)
+        if(CheckSight.isDetected)
         {
-            anim.SetBool("detect", checkSight.isDetected);
-            SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Cymbals);
+            anim.SetBool("detect", CheckSight.isDetected);
+            //SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Cymbals);
+            Debug.Log("play");
+        }
+        else
+        {
+            anim.SetBool("detect", CheckSight.isDetected);
+            //SFXMgr.Instance.Stop_SFX();
+            Debug.Log("playStop");
         }
     }
 }

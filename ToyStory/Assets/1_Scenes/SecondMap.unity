@@ -1434,7 +1434,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274378486}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c2fc50e0b6f27a429cad3f6108ed45d, type: 3}
   m_Name: 
@@ -2464,14 +2464,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77eb92e82bb343b47bbc16b4a142fb7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 49.2
+  viewRadius: 43.41
   viewAngle: 59
   targetMask:
     serializedVersion: 2
     m_Bits: 8
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 8193
+    m_Bits: 65
   isDetected: 0
   visibleTarget: []
 --- !u!4 &561531219
@@ -2482,7 +2482,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561531217}
   m_LocalRotation: {x: 0.002751977, y: 0.9153386, z: 0.019062867, w: 0.4022243}
-  m_LocalPosition: {x: -88.96, y: -0.27, z: 27.76}
+  m_LocalPosition: {x: -88.97, y: 0.35, z: 27.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5810,6 +5810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1408635009}
   - component: {fileID: 1398865743}
+  - component: {fileID: 1408635010}
   m_Layer: 0
   m_Name: Cymbals Monkey
   m_TagString: Untagged
@@ -5947,6 +5948,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1408635010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408339169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f8d087bdb4f2504f87bc720e58ace01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CheckSight: {fileID: 561531218}
 --- !u!4 &1408635011
 Transform:
   m_ObjectHideFlags: 0

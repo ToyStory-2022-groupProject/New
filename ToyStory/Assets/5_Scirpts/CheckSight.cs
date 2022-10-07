@@ -18,6 +18,7 @@ public class CheckSight : MonoBehaviour
     void Start()
     {
         StartCoroutine("Finding");
+        isDetected = false;
     }
 
     IEnumerator Finding()
@@ -34,21 +35,20 @@ public class CheckSight : MonoBehaviour
         visibleTarget.Clear();
         isDetected = false;
         Collider[] targetInView = Physics.OverlapSphere (transform.position, viewRadius, targetMask);
-
         for(int i = 0; i < targetInView.Length; i++)
         {
-        Transform target = targetInView[i].transform;
-        Vector3 dirToTarget = (target.position - transform.position).normalized;
-        if(Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
-        {
-            float dstToTarget = Vector3.Distance(transform.position, target.position);
-
-            if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+            Transform target = targetInView[i].transform;
+            Vector3 dirToTarget = (target.position - transform.position).normalized;
+            if(Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
             {
-                visibleTarget.Add(target);
-                isDetected = true;
+                float dstToTarget = Vector3.Distance(transform.position, target.position);
+
+                if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+                {
+                    visibleTarget.Add(target);
+                    isDetected = true;
+                }
             }
-        }
         }
         
 
