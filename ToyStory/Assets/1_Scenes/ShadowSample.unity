@@ -659,6 +659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 89301995}
   - component: {fileID: 89301994}
+  - component: {fileID: 89301996}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -675,10 +676,10 @@ Light:
   m_GameObject: {fileID: 89301993}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10.71
+  m_Intensity: 5.92
   m_Range: 80.628395
   m_SpotAngle: 30.904049
   m_InnerSpotAngle: 1
@@ -736,14 +737,36 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89301993}
   m_LocalRotation: {x: 0.64028716, y: -0.30005407, z: -0.30005413, w: 0.64028704}
-  m_LocalPosition: {x: -18.3, y: 23.3, z: 33.2}
+  m_LocalPosition: {x: -15.97, y: 23.95, z: 33.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1546383973}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 39.782, y: -90, z: -90}
+--- !u!114 &89301996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89301993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77eb92e82bb343b47bbc16b4a142fb7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shadow: 0
+  viewRadius: 0
+  viewAngle: 0
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  isDetected: 0
+  visibleTarget: []
 --- !u!1 &175000159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,6 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77eb92e82bb343b47bbc16b4a142fb7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shadow: 0
   viewRadius: 49.2
   viewAngle: 59
   targetMask:
@@ -1131,7 +1155,7 @@ MonoBehaviour:
     m_Bits: 8
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 8193
+    m_Bits: 65
   isDetected: 0
   visibleTarget: []
 --- !u!4 &262686157
@@ -3166,60 +3190,6 @@ Transform:
   m_Father: {fileID: 1679109049}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1546383972
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1546383973}
-  - component: {fileID: 1546383974}
-  m_Layer: 0
-  m_Name: detect
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1546383973
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546383972}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.1, y: 0, z: 19}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 89301995}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1546383974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546383972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77eb92e82bb343b47bbc16b4a142fb7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewRadius: 34
-  viewAngle: 46
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 4104
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 0
-  isDetected: 0
-  visibleTarget: []
 --- !u!1 &1638967515
 GameObject:
   m_ObjectHideFlags: 0

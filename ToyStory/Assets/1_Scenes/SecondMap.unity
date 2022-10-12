@@ -1434,7 +1434,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274378486}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c2fc50e0b6f27a429cad3f6108ed45d, type: 3}
   m_Name: 
@@ -2464,6 +2464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77eb92e82bb343b47bbc16b4a142fb7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shadow: 0
   viewRadius: 43.41
   viewAngle: 59
   targetMask:
@@ -12869,7 +12870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6260842253063855078, guid: 1428e6bfa334dbc4e8fe5c9cf569d556, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.94001
+      value: -16.9
       objectReference: {fileID: 0}
     - target: {fileID: 6260842253063855078, guid: 1428e6bfa334dbc4e8fe5c9cf569d556, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12877,7 +12878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6260842253063855078, guid: 1428e6bfa334dbc4e8fe5c9cf569d556, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.3024178
+      value: -5.8
       objectReference: {fileID: 0}
     - target: {fileID: 6260842253063855078, guid: 1428e6bfa334dbc4e8fe5c9cf569d556, type: 3}
       propertyPath: m_LocalRotation.w

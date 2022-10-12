@@ -7,9 +7,9 @@ public class CheckSight : MonoBehaviour
     public float viewRadius;
     [Range(0,360)]
     public float viewAngle;
-
     public LayerMask targetMask;
     public LayerMask obstacleMask;
+    public LayerMask witchMask;
     public bool isDetected;
 
     [HideInInspector]
@@ -47,6 +47,10 @@ public class CheckSight : MonoBehaviour
                 {
                     visibleTarget.Add(target);
                     isDetected = true;
+                    if(Physics.Raycast(transform.position, dirToTarget, dstToTarget, witchMask))
+                    {
+                        Debug.Log("마녀감지");
+                    }
                 }
             }
         }
