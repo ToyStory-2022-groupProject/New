@@ -21,14 +21,14 @@ public class PlayerController : MonoBehaviour
     private bool onGround;
     GameObject Rope;
     static public bool isGrab;
-    private bool canGrab;
     private bool onRope;
     private bool inWater;
     private bool isBarrier; // 배리어 여부 확인
-    private bool isWaterOut;
-    //bool left, right;
-    
+    private bool Ladder;
+    private bool OnLadder;
+
     static int jumpState = Animator.StringToHash("Base Layer.Jump"); 
+    static int ladderState = Animator.StringToHash("Base Layer.Climb"); 
 
     //시작위치 결정요소
 
@@ -67,7 +67,19 @@ public class PlayerController : MonoBehaviour
         StopMove();
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
         ///////////////////////////////////////////////////////잡기//////////////////////////////////////////////////////////    
-        if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]))
+        if(Input.GetKeyDown(KeySetting.keys[KeyAction.GRAB]))
+        {
+            if(Ladder) 
+            {
+                OnLadder = true;
+                anim.SetBool("Ladder", Ladder);
+            }
+            if (currentBaseState.fullPathHash == ladderState && !anim.IsInTransition(0))
+            { 
+                anim.SetBool("Ladder", false); 
+            }
+        }
+        if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]) && !Ladder)
         {
             isGrab = true;
             //////////////////////////////////////////줄타기
@@ -85,9 +97,14 @@ public class PlayerController : MonoBehaviour
                     Rope.GetComponent<Rigidbody>().AddForce(Vector3.forward*jumpPower, ForceMode.Acceleration);
                 }
             }
-            else if(!inWater)
-                anim.SetBool("Grab", isGrab);       
-        }
+            /*else if(Ladder) 
+            {
+                anim.SetBool("Ladder", Ladder);
+                Ladder = false;
+            }*/
+            else if(onGround)
+                anim.SetBool("Grab", isGrab);         
+        } 
         else if(Input.GetKeyUp(KeySetting.keys[KeyAction.GRAB]))
         {
             if(onRope)
@@ -99,13 +116,14 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                isGrab = false;
+                isGrab = Ladder = OnLadder = false;
                 anim.SetBool("Grab", isGrab);
+                anim.SetBool("Ladder", Ladder);
             }       
         }
         
         /////////////////////////////////////////////////////////좌우이동//////////////////////////////////////////////////////////////////
-        if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]) && !onRope)
+        if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]) && !onRope && !OnLadder)
         {
             transform.rotation = Quaternion.Euler(0,180,0);
             if(inWater) //수영
@@ -143,7 +161,7 @@ public class PlayerController : MonoBehaviour
 
             
         }
-        else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]) && !onRope)
+        else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]) && !onRope && !OnLadder)
         {
             transform.rotation = Quaternion.Euler(0,0,0);
             if(inWater) //수영
@@ -179,7 +197,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if(Input.GetKey(KeySetting.keys[KeyAction.UP]) && !onRope)
+        else if(Input.GetKey(KeySetting.keys[KeyAction.UP]) && !onRope && !OnLadder)
         {
             transform.rotation = Quaternion.Euler(0,-90,0);
             if(inWater) //수영
@@ -215,7 +233,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if(Input.GetKey(KeySetting.keys[KeyAction.Down]) && !onRope)
+        else if(Input.GetKey(KeySetting.keys[KeyAction.Down]) && !onRope && !OnLadder)
         {
             transform.rotation = Quaternion.Euler(0,90,0);
             if(inWater) //수영
@@ -282,7 +300,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.DrawRay(transform.position, transform.forward * 0.6f, Color.magenta);
         isBarrier = Physics.Raycast(transform.position, transform.forward, 0.6f, 
-            LayerMask.GetMask("Barrier", "Wall", "UnPassPuzzleTool"));
+        LayerMask.GetMask("Barrier", "Wall", "UnPassPuzzleTool"));
     }
     
     /////////////////////////////////////////////////////////충돌 및 트리거//////////////////////////////////////////////////////////
@@ -300,6 +318,13 @@ public class PlayerController : MonoBehaviour
             GameOver = FindObjectOfType<GameOver>();
             GameOver.Restart(0.1f, 0.1f);
             
+        }
+    }
+     private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Ladder"))
+        {
+            Ladder = true;
         }
     }
 
