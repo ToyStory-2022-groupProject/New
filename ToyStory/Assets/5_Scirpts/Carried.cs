@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Carried : MonoBehaviour
 {
-    
     private Rigidbody rb;
+    public PlayerController PlayerController;
     GameObject Hand;
     bool OnHand;
     int layerNum;
@@ -14,6 +14,7 @@ public class Carried : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Hand = GameObject.FindGameObjectWithTag("Hand");
+        PlayerController = FindObjectOfType<PlayerController>();
         layerNum = gameObject.layer;
     }
    
@@ -21,26 +22,38 @@ public class Carried : MonoBehaviour
     {
         if(OnHand && PlayerController.isGrab)
         {
-            Debug.Log("Grab");
-            rb.isKinematic = OnHand;
-            transform.SetParent(Hand.transform);
-            gameObject.layer = 16;
+            if(PlayerController.Handed == false)
+            {
+                rb.isKinematic = OnHand;
+                transform.SetParent(Hand.transform);
+                PlayerController.Handed = OnHand;
+                gameObject.layer = 16;
+            }
         }
         else if(!PlayerController.isGrab)
         {
-            OnHand = false;
+            OnHand = PlayerController.Handed = false;
             Hand.transform.DetachChildren();
+            transform.rotation = new Quaternion(0, 0, 0, 0);
             rb.isKinematic = OnHand;
             gameObject.layer = layerNum;
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerEnter(Collider point)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(point.tag == "Hand")
         {
             OnHand = true;
         }
     }
+   /* private void OnTriggerExit(Collider point)
+    {
+        if(point.tag == "Hand")
+        {
+            OnHand = PlayerController.Handed = false;
+        }
+    }*/
+
 
 }

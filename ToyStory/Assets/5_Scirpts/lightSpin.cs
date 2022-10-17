@@ -7,31 +7,34 @@ public class lightSpin : MonoBehaviour
     
     [SerializeField] float ySpeed = 1.0f;
     [SerializeField] GameObject Detection;
+    private float time = 0.0f;
 
     void Start()
     {
-        StartCoroutine(LightSpinning(0.01f, 0.01f));
+        StartCoroutine(LightSpinning());
     }
     
-    IEnumerator LightSpinning(float left, float right)
+    IEnumerator LightSpinning()
     {
-        float count = 0;
         while(true)
         {
-            while(count < 4f)
+            while(time < 15f)
             {
-                count += left;
+                time += Time.deltaTime;
                 yield return new WaitForSeconds(0.01f);
                 transform.Rotate(0, -ySpeed * Time.deltaTime * 5, 0);
                 Detection.transform.Rotate(0, -ySpeed * Time.deltaTime * 5, 0);
+                Debug.Log(time);
             }
-            while(count > 0.0f)
+            while(time > 15f && time < 30f)
             {
-               count -= right;
+                time += Time.deltaTime;
                 yield return new WaitForSeconds(0.01f);
                 transform.Rotate(0, ySpeed * Time.deltaTime * 5, 0);
                 Detection.transform.Rotate(0, ySpeed * Time.deltaTime * 5, 0);
+                Debug.Log(time);
             }
+            time = 0;
         }
     }
 }

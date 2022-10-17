@@ -15,7 +15,7 @@ public class SFXMgr : MonoBehaviour
     public bool isPlaying;
     public enum SFXName
     {
-        Walk, Run, Jump, Swim, Cymbals //sfx 종류
+        Walk, Run, Jump, Swim //sfx 종류
     }
 
     public static SFXMgr Instance 

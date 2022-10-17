@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool onGround;
     GameObject Rope;
     static public bool isGrab;
+    public bool Handed = false;
     private bool onRope;
     private bool inWater;
     private bool isBarrier; // 배리어 여부 확인
@@ -97,13 +98,21 @@ public class PlayerController : MonoBehaviour
                     Rope.GetComponent<Rigidbody>().AddForce(Vector3.forward*jumpPower, ForceMode.Acceleration);
                 }
             }
-            /*else if(Ladder) 
-            {
-                anim.SetBool("Ladder", Ladder);
-                Ladder = false;
-            }*/
             else if(onGround)
-                anim.SetBool("Grab", isGrab);         
+            {
+                if(Handed == false)
+                {
+                    anim.SetBool("Pick", isGrab);
+                }
+                else 
+                {
+                    if(!anim.IsInTransition(0))
+                    {
+                        anim.SetBool("Grab", isGrab); 
+                        anim.SetBool("Pick", !isGrab);
+                    }
+                }
+            }          
         } 
         else if(Input.GetKeyUp(KeySetting.keys[KeyAction.GRAB]))
         {
@@ -117,6 +126,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 isGrab = Ladder = OnLadder = false;
+                anim.SetBool("Pick", isGrab);
                 anim.SetBool("Grab", isGrab);
                 anim.SetBool("Ladder", Ladder);
             }       
@@ -328,14 +338,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*private void OnCollisionExit(Collision collision)
+    private void OnCollisionExit(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Ground"))
+        if(collision.gameObject.CompareTag("Ladder"))
         {
-            onGround = false;
-            anim.SetBool("Move", false);
+            Ladder = false;
         }
-    }*/
+    }
 
     private void OnTriggerEnter(Collider point)
     {

@@ -8,10 +8,13 @@ public class Monkey : MonoBehaviour
 {
     public CheckSight CheckSight;
     private Animator anim;
+
+    AudioSource AudioSource;
     
     void Start()
     {
         anim = GetComponent<Animator>();
+        AudioSource = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,14 +23,17 @@ public class Monkey : MonoBehaviour
         if(CheckSight.isDetected)
         {
             anim.SetBool("detect", CheckSight.isDetected);
-            //SFXMgr.Instance.Play_SFX(SFXMgr.SFXName.Cymbals);
-            Debug.Log("play");
+            if(!AudioSource.isPlaying)
+            {
+                AudioSource.Play();
+            }
+            //Debug.Log("play");
         }
         else
         {
             anim.SetBool("detect", CheckSight.isDetected);
-            //SFXMgr.Instance.Stop_SFX();
-            Debug.Log("playStop");
+            AudioSource.Stop();
+            //Debug.Log("playStop");
         }
     }
 }
