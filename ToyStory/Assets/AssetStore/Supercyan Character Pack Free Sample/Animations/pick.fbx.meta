@@ -54,17 +54,103 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 0
       keepOriginalPositionXZ: 0
       heightFromFeet: 1
       mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000000000000010000000000000001000000010000000100000001000000
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
-      maskType: 3
+      transformMask:
+      - path: 
+        weight: 1
+      - path: basic_rig
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig L Thigh
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig L Thigh/basic_rig L Calf
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig L Thigh/basic_rig L Calf/basic_rig
+          L Foot
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig L Thigh/basic_rig L Calf/basic_rig
+          L Foot/basic_rig L Toe0
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig R Thigh
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig R Thigh/basic_rig R Calf
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig R Thigh/basic_rig R Calf/basic_rig
+          R Foot
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig R Thigh/basic_rig R Calf/basic_rig
+          R Foot/basic_rig R Toe0
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          L Clavicle
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          L Clavicle/basic_rig L UpperArm
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          L Clavicle/basic_rig L UpperArm/basic_rig L Forearm
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          L Clavicle/basic_rig L UpperArm/basic_rig L Forearm/basic_rig L Hand
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          L Clavicle/basic_rig L UpperArm/basic_rig L Forearm/basic_rig L Hand/basic_rig
+          L Finger0
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          L Clavicle/basic_rig L UpperArm/basic_rig L Forearm/basic_rig L Hand/basic_rig
+          L Finger1
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          L Clavicle/basic_rig L UpperArm/basic_rig L Forearm/basic_rig L Hand/basic_rig
+          L Finger2
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          Neck
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          Neck/basic_rig Head
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          R Clavicle
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          R Clavicle/basic_rig UpperArm
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          R Clavicle/basic_rig UpperArm/basic_rig R Forearm
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          R Clavicle/basic_rig UpperArm/basic_rig R Forearm/basic_rig R Hand
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          R Clavicle/basic_rig UpperArm/basic_rig R Forearm/basic_rig R Hand/basic_rig
+          R Finger0
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          R Clavicle/basic_rig UpperArm/basic_rig R Forearm/basic_rig R Hand/basic_rig
+          R Finger1
+        weight: 1
+      - path: basic_rig/basic_rig Pelvis/basic_rig Spine/basic_rig Spine1/basic_rig
+          R Clavicle/basic_rig UpperArm/basic_rig R Forearm/basic_rig R Hand/basic_rig
+          R Finger2
+        weight: 1
+      - path: C_man_1_FBX2013
+        weight: 0
+      maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     isReadable: 0

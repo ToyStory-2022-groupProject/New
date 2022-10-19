@@ -17,6 +17,7 @@ public class Carried : MonoBehaviour
         PlayerController = FindObjectOfType<PlayerController>();
         layerNum = gameObject.layer;
     }
+    
    
     void Update()
     {
@@ -34,7 +35,6 @@ public class Carried : MonoBehaviour
         {
             OnHand = PlayerController.Handed = false;
             Hand.transform.DetachChildren();
-            transform.rotation = new Quaternion(0, 0, 0, 0);
             rb.isKinematic = OnHand;
             gameObject.layer = layerNum;
         }
@@ -47,13 +47,13 @@ public class Carried : MonoBehaviour
             OnHand = true;
         }
     }
-   /* private void OnTriggerExit(Collider point)
+    private void OnTriggerExit(Collider point)
     {
         if(point.tag == "Hand")
         {
-            OnHand = PlayerController.Handed = false;
+            transform.rotation = new Quaternion(0, 0, 0, 0);
         }
-    }*/
+    }
 
 
 }

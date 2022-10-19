@@ -6595,6 +6595,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_PROP_rug_interior_02
       objectReference: {fileID: 0}
+    - target: {fileID: 8293593209833470637, guid: 42c2a06ae07bfcb4da3edcbc7e7fc066, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42c2a06ae07bfcb4da3edcbc7e7fc066, type: 3}
 --- !u!1001 &54801155
@@ -7326,7 +7330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77279527}
   m_LocalRotation: {x: 0.1197482, y: -0.6968934, z: 0.1197482, w: 0.6968934}
-  m_LocalPosition: {x: -111.08504, y: -19.12961, z: -54.85114}
+  m_LocalPosition: {x: -14.685043, y: -19.12961, z: 96.21886}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10813,7 +10817,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11926,15 +11930,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 462410, guid: 54fc64d13bd99164cb014d2ab4fd7178, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46
+      value: 43.7
       objectReference: {fileID: 0}
     - target: {fileID: 462410, guid: 54fc64d13bd99164cb014d2ab4fd7178, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 9.2
       objectReference: {fileID: 0}
     - target: {fileID: 462410, guid: 54fc64d13bd99164cb014d2ab4fd7178, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -152
+      value: -151.2
       objectReference: {fileID: 0}
     - target: {fileID: 462410, guid: 54fc64d13bd99164cb014d2ab4fd7178, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12028,6 +12032,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e8ffcb9c31ba4f04fa5e284aad39d64a, type: 3}
       propertyPath: m_Name
       value: Cardboard_box_1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e8ffcb9c31ba4f04fa5e284aad39d64a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e8ffcb9c31ba4f04fa5e284aad39d64a, type: 3}
       propertyPath: m_RootOrder
@@ -20123,6 +20131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookS6 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5977061346696144074, guid: 93bcc1c0b4afdec45918c23f628c2482, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93bcc1c0b4afdec45918c23f628c2482, type: 3}
 --- !u!1001 &294934151
@@ -21266,6 +21278,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_PROP_cabinet_interior_07
       objectReference: {fileID: 0}
+    - target: {fileID: 4182022363971905185, guid: b7e01664a5afa9a4eb69bd439d08887f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3361135090031763138, guid: b7e01664a5afa9a4eb69bd439d08887f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b7e01664a5afa9a4eb69bd439d08887f, type: 3}
@@ -21308,9 +21324,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 935478944}
     m_Modifications:
+    - target: {fileID: 6000153529182827779, guid: 3f3148c743a6b5d41946536817a6e69c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6258789264011356026, guid: 3f3148c743a6b5d41946536817a6e69c, type: 3}
       propertyPath: m_Name
       value: P_PROP_lantern_interior_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6258789264011356026, guid: 3f3148c743a6b5d41946536817a6e69c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6953828803726153065, guid: 3f3148c743a6b5d41946536817a6e69c, type: 3}
       propertyPath: m_RootOrder
@@ -21380,6 +21404,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e8ffcb9c31ba4f04fa5e284aad39d64a, type: 3}
       propertyPath: m_Name
       value: Cardboard_box_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e8ffcb9c31ba4f04fa5e284aad39d64a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e8ffcb9c31ba4f04fa5e284aad39d64a, type: 3}
       propertyPath: m_RootOrder
@@ -22264,6 +22292,10 @@ PrefabInstance:
     - target: {fileID: 6652526227193591744, guid: a096aa20b854ed044b53ba38c464cb0a, type: 3}
       propertyPath: m_Name
       value: P_PROP_steeringwheel_interior
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652526227193591744, guid: a096aa20b854ed044b53ba38c464cb0a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7640880700312323539, guid: a096aa20b854ed044b53ba38c464cb0a, type: 3}
       propertyPath: m_RootOrder
@@ -25842,6 +25874,10 @@ PrefabInstance:
     - target: {fileID: 8222582620498581490, guid: bd8c85eecb7afb643be482b755f6d0a5, type: 3}
       propertyPath: m_Name
       value: P_PROP_basket_interior_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222582620498581490, guid: bd8c85eecb7afb643be482b755f6d0a5, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd8c85eecb7afb643be482b755f6d0a5, type: 3}
@@ -31181,7 +31217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &607079099
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33120,6 +33156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookS4
       objectReference: {fileID: 0}
+    - target: {fileID: 9049752821957119230, guid: 76895165b6ca2ef4bbf814d8c9a2320f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76895165b6ca2ef4bbf814d8c9a2320f, type: 3}
 --- !u!1 &667438520
@@ -34164,6 +34204,10 @@ PrefabInstance:
     - target: {fileID: 2516006016311391472, guid: ee9239673ef8fe749bc275c232999999, type: 3}
       propertyPath: m_Name
       value: P_PROP_barrel_interior_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516006016311391472, guid: ee9239673ef8fe749bc275c232999999, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee9239673ef8fe749bc275c232999999, type: 3}
@@ -43286,6 +43330,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookS1
       objectReference: {fileID: 0}
+    - target: {fileID: 613445692879759843, guid: 0064f0b2911cefe46874e182b2a90031, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5446625252652419509, guid: 0064f0b2911cefe46874e182b2a90031, type: 3}
       propertyPath: m_RootOrder
       value: 37
@@ -46394,9 +46442,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1032246780}
-  UIObject: {fileID: 1953668702}
-  noiseSlider: {fileID: 1917589845}
-  fillImage: {fileID: 519244135}
+  UIObject: {fileID: 607079098}
+  noiseSlider: {fileID: 200379488}
+  fillImage: {fileID: 163890878}
   walkingTime: 15
   runningTime: 3
   waitingTime: 4
@@ -49102,6 +49150,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 935478944}
     m_Modifications:
+    - target: {fileID: 1858326578991853639, guid: 147b261ca5cd42248ac6a06ab1b112e1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5819562542784055091, guid: 147b261ca5cd42248ac6a06ab1b112e1, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -49161,6 +49213,10 @@ PrefabInstance:
     - target: {fileID: 7392769377047082272, guid: 147b261ca5cd42248ac6a06ab1b112e1, type: 3}
       propertyPath: m_Name
       value: P_PROP_toilet_interior
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392769377047082272, guid: 147b261ca5cd42248ac6a06ab1b112e1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 147b261ca5cd42248ac6a06ab1b112e1, type: 3}
@@ -49994,6 +50050,10 @@ PrefabInstance:
     - target: {fileID: 7969796563975936983, guid: 8d2b6d104d740f947a8bcdaf97fa8239, type: 3}
       propertyPath: m_Name
       value: Book3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969796563975936983, guid: 8d2b6d104d740f947a8bcdaf97fa8239, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d2b6d104d740f947a8bcdaf97fa8239, type: 3}
@@ -51550,7 +51610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032246780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -159.9, y: 0.2, z: 5.13}
+  m_LocalPosition: {x: -63.5, y: 0.2, z: 156.2}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -57392,6 +57452,10 @@ PrefabInstance:
     - target: {fileID: 6993068617857174792, guid: 93c1c529329c73144a3a6a68631bf685, type: 3}
       propertyPath: m_Name
       value: P_PROP_towel_interior_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993068617857174792, guid: 93c1c529329c73144a3a6a68631bf685, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93c1c529329c73144a3a6a68631bf685, type: 3}
@@ -67769,6 +67833,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_PROP_towel_interior_01
       objectReference: {fileID: 0}
+    - target: {fileID: 34262570269031124, guid: 0e49d35be6a2b10419c8db6d1b5fc40a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3900927036049115335, guid: 0e49d35be6a2b10419c8db6d1b5fc40a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -73572,6 +73640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book4
       objectReference: {fileID: 0}
+    - target: {fileID: 8774611919829826272, guid: 351ae6ee59343834ba643e266c6fab40, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 351ae6ee59343834ba643e266c6fab40, type: 3}
 --- !u!1 &1628377343
@@ -75472,7 +75544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683092935}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.5, y: 24.1, z: 154.9}
+  m_LocalPosition: {x: -33.3, y: 24.1, z: 154.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -78871,17 +78943,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77eb92e82bb343b47bbc16b4a142fb7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 43.41
+  viewRadius: 59.1
   viewAngle: 59
   targetMask:
     serializedVersion: 2
     m_Bits: 8
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 64
   witchMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 262144
   isDetected: 0
   visibleTarget: []
 --- !u!4 &1793682323
@@ -78892,7 +78964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793682321}
   m_LocalRotation: {x: 0.002751977, y: 0.9153386, z: 0.019062867, w: 0.4022243}
-  m_LocalPosition: {x: 23.427711, y: -12.722418, z: 20.687744}
+  m_LocalPosition: {x: 23.4, y: -13.6, z: 20.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79983,6 +80055,10 @@ PrefabInstance:
     - target: {fileID: 709229549294110936, guid: b2bd5e2a13d8aec4bab178aa5bc295cc, type: 3}
       propertyPath: m_Name
       value: Scroll2
+      objectReference: {fileID: 0}
+    - target: {fileID: 709229549294110936, guid: b2bd5e2a13d8aec4bab178aa5bc295cc, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3466553130578331789, guid: b2bd5e2a13d8aec4bab178aa5bc295cc, type: 3}
       propertyPath: m_RootOrder
@@ -84753,7 +84829,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953694726}
   m_LocalRotation: {x: 0.1197482, y: -0.6968934, z: 0.1197482, w: 0.6968934}
-  m_LocalPosition: {x: -140.9, y: 10.496, z: 5.13}
+  m_LocalPosition: {x: -44.5, y: 10.496, z: 156.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -85545,6 +85621,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1641882763}
     m_Modifications:
+    - target: {fileID: 1192641458597302, guid: c350023b68bece943928351ad0df5c3a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4333507836982010, guid: c350023b68bece943928351ad0df5c3a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -88465,6 +88545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookS6
       objectReference: {fileID: 0}
+    - target: {fileID: 5977061346696144074, guid: 93bcc1c0b4afdec45918c23f628c2482, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93bcc1c0b4afdec45918c23f628c2482, type: 3}
 --- !u!1 &2043300144
@@ -90877,6 +90961,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_PROP_barrel_interior_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2516006016311391472, guid: ee9239673ef8fe749bc275c232999999, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee9239673ef8fe749bc275c232999999, type: 3}
 --- !u!1 &2093742854
@@ -90926,6 +91014,10 @@ PrefabInstance:
     - target: {fileID: 613445692879759843, guid: 0064f0b2911cefe46874e182b2a90031, type: 3}
       propertyPath: m_Name
       value: BookS1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 613445692879759843, guid: 0064f0b2911cefe46874e182b2a90031, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5446625252652419509, guid: 0064f0b2911cefe46874e182b2a90031, type: 3}
       propertyPath: m_RootOrder
@@ -91836,6 +91928,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8774611919829826272, guid: 351ae6ee59343834ba643e266c6fab40, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 351ae6ee59343834ba643e266c6fab40, type: 3}
 --- !u!1001 &2109607294
@@ -92727,6 +92823,10 @@ PrefabInstance:
     - target: {fileID: 7969796563975936983, guid: 8d2b6d104d740f947a8bcdaf97fa8239, type: 3}
       propertyPath: m_Name
       value: Book3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969796563975936983, guid: 8d2b6d104d740f947a8bcdaf97fa8239, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d2b6d104d740f947a8bcdaf97fa8239, type: 3}

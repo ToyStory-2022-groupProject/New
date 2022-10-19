@@ -18,7 +18,7 @@ public class lightSpin : MonoBehaviour
     {
         while(true)
         {
-            while(time < 15f)
+            while(time < 20f)
             {
                 time += Time.deltaTime;
                 yield return new WaitForSeconds(0.01f);
@@ -26,7 +26,7 @@ public class lightSpin : MonoBehaviour
                 Detection.transform.Rotate(0, -ySpeed * Time.deltaTime * 5, 0);
                 Debug.Log(time);
             }
-            while(time > 15f && time < 30f)
+            while(time > 20f && time < 40f)
             {
                 time += Time.deltaTime;
                 yield return new WaitForSeconds(0.01f);
