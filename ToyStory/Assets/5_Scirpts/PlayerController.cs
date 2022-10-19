@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     static int jumpState = Animator.StringToHash("Base Layer.Jump"); 
     static int ladderState = Animator.StringToHash("Base Layer.Climb"); 
-
+    static int pickState = Animator.StringToHash("Base Layer.Pick");
     //시작위치 결정요소
 
     public DataManager dataManager;
@@ -102,11 +102,11 @@ public class PlayerController : MonoBehaviour
             {
                 if(Handed == false)
                 {
-                    anim.SetBool("Pick", isGrab);
+                    anim.SetBool("Pick", isGrab); 
                 }
                 else 
                 {
-                    if(!anim.IsInTransition(0))
+                    if(currentBaseState.fullPathHash == pickState && !anim.IsInTransition(0))
                     {
                         anim.SetBool("Grab", isGrab); 
                         anim.SetBool("Pick", !isGrab);
@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
         }
         
         /////////////////////////////////////////////////////////좌우이동//////////////////////////////////////////////////////////////////
-        if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]) && !onRope && !OnLadder)
+        if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]) && !onRope && !OnLadder && currentBaseState.fullPathHash != pickState)
         {
             transform.rotation = Quaternion.Euler(0,180,0);
             if(inWater) //수영
@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
 
             
         }
-        else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]) && !onRope && !OnLadder)
+        else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]) && !onRope && !OnLadder && currentBaseState.fullPathHash != pickState)
         {
             transform.rotation = Quaternion.Euler(0,0,0);
             if(inWater) //수영
@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if(Input.GetKey(KeySetting.keys[KeyAction.UP]) && !onRope && !OnLadder)
+        else if(Input.GetKey(KeySetting.keys[KeyAction.UP]) && !onRope && !OnLadder && currentBaseState.fullPathHash != pickState)
         {
             transform.rotation = Quaternion.Euler(0,-90,0);
             if(inWater) //수영
@@ -243,7 +243,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if(Input.GetKey(KeySetting.keys[KeyAction.Down]) && !onRope && !OnLadder)
+        else if(Input.GetKey(KeySetting.keys[KeyAction.Down]) && !onRope && !OnLadder && currentBaseState.fullPathHash != pickState)
         {
             transform.rotation = Quaternion.Euler(0,90,0);
             if(inWater) //수영
