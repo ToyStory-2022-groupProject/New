@@ -18,9 +18,9 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private AnimatorStateInfo currentBaseState;
     
-    private bool onGround;
+    public bool onGround;
     GameObject Rope;
-    static public bool isGrab;
+    public static bool isGrab;
     public bool Handed = false;
     private bool onRope;
     private bool inWater;
