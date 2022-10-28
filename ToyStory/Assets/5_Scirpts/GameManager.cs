@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
     
     void Menu() // 서브메뉴창 켜기
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && isKeyGuide == false && !Safe.isSafePuzzle)
+        if (Input.GetKeyDown(KeyCode.Escape) && isKeyGuide == false && !Safe.isSafePuzzle && !ClockTrigger.isClockPuzzle)
         {
             SubUI.Instance.LoadSubMenu();
         }
