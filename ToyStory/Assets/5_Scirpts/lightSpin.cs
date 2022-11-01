@@ -24,7 +24,6 @@ public class lightSpin : MonoBehaviour
                 yield return new WaitForSeconds(0.01f);
                 transform.Rotate(0, -ySpeed * Time.deltaTime * 5, 0);
                 Detection.transform.Rotate(0, -ySpeed * Time.deltaTime * 5, 0);
-                Debug.Log(time);
             }
             while(time > 20f && time < 40f)
             {
@@ -32,7 +31,6 @@ public class lightSpin : MonoBehaviour
                 yield return new WaitForSeconds(0.01f);
                 transform.Rotate(0, ySpeed * Time.deltaTime * 5, 0);
                 Detection.transform.Rotate(0, ySpeed * Time.deltaTime * 5, 0);
-                Debug.Log(time);
             }
             time = 0;
         }

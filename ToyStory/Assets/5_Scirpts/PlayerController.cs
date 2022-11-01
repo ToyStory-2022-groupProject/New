@@ -22,11 +22,13 @@ public class PlayerController : MonoBehaviour
     GameObject Rope;
     public static bool isGrab;
     public bool Handed = false;
-    private bool onRope;
+    private bool onRope, Attach;
     private bool inWater;
     private bool isBarrier; // 배리어 여부 확인
     private bool Ladder;
     private bool OnLadder;
+    private bool pickUp;
+    private bool Switch;
 
     static int jumpState = Animator.StringToHash("Base Layer.Jump"); 
     static int ladderState = Animator.StringToHash("Base Layer.Climb"); 
@@ -34,7 +36,7 @@ public class PlayerController : MonoBehaviour
     //시작위치 결정요소
 
     public DataManager dataManager;
-    void Start()
+     void Start()
     {
         anim = GetComponent<Animator>();
         col = GetComponent<CapsuleCollider>();
@@ -79,6 +81,20 @@ public class PlayerController : MonoBehaviour
             { 
                 anim.SetBool("Ladder", false); 
             }
+            else if(onGround && !Switch)
+            {
+                pickUp = false;
+                if(Handed == false && pickUp == false)
+                {
+                    pickUp = true;
+                    anim.SetBool("Pick", isGrab); 
+                    if(currentBaseState.fullPathHash == pickState && !anim.IsInTransition(0))
+                    {
+                        anim.SetBool("Pick", false);
+                    }
+                }
+            }
+            
         }
         if(Input.GetKey(KeySetting.keys[KeyAction.GRAB]) && !Ladder)
         {
@@ -88,7 +104,10 @@ public class PlayerController : MonoBehaviour
             { 
                 anim.SetBool("Hang",isGrab);
                 transform.SetParent(Rope.transform);
-                transform.localPosition = new Vector3(0,-1,0);
+                /*if(Attach)
+                    transform.localPosition = new Vector3(0,-1,0);
+                Attach = false;*/
+                //transform.rotation = new Quaternion(0, 0, 0, 0);
                 if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
                 {
                     Rope.GetComponent<Rigidbody>().AddForce(Vector3.back*jumpPower, ForceMode.Acceleration);
@@ -97,19 +116,28 @@ public class PlayerController : MonoBehaviour
                 {
                     Rope.GetComponent<Rigidbody>().AddForce(Vector3.forward*jumpPower, ForceMode.Acceleration);
                 }
+                if(Input.GetKey(KeySetting.keys[KeyAction.UP]))
+                {
+                    transform.Translate(new Vector3(0,speed * 0.1f,0));
+                    anim.SetBool("Move",true);
+                }
+                if(Input.GetKey(KeySetting.keys[KeyAction.Down]))
+                {
+                    transform.Translate(new Vector3(0,-speed * 0.1f,0));
+                    anim.SetBool("Move",true);
+                }
             }
+            if(Switch)
+                anim.SetBool("Switch", Switch);
             else if(onGround)
             {
-                if(Handed == false)
-                {
-                    anim.SetBool("Pick", isGrab); 
-                }
-                else 
+                if(Handed == true)
                 {
                     if(currentBaseState.fullPathHash == pickState && !anim.IsInTransition(0))
                     {
                         anim.SetBool("Grab", isGrab); 
                         anim.SetBool("Pick", !isGrab);
+                        pickUp = false;
                     }
                 }
             }          
@@ -125,15 +153,17 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                isGrab = Ladder = OnLadder = false;
+                isGrab = Ladder = OnLadder = pickUp = Switch = false;
+                Debug.Log(Switch);
                 anim.SetBool("Pick", isGrab);
                 anim.SetBool("Grab", isGrab);
                 anim.SetBool("Ladder", Ladder);
+                anim.SetBool("Switch", Switch);
             }       
         }
         
         /////////////////////////////////////////////////////////좌우이동//////////////////////////////////////////////////////////////////
-        if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]) && !onRope && !OnLadder && currentBaseState.fullPathHash != pickState)
+        if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]) && !onRope && !OnLadder && !pickUp)
         {
             transform.rotation = Quaternion.Euler(0,180,0);
             if(inWater) //수영
@@ -171,7 +201,7 @@ public class PlayerController : MonoBehaviour
 
             
         }
-        else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]) && !onRope && !OnLadder && currentBaseState.fullPathHash != pickState)
+        else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]) && !onRope && !OnLadder && !pickUp)
         {
             transform.rotation = Quaternion.Euler(0,0,0);
             if(inWater) //수영
@@ -207,7 +237,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if(Input.GetKey(KeySetting.keys[KeyAction.UP]) && !onRope && !OnLadder && currentBaseState.fullPathHash != pickState)
+        else if(Input.GetKey(KeySetting.keys[KeyAction.UP]) && !onRope && !OnLadder && !pickUp)
         {
             transform.rotation = Quaternion.Euler(0,-90,0);
             if(inWater) //수영
@@ -243,7 +273,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if(Input.GetKey(KeySetting.keys[KeyAction.Down]) && !onRope && !OnLadder && currentBaseState.fullPathHash != pickState)
+        else if(Input.GetKey(KeySetting.keys[KeyAction.Down]) && !onRope && !OnLadder && !pickUp)
         {
             transform.rotation = Quaternion.Euler(0,90,0);
             if(inWater) //수영
@@ -326,8 +356,7 @@ public class PlayerController : MonoBehaviour
         {
             scriptOff();
             GameOver = FindObjectOfType<GameOver>();
-            GameOver.Restart(0.1f, 0.1f);
-            
+            GameOver.Restart(0.1f, 0.1f);   
         }
     }
      private void OnCollisionStay(Collision collision)
@@ -369,16 +398,26 @@ public class PlayerController : MonoBehaviour
             inWater = true;
             anim.SetBool("InWater", inWater);
         }
+        if(point.tag == "Switch")
+        {
+            Switch = true;
+            Debug.Log(Switch);
+        }
     }
 
     void OnTriggerExit(Collider point)
     {
         if(point.tag == "Rope")
-        {
+        {   
             if(Input.GetKey(KeySetting.keys[KeyAction.JUMP]))
             {
                 transform.Translate(new Vector3(0,0,speed));
             }
+        }
+        if(point.tag == "Switch")
+        {
+            Switch = false;
+            Debug.Log(Switch);
         }
         /*if(point.tag == "Water") 
         {

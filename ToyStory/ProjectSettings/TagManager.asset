@@ -16,6 +16,7 @@ TagManager:
   - Falling
   - train
   - Ladder
+  - Switch
   layers:
   - Default
   - TransparentFX

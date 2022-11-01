@@ -27,13 +27,11 @@ public class Monkey : MonoBehaviour
             {
                 AudioSource.Play();
             }
-            Debug.Log("play");
         }
         else
         {
             anim.SetBool("detect", CheckSight.isDetected);
             AudioSource.Stop();
-            Debug.Log("playStop");
         }
     }
 }

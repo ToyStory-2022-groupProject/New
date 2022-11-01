@@ -8,7 +8,7 @@ using Random = System.Random;
 
 public class BatteryCatch : MonoBehaviour
 {
-    public static bool isStop;
+     public static bool isStop;
 
     public Image hitBox;
     public Image batteryVeilImage; 
@@ -18,7 +18,7 @@ public class BatteryCatch : MonoBehaviour
     public AudioSource audioSource;
     public Slider slider;
     public Animator anim;
-    public BoxCollider clockTrigger;
+    public ClockTrigger clockTrigger;
     
     public float wantTime;
     public float errorRange;
@@ -102,7 +102,8 @@ public class BatteryCatch : MonoBehaviour
         audioSource.Play();
         yield return YieldInstructionCache.WaitForSeconds(1f);
         panel.SetActive(false);
-        clockTrigger.enabled = false;
+        clockTrigger.GetComponent<BoxCollider>().enabled = false;
+        clockTrigger.NoiseUI.SetActive(true);
         playerController.enabled = true;
         gameObject.SetActive(false);
     }

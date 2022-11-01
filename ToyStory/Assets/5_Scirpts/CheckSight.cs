@@ -25,7 +25,7 @@ public class CheckSight : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(.2f);
+            yield return YieldInstructionCache.WaitForSeconds(.2f);
             FindTarget();
         }
     }
