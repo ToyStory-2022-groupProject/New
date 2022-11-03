@@ -17,6 +17,7 @@ TagManager:
   - train
   - Ladder
   - Switch
+  - Key
   layers:
   - Default
   - TransparentFX

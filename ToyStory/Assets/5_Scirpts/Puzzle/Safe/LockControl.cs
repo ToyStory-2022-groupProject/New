@@ -14,6 +14,7 @@ public class LockControl : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject panel;
     [SerializeField] private Animator anim;
+    [SerializeField] private GameObject noiseCheck;
     
     private int curSpinner;
     private int beforeSpinner;
@@ -93,6 +94,7 @@ public class LockControl : MonoBehaviour
         panel.SetActive(false);
         Safe.isSafePuzzle = false;
         playerController.enabled = true;
+        noiseCheck.SetActive(true);
         uiMaterial.color = Color.white;
         realMaterial.color = Color.white;
     }

@@ -30,7 +30,7 @@ public class Safe : MonoBehaviour
         StartCoroutine(Open());
         capsuleCollider.enabled = false;
         boxCollider.enabled = false;
-        Destroy(noiseCheck);
+        noiseCheck.SetActive(false);
     }
 
     IEnumerator Open()
@@ -52,6 +52,7 @@ public class Safe : MonoBehaviour
         {
             passwardUI.SetActive(true);
             panel.SetActive(true);
+            noiseCheck.SetActive(false);
             isSafePuzzle = true;
         }
     }
