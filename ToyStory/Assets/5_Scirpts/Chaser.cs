@@ -25,15 +25,15 @@ public class Chaser : MonoBehaviour
     {
         if (CheckSight.isDetected)
         {
-            nav.speed = monkeySpeed;
+            nav.enabled = true;
             boxCollider.enabled = false;
+            nav.SetDestination(player.transform.position);
         }
         else
         {
-            nav.speed = 0f;
+            nav.enabled = false;
             boxCollider.enabled = true;
         }
-        nav.SetDestination(player.transform.position);
     }
 
     private void OnTriggerEnter(Collider other)

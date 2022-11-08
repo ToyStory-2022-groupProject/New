@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     private bool Ladder;
     private bool OnLadder;
     private bool pickUp;
-    private bool Switch;
+    public bool Switch;
 
     static int jumpState = Animator.StringToHash("Base Layer.Jump"); 
     static int ladderState = Animator.StringToHash("Base Layer.Climb"); 
@@ -405,6 +405,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // 11월 8일 스위치 관련 수정
+    private void OnTriggerStay(Collider point)
+    {
+        if(point.tag == "Switch")
+        {
+            Switch = true;
+            Debug.Log(Switch);
+        }
+    }
+    
     void OnTriggerExit(Collider point)
     {
         if(point.tag == "Rope")

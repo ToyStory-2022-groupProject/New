@@ -38,8 +38,8 @@ public class LockControl : MonoBehaviour
     private void OnEnable()
     {
         SFXMgr.Instance.Stop_SFX();
-        anim.SetBool("Pick", false);
-        anim.SetBool("Grab", false);
+        // anim.SetBool("Pick", false);
+        // anim.SetBool("Grab", false);
         anim.SetBool("Move", false);
         anim.SetBool("Jump", false);
         playerController.enabled = false;
@@ -94,6 +94,8 @@ public class LockControl : MonoBehaviour
         panel.SetActive(false);
         Safe.isSafePuzzle = false;
         playerController.enabled = true;
+        playerController.Switch = false;
+        anim.SetBool("Switch", false);
         noiseCheck.SetActive(true);
         uiMaterial.color = Color.white;
         realMaterial.color = Color.white;
@@ -110,6 +112,7 @@ public class LockControl : MonoBehaviour
         yield return YieldInstructionCache.WaitForSeconds(1f);
         panel.SetActive(false);
         gameObject.SetActive(false);
+        Destroy(noiseCheck);
     }
     
     bool Correct()

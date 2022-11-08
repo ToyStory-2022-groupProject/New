@@ -29,7 +29,7 @@ public class Safe : MonoBehaviour
         audioSource.Play();
         StartCoroutine(Open());
         capsuleCollider.enabled = false;
-        boxCollider.enabled = false;
+        Destroy(boxCollider);
         noiseCheck.SetActive(false);
     }
 
