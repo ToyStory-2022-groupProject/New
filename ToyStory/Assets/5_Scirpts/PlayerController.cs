@@ -401,7 +401,6 @@ public class PlayerController : MonoBehaviour
         if(point.tag == "Switch")
         {
             Switch = true;
-            Debug.Log(Switch);
         }
     }
 
@@ -411,7 +410,6 @@ public class PlayerController : MonoBehaviour
         if(point.tag == "Switch")
         {
             Switch = true;
-            Debug.Log(Switch);
         }
     }
     
@@ -427,7 +425,6 @@ public class PlayerController : MonoBehaviour
         if(point.tag == "Switch")
         {
             Switch = false;
-            Debug.Log(Switch);
         }
         /*if(point.tag == "Water") 
         {
