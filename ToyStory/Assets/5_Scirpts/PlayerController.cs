@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CapsuleCollider))]
@@ -133,6 +134,7 @@ public class PlayerController : MonoBehaviour
             {
                 anim.SetBool("Grab", isGrab);
                 anim.SetBool("Pick", !isGrab);
+                pickUp = false;
             }
             
             else if(onGround)

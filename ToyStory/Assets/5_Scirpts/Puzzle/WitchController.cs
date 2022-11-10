@@ -36,6 +36,7 @@ public class WitchController : MonoBehaviour
 
         if (dead)
         {
+            Debug.Log("?????????");
             dead = false;
             end = true;
             nav.enabled = false;
