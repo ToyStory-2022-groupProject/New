@@ -129,6 +129,12 @@ public class PlayerController : MonoBehaviour
             }
             if(Switch)
                 anim.SetBool("Switch", Switch);
+            if (inWater)
+            {
+                anim.SetBool("Grab", isGrab);
+                anim.SetBool("Pick", !isGrab);
+            }
+            
             else if(onGround)
             {
                 if(Handed == true)
@@ -140,7 +146,7 @@ public class PlayerController : MonoBehaviour
                         pickUp = false;
                     }
                 }
-            }          
+            }
         } 
         else if(Input.GetKeyUp(KeySetting.keys[KeyAction.GRAB]))
         {

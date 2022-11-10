@@ -12,6 +12,7 @@ public class RewriteFan : MonoBehaviour
 
     private bool isPlayed;
     private bool isWingRotate;
+    public Animator anim;
 
     [Tooltip("선풍기 날개")]
     [SerializeField] GameObject wing; // 퍼즐 관련 도구
@@ -27,6 +28,7 @@ public class RewriteFan : MonoBehaviour
         if (other.tag == "Player" && !isPlayed)
         {
             playableDirector.Play(timeline);
+            anim.SetBool("Move", false);
             isPlayed = true;
             isWingRotate = true;
         }

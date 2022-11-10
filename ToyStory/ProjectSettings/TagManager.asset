@@ -18,6 +18,7 @@ TagManager:
   - Ladder
   - Switch
   - Key
+  - WitchRotate
   layers:
   - Default
   - TransparentFX

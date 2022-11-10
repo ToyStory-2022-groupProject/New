@@ -49,6 +49,7 @@ public class CheckSight : MonoBehaviour
                     isDetected = true;
                     if(Physics.Raycast(transform.position, dirToTarget, dstToTarget, witchMask))
                     {
+                        WitchController.dead = true;
                         Debug.Log("마녀감지");
                     }
                 }
