@@ -15,7 +15,7 @@ public class ButtonManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     
     public void OnPointerUp (PointerEventData eventData)
     {
-        btnText.color = Color.black;
+        btnText.color = Color.yellow;
     }
     
 }
