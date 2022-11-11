@@ -9,7 +9,7 @@ public class SFXMgr : MonoBehaviour
 {
     private static SFXMgr instance;
     [SerializeField] List<AudioClip> sfxs = new List<AudioClip>();
-    public AudioSource SFX; //오디오 소스 받아오기
+    public static AudioSource SFX; //오디오 소스 받아오기
     [SerializeField] AudioMixerGroup audioMixerGroup;
     
     public bool isPlaying;

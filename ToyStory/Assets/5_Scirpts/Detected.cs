@@ -39,6 +39,7 @@ public class Detected : MonoBehaviour
             pointlight.SetActive(true);
             lampTOmirror.SetActive(true);
             mirrorLight.SetActive(false);
+            bookParticle.SetActive(false);
         }
         else
         {
@@ -46,6 +47,7 @@ public class Detected : MonoBehaviour
             pointlight.SetActive(false);
             lampTOmirror.SetActive(false);
             mirrorLight.SetActive(false);
+            bookParticle.SetActive(false);
         }
     }
 }

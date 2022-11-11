@@ -324,12 +324,18 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if(Input.GetKeyUp(KeySetting.keys[KeyAction.LEFT]) || Input.GetKeyUp(KeySetting.keys[KeyAction.RIGHT]) || Input.GetKeyUp(KeySetting.keys[KeyAction.UP]) || Input.GetKeyUp(KeySetting.keys[KeyAction.Down]))
+        if(Input.GetKeyUp(KeySetting.keys[KeyAction.LEFT]) || Input.GetKeyUp(KeySetting.keys[KeyAction.RIGHT]) || Input.GetKeyUp(KeySetting.keys[KeyAction.UP]) || Input.GetKeyUp(KeySetting.keys[KeyAction.Down]))
         {
             SFXMgr.Instance.Stop_SFX();
             anim.SetBool("Move", false);
         }
         
+        if (Input.anyKey == false)
+        {
+            Debug.Log("안 누르고 있음");
+            anim.SetBool("Move", false);
+            SFXMgr.Instance.Stop_SFX();
+        }
              
         //////////////////////////////////////////////////////////점프///////////////////////////////////////////////////////////////
         if (Input.GetKeyDown(KeySetting.keys[KeyAction.JUMP]) && !inWater) // 점프키를 누르면
