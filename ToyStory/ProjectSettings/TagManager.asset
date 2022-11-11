@@ -19,6 +19,8 @@ TagManager:
   - Switch
   - Key
   - WitchRotate
+  - Bone
+  - Toast
   layers:
   - Default
   - TransparentFX

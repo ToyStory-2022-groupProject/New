@@ -20,10 +20,10 @@ public class PlayerController : MonoBehaviour
     private AnimatorStateInfo currentBaseState;
     
     public bool onGround;
-    GameObject Rope;
+    GameObject Rope, Bone;
     public static bool isGrab;
     public bool Handed = false;
-    private bool onRope, Attach;
+    private bool onRope, Attach, onBone;
     private bool inWater;
     private bool isBarrier; // 배리어 여부 확인
     private bool Ladder;
@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
         Rope = GameObject.FindGameObjectWithTag("Rope");
+        Bone = GameObject.FindGameObjectWithTag("Bone");
 
         dataManager.Checking();
         Set();      
@@ -103,29 +104,35 @@ public class PlayerController : MonoBehaviour
             //////////////////////////////////////////줄타기
             if(onRope && !onGround)
             { 
-                anim.SetBool("Hang",isGrab);
-                transform.SetParent(Rope.transform);
-                /*if(Attach)
+                if(onBone)
+                {
+                    anim.SetBool("Hang",isGrab);
+                    transform.SetParent(Bone.transform);
+                    if(Input.GetKey(KeySetting.keys[KeyAction.UP]))
+                    {
+                        transform.Translate(new Vector3(0,speed * 0.1f,0));
+                        anim.SetBool("Move",true);
+                    }
+                    if(Input.GetKey(KeySetting.keys[KeyAction.Down]))
+                    {
+                        transform.Translate(new Vector3(0,-speed * 0.1f,0));
+                        anim.SetBool("Move",true);
+                    }
+                }
+                else
+                {
+                    anim.SetBool("Hang",isGrab);
+                    transform.SetParent(Rope.transform);
                     transform.localPosition = new Vector3(0,-1,0);
-                Attach = false;*/
-                //transform.rotation = new Quaternion(0, 0, 0, 0);
-                if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
-                {
-                    Rope.GetComponent<Rigidbody>().AddForce(Vector3.back*jumpPower, ForceMode.Acceleration);
-                }
-                else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
-                {
-                    Rope.GetComponent<Rigidbody>().AddForce(Vector3.forward*jumpPower, ForceMode.Acceleration);
-                }
-                if(Input.GetKey(KeySetting.keys[KeyAction.UP]))
-                {
-                    transform.Translate(new Vector3(0,speed * 0.1f,0));
-                    anim.SetBool("Move",true);
-                }
-                if(Input.GetKey(KeySetting.keys[KeyAction.Down]))
-                {
-                    transform.Translate(new Vector3(0,-speed * 0.1f,0));
-                    anim.SetBool("Move",true);
+                    //transform.rotation = new Quaternion(0, 0, 0, 0);
+                    if(Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
+                    {
+                        Rope.GetComponent<Rigidbody>().AddForce(Vector3.back*jumpPower, ForceMode.Acceleration);
+                    }
+                    else if(Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
+                    {
+                        Rope.GetComponent<Rigidbody>().AddForce(Vector3.forward*jumpPower, ForceMode.Acceleration);
+                    }
                 }
             }
             if(Switch)
@@ -399,6 +406,12 @@ public class PlayerController : MonoBehaviour
         {
             rb.isKinematic = true;
             onRope = true;
+            SFXMgr.Instance.Stop_SFX();
+        }
+        if(point.tag == "Bone" && isGrab)
+        {
+            rb.isKinematic = true;
+            onBone = onRope = true;
             SFXMgr.Instance.Stop_SFX();
         }
         if(point.tag == "Water")
