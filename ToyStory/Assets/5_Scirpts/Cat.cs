@@ -121,6 +121,7 @@ public class Cat : MonoBehaviour
         if (isInit == false)
         {
             isInit = true;
+            playerController.NoInput();
             playerController.enabled = false; 
             nav.speed = 0; 
             initCam.SetActive(false); 

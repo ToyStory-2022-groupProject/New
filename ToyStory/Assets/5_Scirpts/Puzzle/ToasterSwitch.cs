@@ -10,6 +10,8 @@ public class ToasterSwitch : MonoBehaviour
     [Header("오디오")]
     [SerializeField] AudioClip[] audioClips;
     AudioSource _audioSource;
+    public static bool isInBrown;
+    public PlayerController _playerController;
 
     Rigidbody _rigidbody;
     bool _isSet;
@@ -17,21 +19,19 @@ public class ToasterSwitch : MonoBehaviour
     {
         _audioSource = GetComponent<AudioSource>();
         _rigidbody = candy.GetComponent<Rigidbody>();
+        isInBrown = true;
     }
 
     void Update()
     {
         if (_isSet)
         {
-            StartCoroutine(StartTimer());
+            StartCoroutine(StartTimer(isInBrown));
         }
-        else
-        {
-            StopCoroutine(StartTimer());
-        }
+        
     }
 
-    IEnumerator StartTimer() // 토스터 퍼즐 타이머 작동
+    IEnumerator StartTimer(bool brown) // 토스터 퍼즐 타이머 작동
     {
         _isSet = false;
         _audioSource.clip = audioClips[0];
@@ -39,7 +39,10 @@ public class ToasterSwitch : MonoBehaviour
         yield return new WaitForSeconds(8);
         _audioSource.clip = audioClips[1];
         _audioSource.Play();
-        Popping();
+        if (isInBrown)
+        {
+            Popping();
+        }
         gameObject.GetComponent<CapsuleCollider>().enabled = true;
         yield return null;
     }
@@ -50,7 +53,7 @@ public class ToasterSwitch : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
-        if (PlayerController.isGrab && other.gameObject.layer == 3)
+        if (PlayerController.isGrab && other.gameObject.layer == 3 && _playerController.Handed == false)
         {
             _isSet = true;
             gameObject.GetComponent<CapsuleCollider>().enabled = false;

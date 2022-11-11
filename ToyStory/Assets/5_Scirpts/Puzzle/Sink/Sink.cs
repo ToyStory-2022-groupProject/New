@@ -50,7 +50,7 @@ public class Sink : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.transform.tag == "Player")
         {
@@ -58,11 +58,24 @@ public class Sink : MonoBehaviour
         }
     }
 
-    void OnCollisionExit(Collision other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.transform.tag == "Player")
         {
             isSwitch = false;
         }
     }
+
+    void OnCollisionEnter(Collision other)
+    {
+        
+    }
+
+    // void OnCollisionExit(Collision other)
+    // {
+    //     if (other.transform.tag == "Player")
+    //     {
+    //         isSwitch = false;
+    //     }
+    // }
 }

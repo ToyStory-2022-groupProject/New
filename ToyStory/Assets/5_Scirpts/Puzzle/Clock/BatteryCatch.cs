@@ -39,12 +39,10 @@ public class BatteryCatch : MonoBehaviour
     private void OnEnable()
     {
         SFXMgr.Instance.Stop_SFX();
-        anim.SetBool("Pick", false);
-        anim.SetBool("Grab", false);
+        //anim.SetBool("Pick", false);
+        //anim.SetBool("Grab", false);
         anim.SetBool("Move", false);
         anim.SetBool("Jump", false);
-
-
         PlayerController.isGrab = false;
         playerController.enabled = false;
     }
@@ -105,6 +103,8 @@ public class BatteryCatch : MonoBehaviour
         clockTrigger.GetComponent<BoxCollider>().enabled = false;
         clockTrigger.NoiseUI.SetActive(true);
         playerController.enabled = true;
+        playerController.Switch = false;
+        anim.SetBool("Switch", false);
         gameObject.SetActive(false);
     }
 }

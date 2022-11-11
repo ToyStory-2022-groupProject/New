@@ -6,6 +6,7 @@ using UnityEngine;
 public class CheckingPuzzle : MonoBehaviour
 { 
     public GameObject Candy;
+    public GameObject answerCandy;
     public GameObject floor;
     public bool check;
 
@@ -14,6 +15,8 @@ public class CheckingPuzzle : MonoBehaviour
         if (other.gameObject.name == Candy.name)
         {
             check = true;
+            Candy.SetActive(false);
+            answerCandy.SetActive(true);
         }
     }
 }

@@ -23,6 +23,9 @@ public class LockControl : MonoBehaviour
     private Material uiMaterial;
     private Material realMaterial;
     private bool isInputStop;
+    private int vDir;
+    private int hDir;
+    private bool init = true;
     
     private void Start()
     {
@@ -42,21 +45,40 @@ public class LockControl : MonoBehaviour
         // anim.SetBool("Grab", false);
         anim.SetBool("Move", false);
         anim.SetBool("Jump", false);
+        playerController.Switch = false;
         playerController.enabled = false;
         PlayerController.isGrab = false;
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Vertical") && SpinnerManager.isChange)
+        if((Input.GetKeyDown(KeySetting.keys[KeyAction.UP]) || Input.GetKeyDown(KeySetting.keys[KeyAction.Down])) && SpinnerManager.isChange && isInputStop == false)
         {
-            uiSpinner[curSpinner].Spin(Convert.ToInt32(Input.GetAxisRaw("Vertical")));
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.UP]))
+            {
+                vDir = 1;
+            }
+
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.Down]))
+            {
+                vDir = -1;
+            }
+            uiSpinner[curSpinner].Spin(vDir);
         }
         
-        if (Input.GetButtonDown("Horizontal") && SpinnerManager.isChange)
+        if(Input.GetKeyDown(KeySetting.keys[KeyAction.LEFT]) || Input.GetKeyDown(KeySetting.keys[KeyAction.RIGHT]) && SpinnerManager.isChange && isInputStop == false)
         {
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.LEFT]))
+            {
+                hDir = -1;
+            }
+
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.RIGHT]))
+            {
+                hDir = 1;
+            }
             beforeSpinner = curSpinner;
-            curSpinner += 1 * Convert.ToInt32(Input.GetAxisRaw("Horizontal"));
+            curSpinner += 1 * hDir;
 
             if (curSpinner > 5)
                 curSpinner = 0;
@@ -66,21 +88,61 @@ public class LockControl : MonoBehaviour
 
             SpinnerManager.scaleAdj(uiSpinner[beforeSpinner], uiSpinner[curSpinner]);
         }
-
-        if (Input.GetKeyDown(KeyCode.Return) && isInputStop == false)
+        // if (Input.GetButtonDown("Vertical") && SpinnerManager.isChange)
+        // {
+        //     uiSpinner[curSpinner].Spin(Convert.ToInt32(Input.GetAxisRaw("Vertical")));
+        // }
+        
+        // if (Input.GetButtonDown("Horizontal") && SpinnerManager.isChange)
+        // {
+        //     beforeSpinner = curSpinner;
+        //     curSpinner += 1 * Convert.ToInt32(Input.GetAxisRaw("Horizontal"));
+        //
+        //     if (curSpinner > 5)
+        //         curSpinner = 0;
+        //     
+        //     if (curSpinner < 0)
+        //         curSpinner = 5;
+        //
+        //     SpinnerManager.scaleAdj(uiSpinner[beforeSpinner], uiSpinner[curSpinner]);
+        // }
+        
+        if(Input.GetKeyDown(KeySetting.keys[KeyAction.GRAB]) && isInputStop == false)
         {
-            if (Correct())
+            if (init)
             {
-                StartCoroutine(Clear());
+                init = false;
             }
             else
             {
-                uiMaterial.color = Color.red;
-                realMaterial.color = Color.red;
-                audioSource.clip = audioClip[1];
-                audioSource.Play();
+                if (Correct())
+                {
+                    StartCoroutine(Clear());
+                }
+                else
+                {
+                    uiMaterial.color = Color.red;
+                    realMaterial.color = Color.red;
+                    audioSource.clip = audioClip[1];
+                    audioSource.Play();
+                }
             }
         }
+
+        // if (Input.GetKeyDown(KeyCode.Return) && isInputStop == false)
+        // {
+        //     if (Correct())
+        //     {
+        //         StartCoroutine(Clear());
+        //     }
+        //     else
+        //     {
+        //         uiMaterial.color = Color.red;
+        //         realMaterial.color = Color.red;
+        //         audioSource.clip = audioClip[1];
+        //         audioSource.Play();
+        //     }
+        // }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
