@@ -67,6 +67,4 @@ public class DataManager : MonoBehaviour
             Debug.Log("저장된 파일이 없습니다.");
         }
     }
-   
-   
 }
