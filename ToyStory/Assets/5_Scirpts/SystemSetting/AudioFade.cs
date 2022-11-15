@@ -6,28 +6,31 @@ using UnityEngine;
 public class AudioFade : MonoBehaviour
 {
     private GameManager _gameManager;
-
+    public bool isFade;
+    private float startBgmVolume;
     private void Start()
     {
         _gameManager = GetComponent<GameManager>();
+        startBgmVolume = _gameManager.audioSource.volume;
     }
 
     private void Update()
     {
-        StartCoroutine("BgmFadeOut");
+        if (isFade)
+        {
+            Debug.Log("실행중");
+            isFade = false;
+            StartCoroutine("BgmFadeOut");
+        }
     }
 
     public IEnumerator BgmFadeOut()
     {
-        float startBgmVolume = _gameManager.audioSource.volume;
-
-        while (_gameManager.audioSource.volume > 0)
+        while (_gameManager.audioSource.volume >= 0f)
         {
-            _gameManager.audioSource.volume -= startBgmVolume * Time.deltaTime / _gameManager.fadeTime;
+            Debug.Log("소리나오는중");
+            _gameManager.audioSource.volume -= startBgmVolume / _gameManager.fadeTime;
             yield return null;
         }
-        
-        _gameManager.audioSource.Stop();
-        _gameManager.audioSource.volume = startBgmVolume;
     }
 }

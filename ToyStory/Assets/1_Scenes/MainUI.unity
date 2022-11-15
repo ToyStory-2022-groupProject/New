@@ -715,7 +715,7 @@ MonoBehaviour:
   audioMixerGroup: {fileID: 750378812496599303, guid: 951b9a6408b60450798a95be7074efd5, type: 2}
   audioFade: {fileID: 973119359}
   mixer: {fileID: 24100000, guid: 951b9a6408b60450798a95be7074efd5, type: 2}
-  fadeTime: 500
+  fadeTime: 300
   volumeSetZero: 0.05
   audioSource: {fileID: 0}
   lights: {fileID: 973119356}
@@ -836,6 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3a3020846b34bcabd6354105ceeb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFade: 0
 --- !u!1 &1252496909 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 695559979591249175, guid: ef162aef19bfe4dd7ad8c1434471210e, type: 3}

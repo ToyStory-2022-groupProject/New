@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     public AudioFade audioFade;
     public AudioMixer mixer;
-    public float fadeTime = 0.5f; // 음악 재생 시간
+    public float fadeTime = 100f; // 음악 재생 시간
     public float volumeSetZero = 0.5f; // 특정 지점에서 볼륨 0 설정
     public AudioSource audioSource;
     
@@ -74,14 +74,16 @@ public class GameManager : MonoBehaviour
         {
             audioSource.loop = false;
             audioFade.enabled = true;
+            audioFade.isFade = true;
             nowSceneNum = 2;
         }
 
-        if (audioSource.volume < volumeSetZero)
+        if (audioSource.volume <= volumeSetZero)
         {
-            audioSource.volume = 0;
             audioFade.StopCoroutine("BgmFadeOut");
             audioFade.enabled = false;
+            audioSource.Stop();
+            audioSource.volume = 1f;
         }
     }
     

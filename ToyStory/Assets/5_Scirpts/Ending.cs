@@ -74,7 +74,7 @@ public class Ending : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Key"))
+        if (other.gameObject == puzzleKey)
         {
             playableDirector.Play(timelineAsset);
         }

@@ -608,7 +608,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC138 \uD305"
+  m_Text: "\uC124 \uC815"
 --- !u!114 &2423273686499783637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1268,6 +1268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc03df14f76a4e97a4fa2a0e98d3ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataManager: {fileID: 0}
 --- !u!1 &8958793351363894152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,7 +1484,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 8958793351670288390}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
