@@ -21,7 +21,7 @@ public class Chaser : MonoBehaviour
     }
     
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (CheckSight.isDetected)
         {
@@ -38,9 +38,9 @@ public class Chaser : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && nav.speed != 0f) 
+        if (other.CompareTag("Player")) 
         {
-            Debug.Log("게임오버!!!!");
+            Debug.Log("원숭이로부터 게임오버!!!!");
         }
     }
 }

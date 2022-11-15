@@ -88,25 +88,7 @@ public class LockControl : MonoBehaviour
 
             SpinnerManager.scaleAdj(uiSpinner[beforeSpinner], uiSpinner[curSpinner]);
         }
-        // if (Input.GetButtonDown("Vertical") && SpinnerManager.isChange)
-        // {
-        //     uiSpinner[curSpinner].Spin(Convert.ToInt32(Input.GetAxisRaw("Vertical")));
-        // }
-        
-        // if (Input.GetButtonDown("Horizontal") && SpinnerManager.isChange)
-        // {
-        //     beforeSpinner = curSpinner;
-        //     curSpinner += 1 * Convert.ToInt32(Input.GetAxisRaw("Horizontal"));
-        //
-        //     if (curSpinner > 5)
-        //         curSpinner = 0;
-        //     
-        //     if (curSpinner < 0)
-        //         curSpinner = 5;
-        //
-        //     SpinnerManager.scaleAdj(uiSpinner[beforeSpinner], uiSpinner[curSpinner]);
-        // }
-        
+
         if(Input.GetKeyDown(KeySetting.keys[KeyAction.GRAB]) && isInputStop == false)
         {
             if (init)
@@ -128,21 +110,6 @@ public class LockControl : MonoBehaviour
                 }
             }
         }
-
-        // if (Input.GetKeyDown(KeyCode.Return) && isInputStop == false)
-        // {
-        //     if (Correct())
-        //     {
-        //         StartCoroutine(Clear());
-        //     }
-        //     else
-        //     {
-        //         uiMaterial.color = Color.red;
-        //         realMaterial.color = Color.red;
-        //         audioSource.clip = audioClip[1];
-        //         audioSource.Play();
-        //     }
-        // }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

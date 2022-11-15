@@ -22,8 +22,9 @@ public class PlayerController : MonoBehaviour
     public bool onGround;
     GameObject Rope, Bone;
     public static bool isGrab;
+    public bool onBone;
     public bool Handed = false;
-    private bool onRope, Attach, onBone;
+    private bool onRope, Attach;
     private bool inWater;
     private bool isBarrier; // 배리어 여부 확인
     private bool Ladder;
@@ -394,6 +395,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
+            NoiseCheck.isLand = true;
             onGround = true;
             inWater = false;
             anim.SetBool("InWater", inWater);

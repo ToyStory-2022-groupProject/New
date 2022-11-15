@@ -47,13 +47,13 @@ public class Carried : MonoBehaviour
             OnHand = true;
         }
     }
-    private void OnTriggerExit(Collider point)
-    {
-        if(point.tag == "Hand")
-        {
-            transform.rotation = new Quaternion(0, 0, 0, 0);
-        }
-    }
+    // private void OnTriggerExit(Collider point)
+    // {
+    //     if(point.tag == "Hand")
+    //     {
+    //         transform.rotation = new Quaternion(0, 0, 0, 0);
+    //     }
+    // }
 
 
 }

@@ -41,6 +41,7 @@ public class Safe : MonoBehaviour
             if (i == 49)
             {
                 cat.isfound = true;
+                cat.playerRun = true;
             }
             yield return null;
         }

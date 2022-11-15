@@ -7,13 +7,15 @@ public class TikTok : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip[] audioClips;
-    
+    public Cat cat;
+    public GameObject puzzleUI;
+    public GameObject panel;
+
     private bool inStage;
     private bool isTimer;
     private bool isGameOver;
     public float gameOverTime = 10f;
     private float curTime;
-
     private void Start()
     {
         audioSource.clip = audioClips[0];
@@ -28,7 +30,9 @@ public class TikTok : MonoBehaviour
             if (curTime >= gameOverTime && isGameOver == false)
             {
                 isGameOver = true;
-                Debug.Log("게임오버!!!"); // 마녀가 죽이는거 추가하기
+                cat.isfound = true;
+                panel.SetActive(false);
+                puzzleUI.SetActive(false);
                 audioSource.clip = audioClips[1];
                 audioSource.Play();
                 audioSource.loop = false;

@@ -28,6 +28,7 @@ public class Cat : MonoBehaviour
     public AudioClip[] audioClips; // 0 = 일어나는 소리 1 = 공격소리 2 = 도망갈 때 소리
     private RaycastHit[] raycastHits;
     private bool isAudioPlayed;
+    public bool playerRun;
     
     // 고양이 내쫓기 관련
     public GameObject stage4;
@@ -68,6 +69,7 @@ public class Cat : MonoBehaviour
                 playerController.enabled = false;
                 run.SetActive(false);
                 attack.SetActive(true);
+                Debug.Log("고양이 공격으로 게임오버");
             }
         }
         
@@ -95,7 +97,7 @@ public class Cat : MonoBehaviour
 
     void FindPlayer() // 범위 외로 이동하려고 하는 경우
     {
-        raycastHits = Physics.SphereCastAll(transform.position, radius, transform.position);
+        raycastHits = Physics.SphereCastAll(transform.position, radius, Vector3.one.normalized);
     }
 
     IEnumerator CatMove()
@@ -108,10 +110,19 @@ public class Cat : MonoBehaviour
         yield return YieldInstructionCache.WaitForSeconds(3f);
         stretch.SetActive(false);
         run.SetActive(true);
+        if (playerRun)
+        {
+            nav.speed = 3.5f;
+            nav.angularSpeed = 120;
+            nav.acceleration = 10;
+        }
         nav.enabled = true;
         yield return YieldInstructionCache.WaitForSeconds(1f);
         stage3Cam.Follow = head.transform;
-        playerController.enabled = true;
+        if (playerRun)
+        {
+            playerController.enabled = true;
+        }
         playerController.Switch = false;
         anim.SetBool("Switch", false);
     }

@@ -20,13 +20,15 @@ public class NoiseCheck : MonoBehaviour
     [SerializeField] public PlayerController playerController;
     
     // 캐릭터가 들어올때만 수행시키기
-    public static bool isPlayerEnter;
+    private bool isPlayerEnter;
+    public static bool isLand;
     private float chargeSpeed; 
     // 채워지는 속도
     private float chargeTime; 
     // 채워지는데 걸리는 시간
     private float currentNoise; 
     // 현재 슬라이더 값을 저장
+    public static float ropeNoise;
 
     public float walkingTime = 15f;
     // 캐릭터가 걸을 때
@@ -36,6 +38,7 @@ public class NoiseCheck : MonoBehaviour
     // 캐릭터가 대기하고 있을 때
     public float sliderYOffset = 6f;
     // 캐릭터와 슬라이더 사이의 고정 오프셋
+    
 
     public Cat cat;
     
@@ -51,31 +54,35 @@ public class NoiseCheck : MonoBehaviour
             else
             {
                 // 트리거 내에서 캐릭터 움직임 관련 입력을 받으면 수행
-                if (playerController.enabled && playerController.onGround && 
+                if (playerController.enabled && playerController.onGround &&
                     (Input.GetKey(KeySetting.keys[KeyAction.LEFT]) || Input.GetKey(KeySetting.keys[KeyAction.RIGHT]) 
                       || Input.GetKey(KeySetting.keys[KeyAction.UP]) || Input.GetKey(KeySetting.keys[KeyAction.Down])))
-               {
-                   if (Input.GetKey(KeySetting.keys[KeyAction.WALK]))
-                   {
-                       chargeTime = walkingTime;
-                   }
-                   else
-                   {
-                       chargeTime = runningTime;
-                   }
-               }
-               else
-               {
-                   chargeTime = -waitingTime;
-               }
-               
+                {
+                    if (Input.GetKey(KeySetting.keys[KeyAction.WALK]))
+                    {
+                        chargeTime = walkingTime;
+                    }
+                    else
+                    {
+                        chargeTime = runningTime;
+                    }
+                }
+                else if (isLand) // 착지 시점
+                {
+                    isLand = false;
+                    chargeTime = runningTime;
+                }
+                else
+                {
+                    chargeTime = -waitingTime;
+                }
+                
                 // 속도 = 거리 / 시간 => 
                 // 채워지는 속도 = (슬라이더 최대값 - 최소값) / 상황에 따라 설정한 시간값
                 chargeSpeed = (noiseSlider.maxValue - noiseSlider.minValue) / chargeTime;
-               
                 // 실제 시간과 똑같이 걸릴 수 있도록 Time.deltaTime을 곱하기
                 currentNoise += chargeSpeed * Time.deltaTime;
-                
+
                 if (currentNoise <= noiseSlider.minValue)
                 {
                     currentNoise = noiseSlider.minValue;
@@ -115,7 +122,10 @@ public class NoiseCheck : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {            
             // 다시 들어올 경우를 대비해 현재 소음 값 초기화 시켜놓기
-            currentNoise = noiseSlider.minValue;
+            if (playerController.onBone == false)
+            {
+                currentNoise = noiseSlider.minValue;
+            }
             UIObject.SetActive(false);
             isPlayerEnter = false;
         }

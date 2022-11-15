@@ -20,7 +20,8 @@ public class Ending : MonoBehaviour
     public bool isEnd;
     public BoxCollider boxCollider;
     public Image panel;
-
+    public DataManager dataManager;
+    
     private void Update()
     {
         if (isEnd)
@@ -73,10 +74,19 @@ public class Ending : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && puzzleKey.transform.parent.name == "GSpace")
+        if (other.CompareTag("Key"))
         {
             playableDirector.Play(timelineAsset);
         }
     }
-    
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            dataManager = FindObjectOfType<DataManager>();
+            dataManager.Save();
+            LoadingSceneController.Instance.LoadScene(0);
+        }
+    }
 }

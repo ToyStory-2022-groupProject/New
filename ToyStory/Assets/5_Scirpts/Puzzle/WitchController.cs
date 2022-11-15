@@ -36,13 +36,12 @@ public class WitchController : MonoBehaviour
 
         if (dead)
         {
-            Debug.Log("?????????");
             dead = false;
             end = true;
             nav.enabled = false;
             anim.enabled = false;
             audioSource.Play();
-            playerRigid.AddForce(Vector3.up * 10, ForceMode.Impulse);
+            Debug.Log("마녀한테 죽음");
         }
         
         if (stage1Cam.activeSelf == false)

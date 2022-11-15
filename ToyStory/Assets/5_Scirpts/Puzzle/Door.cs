@@ -10,7 +10,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && key.transform.parent.name == "GSpace")
+        if(other.CompareTag("Key"))
         {
             doorRigid.isKinematic = false;
             key.SetActive(false);
