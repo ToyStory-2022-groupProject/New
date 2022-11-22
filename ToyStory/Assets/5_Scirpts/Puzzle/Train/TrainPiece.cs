@@ -8,14 +8,18 @@ public class TrainPiece : MonoBehaviour
 {
     public GameObject original;
     public GameObject piece;
-
+    public int pieceNum;
+    public bool done = false;
+    
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject == piece)
         {
             original.SetActive(true);
-            Destroy(piece);
-            Destroy(gameObject);
+            piece.SetActive(false);
+            //Destroy(gameObject);
+            done = true;
         }
     }
 }
+ 

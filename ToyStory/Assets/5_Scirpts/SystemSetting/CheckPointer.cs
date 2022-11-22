@@ -6,7 +6,6 @@ public class CheckPointer : MonoBehaviour
 {   
     public GameObject[] checkPoint;
     public bool[] checking;
-
     public int pointNum;
 
     void Start()
@@ -49,4 +48,9 @@ public class CheckPointer : MonoBehaviour
         checking[num] = true;
     }
 
+    public void pointitialize()
+    {
+        FindCheckPoint();
+        checkPoint[pointNum + 1].GetComponent<CPointData>().initialize();
+    }
 }

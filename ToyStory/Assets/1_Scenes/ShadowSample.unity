@@ -322,6 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3a3020846b34bcabd6354105ceeb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFade: 0
 --- !u!114 &54183568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,6 +564,7 @@ GameObject:
   - component: {fileID: 76971520}
   - component: {fileID: 76971519}
   - component: {fileID: 76971518}
+  - component: {fileID: 76971522}
   m_Layer: 18
   m_Name: Capsule
   m_TagString: Untagged
@@ -650,6 +652,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &76971522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76971517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5429c6e5c55721f4c92f08e4558b7e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveObject:
+  - {fileID: 340024693}
+  - {fileID: 880857664}
+  - {fileID: 1893484092}
+  location: []
+  rotation: []
+  objectNum: 0
 --- !u!1 &89301993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4787,6 +4808,8 @@ MonoBehaviour:
   GameOver: {fileID: 0}
   onGround: 0
   Handed: 0
+  onBone: 0
+  Switch: 0
   dataManager: {fileID: 2124375445}
 --- !u!95 &2044471114
 Animator:

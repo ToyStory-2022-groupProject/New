@@ -11,6 +11,7 @@ public class Chaser : MonoBehaviour
     public GameObject player;
     public CheckSight CheckSight;
     public BoxCollider boxCollider;
+    public GameOver GameOver;
     public float monkeySpeed;
     
 
@@ -40,6 +41,9 @@ public class Chaser : MonoBehaviour
     {
         if (other.CompareTag("Player")) 
         {
+            player.GetComponent<PlayerController>().scriptOff();
+            GameOver = FindObjectOfType<GameOver>();
+            GameOver.Restart(0.1f, 0.1f);   
             Debug.Log("원숭이로부터 게임오버!!!!");
         }
     }

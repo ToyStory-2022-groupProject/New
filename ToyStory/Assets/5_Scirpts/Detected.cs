@@ -8,6 +8,7 @@ public class Detected : MonoBehaviour
     public GameObject lampTOmirror;
     public GameObject mirrorLight;
     public GameObject bookParticle;
+    public GameObject Key;
     
     private float timer;
     // Start is called before the first frame update
@@ -30,8 +31,9 @@ public class Detected : MonoBehaviour
             mirrorLight.SetActive(true);
             pointlight.SetActive(true);
             lampTOmirror.SetActive(true);
-            if(timer > 2f)
-                bookParticle.SetActive(true);
+            Key.SetActive(true);
+            /*if(timer > 2f)
+                bookParticle.SetActive(true);*/
         }   
         else if(Physics.Raycast(transform.position, transform.up, 20f, LayerMask.GetMask("Puzzle")))
         {
@@ -39,7 +41,8 @@ public class Detected : MonoBehaviour
             pointlight.SetActive(true);
             lampTOmirror.SetActive(true);
             mirrorLight.SetActive(false);
-            bookParticle.SetActive(false);
+            Key.SetActive(false);
+            //bookParticle.SetActive(false);
         }
         else
         {
@@ -47,7 +50,8 @@ public class Detected : MonoBehaviour
             pointlight.SetActive(false);
             lampTOmirror.SetActive(false);
             mirrorLight.SetActive(false);
-            bookParticle.SetActive(false);
+            Key.SetActive(false);
+            //bookParticle.SetActive(false);
         }
     }
 }

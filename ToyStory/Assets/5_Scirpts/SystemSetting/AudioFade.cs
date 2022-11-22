@@ -28,7 +28,7 @@ public class AudioFade : MonoBehaviour
     {
         while (_gameManager.audioSource.volume >= 0f)
         {
-            Debug.Log("소리나오는중");
+            //Debug.Log("소리나오는중");
             _gameManager.audioSource.volume -= startBgmVolume / _gameManager.fadeTime;
             yield return null;
         }
