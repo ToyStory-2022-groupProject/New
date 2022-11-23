@@ -8,7 +8,7 @@ using Random = System.Random;
 
 public class BatteryCatch : MonoBehaviour
 {
-     public static bool isStop;
+    public static bool isStop;
 
     public Image hitBox;
     public Image batteryVeilImage; 
@@ -27,6 +27,8 @@ public class BatteryCatch : MonoBehaviour
     private float handSpeed;
     private float direction;
     private int randomPositionX;
+
+    public bool clockClear;
 
     private void Start()
     {
@@ -60,6 +62,7 @@ public class BatteryCatch : MonoBehaviour
         {
             isStop = true;
             StartCoroutine(Clear());
+            clockClear = true;
         }
     }
 

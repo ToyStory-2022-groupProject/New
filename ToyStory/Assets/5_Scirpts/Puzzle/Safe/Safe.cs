@@ -15,16 +15,20 @@ public class Safe : MonoBehaviour
     public BoxCollider boxCollider;
     public Cat cat;
     public GameObject noiseCheck;
+
+    public bool safeClear;
+
     private void Update()
     {
         if (isSafePuzzleClear)
         {
             isSafePuzzleClear = false;
             SafeOpen();
+            safeClear = true;
         }
     }
 
-    void SafeOpen()
+    public void SafeOpen()
     {
         audioSource.Play();
         StartCoroutine(Open());

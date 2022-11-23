@@ -9,14 +9,20 @@ public class CheckingPuzzle : MonoBehaviour
     public GameObject answerCandy;
     public GameObject floor;
     public bool check;
+    public bool puzzleClear;
 
-    void OnTriggerStay(Collider other)
+    void Update()
     {
-        if (other.gameObject.name == Candy.name)
+        if(puzzleClear)
         {
             check = true;
             Candy.SetActive(false);
             answerCandy.SetActive(true);
         }
+    }
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.name == Candy.name)
+            puzzleClear = true;
     }
 }

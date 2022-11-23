@@ -35,8 +35,8 @@ public class CrackerClear : MonoBehaviour
             isclear = false;
             for (int i = 0; i < count; i++)
             { 
-                Destroy(answers[i].floor);
-                Destroy(answers[i].Candy);
+                answers[i].floor.SetActive(false);
+                answers[i].Candy.SetActive(false);
             }
 
             //StopSound();

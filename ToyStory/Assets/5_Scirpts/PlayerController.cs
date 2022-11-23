@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         if(dataManager.dataExist)
         {
             dataManager.Load();
-            Debug.Log(dataManager.PointNum);
+            Debug.Log(dataManager.trainPuzzle.Length);
             if(dataManager.PointNum != -1)
             {
                 transform.position = CheckPointer.checkPoint[dataManager.PointNum].transform.position;

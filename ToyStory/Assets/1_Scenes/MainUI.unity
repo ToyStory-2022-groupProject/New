@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311912, g: 0.3807398, b: 0.3587271, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -450,7 +450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 315}
+  m_AnchoredPosition: {x: 20, y: 178}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &716600680
@@ -486,7 +486,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD1A0\uC774\uC2A4\uD1A0\uB9AC"
+  m_Text: ToyStory
 --- !u!222 &716600681
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -554,7 +554,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0ce20ed86fcee48b77cc0adf1ad4df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageNum: 0
+  checkPointer: {fileID: 0}
+  Replacing: {fileID: 0}
+  Location: []
+  Rotation: []
+  trainPuzzle: 
+  c1: 0
+  c5: 0
+  c6: 0
+  c7: 0
   PointNum: 0
   dataExist: 0
 --- !u!4 &849987866

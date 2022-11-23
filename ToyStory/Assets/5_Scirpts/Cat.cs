@@ -29,6 +29,9 @@ public class Cat : MonoBehaviour
     private RaycastHit[] raycastHits;
     private bool isAudioPlayed;
     public bool playerRun;
+    public GameObject stage4Key;
+    Vector3 k4position;
+    Vector3 k4Roatation;
     
     // 고양이 내쫓기 관련
     public GameObject stage4;
@@ -37,18 +40,30 @@ public class Cat : MonoBehaviour
     public GameObject zoomOut; // 카메라 줌 아웃
     public GameObject basicCam; // 카메라 줌 아웃
     public CheckSight checkSight;
+    public PlayerController PlayerController;
     private bool isSpurn;
     private bool isInit;
     private bool isSecond;
     private bool isThird;
     private Vector3 originPosition;
+    private Vector3 originRotation;
     public float spurnSpeed;
+    public GameOver GameOver;
+    public Safe Safe;
+    public bool finishShadow;
+
+    float timer;
     
     void Start()
     {
         isChaser = true;
         nav = GetComponent<NavMeshAgent>();
+        Safe = FindObjectOfType<Safe>();
         originPosition = gameObject.transform.position;
+        originRotation = gameObject.transform.eulerAngles;
+
+        k4position = stage4Key.transform.position;
+        k4Roatation = stage4Key.transform.eulerAngles;
     }
 
     private void Update()
@@ -69,7 +84,7 @@ public class Cat : MonoBehaviour
                 playerController.enabled = false;
                 run.SetActive(false);
                 attack.SetActive(true);
-                Debug.Log("고양이 공격으로 게임오버");
+                catOver();
             }
         }
         
@@ -98,6 +113,34 @@ public class Cat : MonoBehaviour
     void FindPlayer() // 범위 외로 이동하려고 하는 경우
     {
         raycastHits = Physics.SphereCastAll(transform.position, radius, Vector3.one.normalized);
+    }
+
+    public void catOver() //게임오버 시 고양이 제자리에 놓기
+    {
+        timer += Time.deltaTime;
+        GameOver = FindObjectOfType<GameOver>();
+        GameOver.Restart(0.1f, 0.1f);
+        nav.enabled = false;
+        
+        if(timer > 1)
+        {
+            attack.SetActive(false);
+            sleep.SetActive(true);
+            gameObject.transform.position = originPosition;
+            gameObject.transform.eulerAngles = originRotation; 
+            timer = 0.0f;
+
+            if(Safe.safeClear == true)
+            {
+                PlayerController.isGrab = false;
+                stage4Key.transform.position = k4position;
+                stage4Key.transform.eulerAngles = k4Roatation;
+
+                Safe.isSafePuzzleClear = true;
+                CatMove();
+            }
+                
+        }
     }
 
     IEnumerator CatMove()
@@ -148,6 +191,7 @@ public class Cat : MonoBehaviour
             audioSource.clip = audioClips[2]; // 도망가는 소리 재생
             audioSource.Play();
             nav.SetDestination(originPosition); // 원래 이치로 이동시키기
+            finishShadow = true;
         }
         yield return YieldInstructionCache.WaitForSeconds(5f);
         if (isThird == false)
@@ -177,4 +221,6 @@ public class Cat : MonoBehaviour
             isChaser = false;
         }
     }
+
+    
 }

@@ -16,6 +16,7 @@ public class TikTok : MonoBehaviour
     private bool isGameOver;
     public float gameOverTime = 10f;
     private float curTime;
+
     private void Start()
     {
         audioSource.clip = audioClips[0];
@@ -36,6 +37,7 @@ public class TikTok : MonoBehaviour
                 audioSource.clip = audioClips[1];
                 audioSource.Play();
                 audioSource.loop = false;
+                curTime = 0.0f;
             } 
         }
 

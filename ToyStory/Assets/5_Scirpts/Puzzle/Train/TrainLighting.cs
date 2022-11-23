@@ -22,7 +22,7 @@ public class TrainLighting : MonoBehaviour
      private bool isArrive;
      private bool isEndOperate;
      private float runningTime;
-     private bool Connected;
+     public bool Connected;
 
      
 
