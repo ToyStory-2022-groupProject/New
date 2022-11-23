@@ -43,8 +43,7 @@ public class MainUI : MonoBehaviour
         else if(saveExist)
         {
             dataManager.Load();
-            nextScene = dataManager.StageNum;
-            Debug.Log(dataManager.StageNum);
+            nextScene = GameManager.scene.buildIndex + 1;
             Debug.Log(dataManager.PointNum);
         }
             

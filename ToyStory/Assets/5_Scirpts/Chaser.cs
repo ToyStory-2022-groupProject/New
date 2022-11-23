@@ -7,11 +7,14 @@ using UnityEngine.AI;
 
 public class Chaser : MonoBehaviour
 {
-    private NavMeshAgent nav;
+    public NavMeshAgent nav;
     public GameObject player;
     public CheckSight CheckSight;
     public BoxCollider boxCollider;
+    public GameObject cymbalsMonkey;
     public GameOver GameOver;
+    public Replacing Replacing;
+    public bool stopDetect = false;
     public float monkeySpeed;
     
 
@@ -24,7 +27,7 @@ public class Chaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CheckSight.isDetected)
+        if (CheckSight.isDetected && stopDetect == false)
         {
             nav.enabled = true;
             boxCollider.enabled = false;
@@ -41,10 +44,14 @@ public class Chaser : MonoBehaviour
     {
         if (other.CompareTag("Player")) 
         {
+            stopDetect = true;
             player.GetComponent<PlayerController>().scriptOff();
             GameOver = FindObjectOfType<GameOver>();
-            GameOver.Restart(0.1f, 0.1f);   
+            GameOver.Restart(0.1f, 0.1f); 
+            Replacing.Replace();
             Debug.Log("원숭이로부터 게임오버!!!!");
         }
     }
+
+  
 }

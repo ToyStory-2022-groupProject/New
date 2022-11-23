@@ -2,31 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReplaceTrain : MonoBehaviour
+public class Replacing : MonoBehaviour
 {
-    public GameObject[] trainPuzzle;
+    public GameObject[] tPiece;
     public bool[] replacePiece;
     public CPointData CPointData;
     public TrainPiece TrainPiece;
 
+    private float timer;
+    
     void Start()
     {
-        CPointData = GetComponent<CPointData>();
         TrainPiece = GetComponent<TrainPiece>();
-        replacePiece = new bool [trainPuzzle.Length];
+        replacePiece = new bool [tPiece.Length];
     }
 
     // Update is called once per frame.
     void Update()
     {
-        
+        timer += Time.deltaTime;
     }
     
     void activedTrain()
     {
-        for(int i = 0; i < trainPuzzle.Length; i++)
+        for(int i = 0; i < tPiece.Length; i++)
         {
-            if(trainPuzzle[i].done = true)
+            if(tPiece[i].GetComponent<TrainPiece>().done)
                 replacePiece[i] = true;
             else
                 replacePiece[i] = false;
@@ -37,7 +38,7 @@ public class ReplaceTrain : MonoBehaviour
     {
         activedTrain();
 
-        for(int i = 0; i < trainPuzzle.Length; i++)
+        for(int i = 0; i < tPiece.Length; i++)
         {
             if(replacePiece[i] == false)
             {
@@ -46,9 +47,18 @@ public class ReplaceTrain : MonoBehaviour
             }
             if(replacePiece[i] == true)
             {
-                TrainPiece.original.SetActive(true);
-                TrainPiece.piece.SetActive(false);
+                tPiece[i].GetComponent<TrainPiece>().original.SetActive(true);
+                tPiece[i].GetComponent<TrainPiece>().piece.SetActive(false);
             }
+        }
+
+        CPointData.saveObject[tPiece.Length].transform.eulerAngles = CPointData.rotation[tPiece.Length];
+        CPointData.saveObject[tPiece.Length].transform.position = CPointData.location[tPiece.Length];
+        
+        if(timer > 10f)
+        {
+            CPointData.saveObject[tPiece.Length].GetComponent<Chaser>().stopDetect = false;
+            timer = 0;
         }
     }
 }
