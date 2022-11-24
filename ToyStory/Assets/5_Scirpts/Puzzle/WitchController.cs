@@ -19,8 +19,13 @@ public class WitchController : MonoBehaviour
     public Rigidbody playerRigid;
     public AudioSource audioSource;
     public CrackerClear crackerClear;
+    public GameOver GameOver;
+
+    float timer = 0.0f;
+
     private void Start()
     {
+        GameOver = FindObjectOfType<GameOver>();
         dest = targetPos;
         isNextAction = true;
         isWitchMove = true;
@@ -36,11 +41,20 @@ public class WitchController : MonoBehaviour
 
         if (dead)
         {
+            timer += Time.deltaTime;
             dead = false;
             end = true;
             nav.enabled = false;
             anim.enabled = false;
             audioSource.Play();
+            GameOver.Restart(0.1f, 0.1f);
+            if(timer > 1)
+            {
+                isWitchMove = true;
+                end = false;
+                gameObject.transform.position = originPos;
+                timer = 0.0f;
+            }
             Debug.Log("마녀한테 죽음");
         }
         
