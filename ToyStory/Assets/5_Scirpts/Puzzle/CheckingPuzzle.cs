@@ -15,6 +15,7 @@ public class CheckingPuzzle : MonoBehaviour
     {
         if(puzzleClear)
         {
+            Debug.Log("퍼즐클리어");
             check = true;
             Candy.SetActive(false);
             answerCandy.SetActive(true);

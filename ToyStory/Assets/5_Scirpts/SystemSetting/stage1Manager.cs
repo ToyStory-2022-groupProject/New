@@ -6,23 +6,27 @@ public class stage1Manager : MonoBehaviour
 {
     public GameObject[] candyPuzzles;
     public DataManager DataManager;
-    public CheckPointer check1;
+    public CheckPointer Checkpointer;
     public CPointData CPointData;
     public bool candyClear;
     void Start()
     {
-        check1 = GetComponent<CheckPointer>();
         DataManager.Checking();
-        if(DataManager.c1 == true)
+        if(DataManager.dataExist)
         {
-            for (int i = 0; i < 2; i++)
+            DataManager.Load();
+            if(DataManager.c1 == true)
             {
-                candyPuzzles[i].SetActive(true);
-                candyPuzzles[i].GetComponent<CheckingPuzzle>().puzzleClear = true;
-                CPointData.saveObject[i].transform.eulerAngles = DataManager.Rotation[i];
-                CPointData.saveObject[i].transform.position = DataManager.Location[i];
-            }
+                Debug.Log("위치 재설정");
+                for (int i = 0; i < 2; i++)
+                {
+                    candyPuzzles[i].SetActive(true);
+                    candyPuzzles[i].GetComponent<CheckingPuzzle>().puzzleClear = true;
+                    CPointData.saveObject[i].transform.eulerAngles = DataManager.Rotation[i];
+                    CPointData.saveObject[i].transform.position = DataManager.Location[i];
+                }
 
+            }
         }
     }
 
@@ -31,8 +35,14 @@ public class stage1Manager : MonoBehaviour
     {
         if(candyPuzzles[0].activeSelf == true && candyPuzzles[1].activeSelf == true)
         {
-            if(candyPuzzles[0].GetComponent<CheckingPuzzle>().check == true && candyPuzzles[1].GetComponent<CheckingPuzzle>().check == true)
-                check1.checking[1] = true;
+            Debug.Log("발판 생성");
+            if(candyPuzzles[0].GetComponent<CheckingPuzzle>().puzzleClear == true && candyPuzzles[1].GetComponent<CheckingPuzzle>().puzzleClear == true)
+            {
+                Debug.Log("퍼즐 1클리어");
+                Checkpointer.checking[1] = true;
+                CPointData.saveLocation();
+            }
+                
         }
         
     }
