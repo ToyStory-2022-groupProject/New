@@ -38,11 +38,13 @@ public class WitchController : MonoBehaviour
             isWitchMove = false;
             MoveWitch();
         }
-
+        if(gameObject.activeSelf == false)
+        {
+            Debug.Log("??ASD0");
+        }
         if (dead)
         {
             timer += Time.deltaTime;
-            dead = false;
             end = true;
             nav.enabled = false;
             anim.enabled = false;
@@ -53,8 +55,11 @@ public class WitchController : MonoBehaviour
                 isWitchMove = true;
                 end = false;
                 gameObject.transform.position = originPos;
+                nav.enabled = true;
+                anim.enabled = true;
                 timer = 0.0f;
             }
+            dead = false;
             Debug.Log("마녀한테 죽음");
         }
         
@@ -63,6 +68,7 @@ public class WitchController : MonoBehaviour
             gameObject.SetActive(false);
             crackerClear.StopSound();
         }
+        
     }
 
     void MoveWitch()
