@@ -47,8 +47,15 @@ public class DataManager : MonoBehaviour
         PointNum = checkPointer.pointNum;
         for(int i = 0; i < PointNum + 1; i++)
         {
+            if(i == 0)
+            {
+                Debug.Log(i);
+                Location.Add(checkPointer.checkPoint[i].GetComponent<CPointData>().location[i]);
+                Rotation.Add(checkPointer.checkPoint[i].GetComponent<CPointData>().rotation[i]);
+            }
             if(i == 1)
             {
+                Debug.Log(i);
                 c1 = true;
                 for(int j = 0; j < checkPointer.checkPoint[i].GetComponent<CPointData>().objectNum; j++)
                 {

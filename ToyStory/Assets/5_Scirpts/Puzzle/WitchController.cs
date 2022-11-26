@@ -20,6 +20,7 @@ public class WitchController : MonoBehaviour
     public AudioSource audioSource;
     public CrackerClear crackerClear;
     public GameOver GameOver;
+    public DataManager DataManager;
 
     float timer = 0.0f;
 
@@ -29,46 +30,51 @@ public class WitchController : MonoBehaviour
         dest = targetPos;
         isNextAction = true;
         isWitchMove = true;
+        DataManager.Checking();
+        if(DataManager.dataExist)
+            DataManager.Load();
     }
 
     void Update()
     {
-        if (isWitchMove && end == false)
-        {
-            isWitchMove = false;
-            MoveWitch();
-        }
-        if(gameObject.activeSelf == false)
-        {
-            Debug.Log("??ASD0");
-        }
-        if (dead)
-        {
-            timer += Time.deltaTime;
-            end = true;
-            nav.enabled = false;
-            anim.enabled = false;
-            audioSource.Play();
-            GameOver.Restart(0.1f, 0.1f);
-            if(timer > 1)
+        if(DataManager.PointNum < 2) //스테이지 1 탈출하면 마녀 안 나오게
+        {   
+            if (isWitchMove && end == false)
             {
-                isWitchMove = true;
-                end = false;
-                gameObject.transform.position = originPos;
-                nav.enabled = true;
-                anim.enabled = true;
-                timer = 0.0f;
+                isWitchMove = false;
+                MoveWitch();
             }
-            dead = false;
-            Debug.Log("마녀한테 죽음");
-        }
+            if(gameObject.activeSelf == false)
+            {
+                Debug.Log("??ASD0");
+            }
+            if (dead)
+            {
+                timer += Time.deltaTime;
+                end = true;
+                nav.enabled = false;
+                anim.enabled = false;
+                audioSource.Play();
+                GameOver.Restart(0.1f, 0.1f);
+                if(timer > 1)
+                {
+                    isWitchMove = true;
+                    end = false;
+                    gameObject.transform.position = originPos;
+                    nav.enabled = true;
+                    anim.enabled = true;
+                    timer = 0.0f;
+                }
+                dead = false;
+                Debug.Log("마녀한테 죽음");
+            }
         
-        if (stage1Cam.activeSelf == false)
-        {
-            gameObject.SetActive(false);
-            crackerClear.StopSound();
+            if (stage1Cam.activeSelf == false)
+            {
+                gameObject.SetActive(false);
+                crackerClear.StopSound();
+            }
         }
-        
     }
 
     void MoveWitch()

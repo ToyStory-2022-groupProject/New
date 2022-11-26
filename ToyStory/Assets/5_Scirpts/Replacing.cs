@@ -7,6 +7,7 @@ public class Replacing : MonoBehaviour
     public GameObject[] tPiece;
     public bool[] replacePiece;
     public GameObject key;
+    public PlayerController PlayerController;
     Vector3 kLocation;
     Vector3 kRotation;
 
@@ -23,6 +24,7 @@ public class Replacing : MonoBehaviour
     
     void Start()
     {
+        PlayerController = FindObjectOfType<PlayerController>();
         TrainLighting = FindObjectOfType<TrainLighting>();
         replacePiece = new bool[tPiece.Length];
 
@@ -72,10 +74,12 @@ public class Replacing : MonoBehaviour
     
     public void Replace()
     {
+        PlayerController.isGrab = false;
         activedTrain();
 
         for(int i = 0; i < tPiece.Length; i++)
         {
+            
             if(replacePiece[i] == false)
             {
                 CPointData.saveObject[i].transform.eulerAngles = CPointData.rotation[i];

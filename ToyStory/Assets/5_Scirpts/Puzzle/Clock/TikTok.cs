@@ -10,6 +10,7 @@ public class TikTok : MonoBehaviour
     public Cat cat;
     public GameObject puzzleUI;
     public GameObject panel;
+    public DataManager DataManager;
 
     private bool inStage;
     private bool isTimer;
@@ -19,12 +20,17 @@ public class TikTok : MonoBehaviour
 
     private void Start()
     {
+        DataManager.Checking();
+        if(DataManager.dataExist)
+            DataManager.Load();
         audioSource.clip = audioClips[0];
     }
 
     private void Update()
     {
-        if(inStage)
+        if(DataManager.PointNum < 6)
+        {
+            if(inStage)
         {
             curTime += Time.deltaTime;
 
@@ -45,6 +51,7 @@ public class TikTok : MonoBehaviour
         {
             audioSource.Stop();
             gameObject.SetActive(false);
+        }
         }
     }
     

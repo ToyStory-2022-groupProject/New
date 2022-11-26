@@ -40,6 +40,7 @@ public class Cat : MonoBehaviour
     public GameObject zoomOut; // 카메라 줌 아웃
     public GameObject basicCam; // 카메라 줌 아웃
     public CheckSight checkSight;
+    public GameObject NoiseUI;
     public PlayerController PlayerController;
     private bool isSpurn;
     private bool isInit;
@@ -49,6 +50,7 @@ public class Cat : MonoBehaviour
     private Vector3 originRotation;
     public float spurnSpeed;
     public GameOver GameOver;
+    public CheckPointer CheckPointer;
     public Safe Safe;
     public bool finishShadow;
 
@@ -219,6 +221,7 @@ public class Cat : MonoBehaviour
         {
             isSpurn = true;
             isChaser = false;
+            CheckPointer.checking[7] = true;
         }
     }
 

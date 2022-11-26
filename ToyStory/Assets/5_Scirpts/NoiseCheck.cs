@@ -19,6 +19,8 @@ public class NoiseCheck : MonoBehaviour
     
     [SerializeField] public PlayerController playerController;
     
+    public DataManager DataManager;
+
     // 캐릭터가 들어올때만 수행시키기
     private bool isPlayerEnter;
     public static bool isLand;
@@ -41,10 +43,15 @@ public class NoiseCheck : MonoBehaviour
     
 
     public Cat cat;
-    
+    void Start()
+    {
+        DataManager.Checking();
+        if(DataManager.dataExist)
+            DataManager.Load();
+    }
     void Update()
     {
-        if (isPlayerEnter)
+        if (isPlayerEnter && DataManager.PointNum < 6) //퍼즐완료 시 소음게이지 안켜지게
         {
             if (noiseSlider.value >= noiseSlider.maxValue)
             {

@@ -7,14 +7,14 @@ public class stage3Manager : MonoBehaviour
     public Rigidbody doorRigid3;
     public Rigidbody doorRigid4;
     public DataManager DataManager;
-    public CheckPointer check;
+    public CheckPointer CheckPointer;
     public Cat Cat;
     public Safe Safe;
     public BatteryCatch BatteryCatch;
+    
 
     void Start()
     {
-        check = GetComponent<CheckPointer>();
         Safe = FindObjectOfType<Safe>();
         BatteryCatch = FindObjectOfType<BatteryCatch>();
         Cat = FindObjectOfType<Cat>();
@@ -24,19 +24,18 @@ public class stage3Manager : MonoBehaviour
         {
             DataManager.Load();
             
-            if(DataManager.c5 == true)
+            if(DataManager.PointNum >= 5)
             {
                 doorRigid3.isKinematic = false;
             }
-            if(DataManager.c7 == true)
-            {
-                doorRigid4.isKinematic = false;
-            }
-            else if(DataManager.c6 == true)
+            if(DataManager.PointNum == 6)
             {
                 Safe.SafeOpen();
             }
-            
+            if(DataManager.PointNum == 7)
+            {
+                doorRigid4.isKinematic = false;
+            }
         }
         
     }
@@ -44,8 +43,8 @@ public class stage3Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Safe.safeClear == true && BatteryCatch.clockClear == true)
-            check.checking[6] = true;
+        if(Safe.isSafePuzzleClear == false && BatteryCatch.isStop == true)
+            CheckPointer.checking[6] = true;
     }
 
 }

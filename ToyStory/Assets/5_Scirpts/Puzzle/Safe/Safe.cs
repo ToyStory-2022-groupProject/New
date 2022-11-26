@@ -24,7 +24,6 @@ public class Safe : MonoBehaviour
         {
             isSafePuzzleClear = false;
             SafeOpen();
-            safeClear = true;
         }
     }
 

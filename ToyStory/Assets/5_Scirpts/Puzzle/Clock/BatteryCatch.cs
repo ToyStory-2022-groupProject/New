@@ -28,8 +28,6 @@ public class BatteryCatch : MonoBehaviour
     private float direction;
     private int randomPositionX;
 
-    public bool clockClear;
-
     private void Start()
     {
         randomNum = new Random();
@@ -62,7 +60,6 @@ public class BatteryCatch : MonoBehaviour
         {
             isStop = true;
             StartCoroutine(Clear());
-            clockClear = true;
         }
     }
 
