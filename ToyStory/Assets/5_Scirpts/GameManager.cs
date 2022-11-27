@@ -107,8 +107,9 @@ public class GameManager : MonoBehaviour
     
     void Pause() // 게임 정지
     {
-        var obj = FindObjectOfType<SubUI>();
-        Time.timeScale = (obj == null) ? 1 : 0;
+        var subUI = FindObjectOfType<SubUI>();
+        var settingUI = FindObjectOfType<SettingManager>();
+        Time.timeScale = (subUI == null && settingUI == null) ? 1 : 0;
     }
     
     public void PlayBGM(int num)

@@ -141,7 +141,7 @@ public class LockControl : MonoBehaviour
         yield return YieldInstructionCache.WaitForSeconds(1f);
         panel.SetActive(false);
         gameObject.SetActive(false);
-        Destroy(noiseCheck);
+        noiseCheck.SetActive(false);
     }
     
     bool Correct()

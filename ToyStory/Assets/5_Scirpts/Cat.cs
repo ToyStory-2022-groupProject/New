@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
 
 public class Cat : MonoBehaviour
-{
+{ 
     private NavMeshAgent nav;
     public GameObject player;
     public GameObject head; // 플레이어 위치카메라
@@ -32,6 +33,7 @@ public class Cat : MonoBehaviour
     public GameObject stage4Key;
     Vector3 k4position;
     Vector3 k4Roatation;
+    public TikTok tikTok;
     
     // 고양이 내쫓기 관련
     public GameObject stage4;
@@ -41,17 +43,19 @@ public class Cat : MonoBehaviour
     public GameObject basicCam; // 카메라 줌 아웃
     public CheckSight checkSight;
     public GameObject NoiseUI;
+    private NoiseCheck _noiseCheck;
     public PlayerController PlayerController;
     private bool isSpurn;
     private bool isInit;
     private bool isSecond;
     private bool isThird;
+    private bool isAttack;
     private Vector3 originPosition;
     private Vector3 originRotation;
     public float spurnSpeed;
     public GameOver GameOver;
     public CheckPointer CheckPointer;
-    public Safe Safe;
+    public Safe safe;
     public bool finishShadow;
 
     float timer;
@@ -60,35 +64,24 @@ public class Cat : MonoBehaviour
     {
         isChaser = true;
         nav = GetComponent<NavMeshAgent>();
-        Safe = FindObjectOfType<Safe>();
+        safe = FindObjectOfType<Safe>();
         originPosition = gameObject.transform.position;
         originRotation = gameObject.transform.eulerAngles;
 
         k4position = stage4Key.transform.position;
         k4Roatation = stage4Key.transform.eulerAngles;
+
+        _noiseCheck = NoiseUI.GetComponent<NoiseCheck>();
+
     }
 
     private void Update()
     {
-        FindPlayer();
-        for (int i = 0; i < raycastHits.Length; i++)
+        if (isAttack == false)
         {
-            RaycastHit hit = raycastHits[i];
-            if (hit.collider.name == "Player")
-            {
-                nav.enabled = false;
-                if (isAudioPlayed == false)
-                {
-                    isAudioPlayed = true;
-                    audioSource.clip = audioClips[1];
-                    audioSource.Play();
-                }
-                playerController.enabled = false;
-                run.SetActive(false);
-                attack.SetActive(true);
-                catOver();
-            }
+            FindPlayer();
         }
+        
         
         if(nav.enabled && isChaser)
         {
@@ -115,35 +108,91 @@ public class Cat : MonoBehaviour
     void FindPlayer() // 범위 외로 이동하려고 하는 경우
     {
         raycastHits = Physics.SphereCastAll(transform.position, radius, Vector3.one.normalized);
-    }
-
-    public void catOver() //게임오버 시 고양이 제자리에 놓기
-    {
-        timer += Time.deltaTime;
-        GameOver = FindObjectOfType<GameOver>();
-        GameOver.Restart(0.1f, 0.1f);
-        nav.enabled = false;
-        
-        if(timer > 1)
+        for (int i = 0; i < raycastHits.Length; i++)
         {
-            attack.SetActive(false);
-            sleep.SetActive(true);
-            gameObject.transform.position = originPosition;
-            gameObject.transform.eulerAngles = originRotation; 
-            timer = 0.0f;
-
-            if(Safe.safeClear == true)
+            RaycastHit hit = raycastHits[i];
+            if (hit.collider.name == "Player")
             {
-                PlayerController.isGrab = false;
-                stage4Key.transform.position = k4position;
-                stage4Key.transform.eulerAngles = k4Roatation;
-
-                Safe.isSafePuzzleClear = true;
-                CatMove();
+                isAttack = true;
+                nav.enabled = false;
+                if (isAudioPlayed == false)
+                {
+                    isAudioPlayed = true;
+                    audioSource.clip = audioClips[1];
+                    audioSource.Play();
+                }
+                // playerController.enabled = false;
+                // run.SetActive(false);
+                // attack.SetActive(true);
+                StartCoroutine("CatOver");
+                //catOver();
             }
-                
         }
     }
+
+    IEnumerator CatOver()
+    {
+        playerController.enabled = false;
+        run.SetActive(false);
+        attack.SetActive(true);
+        yield return YieldInstructionCache.WaitForSeconds(1.8f);
+        GameOver = FindObjectOfType<GameOver>();
+        GameOver.Restart(0.1f, 0.1f);
+        gameObject.transform.position = originPosition;
+        gameObject.transform.eulerAngles = originRotation;
+        attack.SetActive(false);
+        sleep.SetActive(true);
+        isAttack = false;
+        isAudioPlayed = false;
+        
+        if (BatteryCatch.isStop == false) // 시계 퍼즐 클리어 유무에 따른 초기화 작업
+        {
+            tikTok.Init();
+        }
+        
+        if(safe.safeClear == true)
+        { 
+            PlayerController.isGrab = false;
+            stage4Key.transform.position = k4position;
+            stage4Key.transform.eulerAngles = k4Roatation;
+            
+            Safe.isSafePuzzleClear = true;
+            CatMove();
+        }
+        else // 시계퍼즐 클리어한게 아니라면 UI켜기
+        {
+            Debug.Log("0으로 초기화");
+            NoiseUI.SetActive(true);
+        }
+        
+    }
+    // public void catOver() //게임오버 시 고양이 제자리에 놓기
+    // {
+    //     timer += Time.deltaTime;
+    //     GameOver = FindObjectOfType<GameOver>();
+    //     GameOver.Restart(0.1f, 0.1f);
+    //     nav.enabled = false;
+    //     
+    //     if(timer > 1)
+    //     {
+    //         attack.SetActive(false);
+    //         sleep.SetActive(true);
+    //         gameObject.transform.position = originPosition;
+    //         gameObject.transform.eulerAngles = originRotation; 
+    //         timer = 0.0f;
+    //
+    //         if(Safe.safeClear == true)
+    //         {
+    //             PlayerController.isGrab = false;
+    //             stage4Key.transform.position = k4position;
+    //             stage4Key.transform.eulerAngles = k4Roatation;
+    //
+    //             Safe.isSafePuzzleClear = true;
+    //             CatMove();
+    //         }
+    //             
+    //     }
+    // }
 
     IEnumerator CatMove()
     {

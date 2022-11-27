@@ -22,10 +22,12 @@ public class WitchController : MonoBehaviour
     public GameOver GameOver;
     public DataManager DataManager;
 
+    private Vector3 initPos;
     float timer = 0.0f;
 
     private void Start()
     {
+        initPos = transform.position;
         GameOver = FindObjectOfType<GameOver>();
         dest = targetPos;
         isNextAction = true;
@@ -50,23 +52,7 @@ public class WitchController : MonoBehaviour
             }
             if (dead)
             {
-                timer += Time.deltaTime;
-                end = true;
-                nav.enabled = false;
-                anim.enabled = false;
-                audioSource.Play();
-                GameOver.Restart(0.1f, 0.1f);
-                if(timer > 1)
-                {
-                    isWitchMove = true;
-                    end = false;
-                    gameObject.transform.position = originPos;
-                    nav.enabled = true;
-                    anim.enabled = true;
-                    timer = 0.0f;
-                }
-                dead = false;
-                Debug.Log("마녀한테 죽음");
+                StartCoroutine(Dead());
             }
         
             if (stage1Cam.activeSelf == false)
@@ -88,43 +74,22 @@ public class WitchController : MonoBehaviour
             nav.SetDestination(originPos);
         }
     }
-    
-    // IEnumerator MoveWitch()
-    // {
-    //     Debug.Log("코루틴 하긴 하지??");
-    //     if (isNextAction)
-    //     {
-    //         nav.SetDestination(targetPos);
-    //     }
-    //     else
-    //     {
-    //         nav.SetDestination(originPos);
-    //     }
-    //     //anim.SetBool("Walk", true);
-    //     Debug.Log("isNextAction 하긴 하지??");
-    //     yield return YieldInstructionCache.WaitForSeconds(10f);
-    //     if (end)
-    //     {
-    //         StopCoroutine(MoveWitch());
-    //     }
-    //     else
-    //     {
-    //         isWitchMove = true;
-    //         isNextAction = !isNextAction;
-    //         Debug.Log(isNextAction);
-    //     }
-    //     
-    //     // if (isNextAction)
-    //     // {
-    //     //     dest = originPos;
-    //     // }
-    //     // else
-    //     // {
-    //     //     dest = targetPos;
-    //     // }
-    //     // isNextAction = !isNextAction;
-    // }
 
+    IEnumerator Dead()
+    {
+        dead = false;
+        end = true;
+        nav.enabled = false;
+        anim.enabled = false;
+        audioSource.Play();
+        GameOver.Restart(0.1f, 0.1f);
+        yield return null;
+        isWitchMove = true;
+        end = false;
+        gameObject.transform.position = initPos;
+        nav.enabled = true;
+        anim.enabled = true;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("WitchRotate"))

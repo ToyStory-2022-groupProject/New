@@ -40,19 +40,4 @@ public class Stage1FanCinematic : MonoBehaviour
         }
         isCinematicPlayed = true;
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player" && !isCinematic && !isCinematicPlayed)
-        {
-            for (int i = 0; i < offGameObjects.Length; i++)
-            {
-                offGameObjects[i].SetActive(false);
-            }
-
-            for (int i = 0; i < onGameObjects.Length; i++)
-            {
-                onGameObjects[i].SetActive(true);
-            }
-        }
-    }
 }

@@ -25,7 +25,7 @@ public class RewriteFan : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && !isPlayed)
+        if (other.CompareTag("Player") && !isPlayed && PlayerController.isGrab)
         {
             playableDirector.Play(timeline);
             anim.SetBool("Move", false);

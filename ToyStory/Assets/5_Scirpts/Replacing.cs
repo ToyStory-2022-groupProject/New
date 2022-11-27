@@ -50,7 +50,7 @@ public class Replacing : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-
+        //Debug.Log("리플레이스타이머 " + timer);
         if(TrainLighting.Connected == true && TrainLighting.isOperate == false)
         {
             kLocation = key.transform.position;
@@ -71,8 +71,8 @@ public class Replacing : MonoBehaviour
                 replacePiece[i] = false;
         }
     }
-    
-    public void Replace()
+
+    public IEnumerator Replace()
     {
         PlayerController.isGrab = false;
         activedTrain();
@@ -96,14 +96,49 @@ public class Replacing : MonoBehaviour
 
         Monkey.transform.position = mLocation;
         Monkey.transform.eulerAngles = mRotation;
-        
-        if(timer > 10f)
-        {
-            Monkey.GetComponent<Chaser>().stopDetect = false;
-            timer = 0;
-        }
 
         key.transform.position = kLocation;
         key.transform.eulerAngles = kRotation;
+        
+        yield return YieldInstructionCache.WaitForSeconds(1f);
+
+        Monkey.GetComponent<Chaser>().stopDetect = false;
     }
+    
+    // public void Replace()
+    // {
+    //     PlayerController.isGrab = false;
+    //     activedTrain();
+    //
+    //     for(int i = 0; i < tPiece.Length; i++)
+    //     {
+    //         
+    //         if(replacePiece[i] == false)
+    //         {
+    //             CPointData.saveObject[i].transform.eulerAngles = CPointData.rotation[i];
+    //             CPointData.saveObject[i].transform.position = CPointData.location[i];
+    //         }
+    //         Debug.Log(CPointData.saveObject.Length);
+    //         
+    //         if(replacePiece[i] == true)
+    //         {
+    //             tPiece[i].GetComponent<TrainPiece>().original.SetActive(true);
+    //             tPiece[i].GetComponent<TrainPiece>().piece.SetActive(false);
+    //         }
+    //     }
+    //
+    //     Monkey.transform.position = mLocation;
+    //     Monkey.transform.eulerAngles = mRotation;
+    //     
+    //     // if(timer > 10f)
+    //     // {
+    //     //     Monkey.GetComponent<Chaser>().stopDetect = false;
+    //     //     timer = 0;
+    //     // }
+    //
+    //     key.transform.position = kLocation;
+    //     key.transform.eulerAngles = kRotation;
+    //     
+    //     Monkey.GetComponent<Chaser>().stopDetect = false;
+    // }
 }

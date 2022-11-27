@@ -10,18 +10,19 @@ public class Chaser : MonoBehaviour
     public NavMeshAgent nav;
     public GameObject player;
     public CheckSight CheckSight;
-    public BoxCollider boxCollider;
+    //public BoxCollider boxCollider;
+    private BoxCollider boxCollider;
     public GameObject cymbalsMonkey;
     public GameOver GameOver;
     public Replacing Replacing;
     public bool stopDetect = false;
     public float monkeySpeed;
-    
 
     // Start is called before the first frame update
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
+        boxCollider = GetComponent<BoxCollider>();
     }
     
     // Update is called once per frame
@@ -30,13 +31,13 @@ public class Chaser : MonoBehaviour
         if (CheckSight.isDetected && stopDetect == false)
         {
             nav.enabled = true;
-            boxCollider.enabled = false;
+            boxCollider.isTrigger = true;
             nav.SetDestination(player.transform.position);
         }
         else
         {
             nav.enabled = false;
-            boxCollider.enabled = true;
+            boxCollider.isTrigger = false;
         }
     }
 
@@ -48,7 +49,8 @@ public class Chaser : MonoBehaviour
             player.GetComponent<PlayerController>().scriptOff();
             GameOver = FindObjectOfType<GameOver>();
             GameOver.Restart(0.1f, 0.1f); 
-            Replacing.Replace();
+            // Replacing.Replace();
+            StartCoroutine(Replacing.Replace());
             Debug.Log("원숭이로부터 게임오버!!!!");
         }
     }

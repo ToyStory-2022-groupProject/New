@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Safe : MonoBehaviour
 {
-    public static bool isSafePuzzle;
+    public static bool isSafePuzzle; // UI관련
     public static bool isSafePuzzleClear;
     public GameObject passwardUI;
     public GameObject panel;
@@ -32,7 +32,7 @@ public class Safe : MonoBehaviour
         audioSource.Play();
         StartCoroutine(Open());
         capsuleCollider.enabled = false;
-        Destroy(boxCollider);
+        boxCollider.enabled = false;
         noiseCheck.SetActive(false);
     }
 

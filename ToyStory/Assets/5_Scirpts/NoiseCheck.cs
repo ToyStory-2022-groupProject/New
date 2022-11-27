@@ -55,8 +55,9 @@ public class NoiseCheck : MonoBehaviour
         {
             if (noiseSlider.value >= noiseSlider.maxValue)
             {
-                cat.isfound = true;
+                currentNoise = noiseSlider.minValue;
                 gameObject.SetActive(false);
+                cat.isfound = true;
             }
             else
             {
@@ -95,9 +96,9 @@ public class NoiseCheck : MonoBehaviour
                     currentNoise = noiseSlider.minValue;
                 }
                 ColorChange();
-                // 슬라이더에 적용
-                noiseSlider.value = currentNoise;
             } 
+            // 슬라이더에 적용
+            noiseSlider.value = currentNoise;
         }
     }
 

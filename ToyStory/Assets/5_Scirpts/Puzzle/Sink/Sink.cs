@@ -52,7 +52,7 @@ public class Sink : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.tag == "Player")
+        if (other.CompareTag("Player") && PlayerController.isGrab == false)
         {
             isSwitch = true;
         }
@@ -65,17 +65,4 @@ public class Sink : MonoBehaviour
             isSwitch = false;
         }
     }
-
-    void OnCollisionEnter(Collision other)
-    {
-        
-    }
-
-    // void OnCollisionExit(Collision other)
-    // {
-    //     if (other.transform.tag == "Player")
-    //     {
-    //         isSwitch = false;
-    //     }
-    // }
 }

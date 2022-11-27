@@ -31,30 +31,36 @@ public class TikTok : MonoBehaviour
         if(DataManager.PointNum < 6)
         {
             if(inStage)
-        {
-            curTime += Time.deltaTime;
-
-            if (curTime >= gameOverTime && isGameOver == false)
             {
-                isGameOver = true;
-                cat.isfound = true;
-                panel.SetActive(false);
-                puzzleUI.SetActive(false);
-                audioSource.clip = audioClips[1];
-                audioSource.Play();
-                audioSource.loop = false;
-                curTime = 0.0f;
-            } 
-        }
+                curTime += Time.deltaTime;
 
-        if (BatteryCatch.isStop)
-        {
-            audioSource.Stop();
-            gameObject.SetActive(false);
-        }
+                if (curTime >= gameOverTime && isGameOver == false)
+                {
+                    isGameOver = true;
+                    cat.isfound = true;
+                    panel.SetActive(false);
+                    puzzleUI.SetActive(false);
+                    audioSource.clip = audioClips[1];
+                    audioSource.Play();
+                    audioSource.loop = false;
+                } 
+            }
+            if (BatteryCatch.isStop)
+            {
+                audioSource.Stop();
+                gameObject.SetActive(false);
+            }
         }
     }
-    
+
+    public void Init()
+    {
+        curTime = 0.0f;
+        audioSource.clip = audioClips[0];
+        audioSource.Play();
+        audioSource.loop = true;
+        isGameOver = false;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
