@@ -12,11 +12,14 @@ public class TikTok : MonoBehaviour
     public GameObject panel;
     public DataManager DataManager;
 
-    private bool inStage;
+    public GameObject NoiseUI;
+    public static bool inStage;
     private bool isTimer;
     private bool isGameOver;
     public float gameOverTime = 10f;
     private float curTime;
+
+    public BoxCollider checkPointer6;
 
     private void Start()
     {
@@ -28,28 +31,28 @@ public class TikTok : MonoBehaviour
 
     private void Update()
     {
-        if(DataManager.PointNum < 6)
+        if(inStage)
         {
-            if(inStage)
-            {
-                curTime += Time.deltaTime;
+            curTime += Time.deltaTime;
 
-                if (curTime >= gameOverTime && isGameOver == false)
-                {
-                    isGameOver = true;
-                    cat.isfound = true;
-                    panel.SetActive(false);
-                    puzzleUI.SetActive(false);
-                    audioSource.clip = audioClips[1];
-                    audioSource.Play();
-                    audioSource.loop = false;
-                } 
-            }
-            if (BatteryCatch.isStop)
+            if (curTime >= gameOverTime && isGameOver == false)
             {
-                audioSource.Stop();
-                gameObject.SetActive(false);
-            }
+                isGameOver = true;
+                NoiseUI.SetActive(false);
+                cat.isfound = true;
+                panel.SetActive(false);
+                puzzleUI.SetActive(false);
+                audioSource.clip = audioClips[1];
+                audioSource.Play();
+                audioSource.loop = false;
+            } 
+        }
+        if (BatteryCatch.isStop)
+        {
+            audioSource.Stop();
+            gameObject.SetActive(false);
+            checkPointer6.enabled = true;
+            ClockTrigger.isClockPuzzle = false;
         }
     }
 

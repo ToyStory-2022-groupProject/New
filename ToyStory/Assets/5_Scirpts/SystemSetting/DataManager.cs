@@ -24,7 +24,7 @@ public class DataManager : MonoBehaviour
     public List<Vector3> Rotation = new List<Vector3>();
     public bool[] trainPuzzle;
     public bool c1, c5, c6, c7;
-    public int PointNum;
+    public static int PointNum;
     string jsonData; //저장하고 불러올 데이터
     string path;
     string filename = "Data"; //파일명 지정
@@ -39,6 +39,8 @@ public class DataManager : MonoBehaviour
     {
         GameManager.isF1 = false; // 새로하기 눌렀을때 가이드창 다시 표시
         System.IO.File.Delete(path + filename);
+        Debug.Log(path+filename);
+        PointNum = 0;
         Debug.Log("데이터 초기화");
     }
     private void getData() //저장할 데이터 받아오기
@@ -50,8 +52,8 @@ public class DataManager : MonoBehaviour
             if(i == 0)
             {
                 Debug.Log(i);
-                Location.Add(checkPointer.checkPoint[i].GetComponent<CPointData>().location[i]);
-                Rotation.Add(checkPointer.checkPoint[i].GetComponent<CPointData>().rotation[i]);
+                Location.Add(checkPointer.checkPoint[0].GetComponent<CPointData>().location[0]);
+                Rotation.Add(checkPointer.checkPoint[0].GetComponent<CPointData>().rotation[0]);
             }
             if(i == 1)
             {
@@ -76,7 +78,8 @@ public class DataManager : MonoBehaviour
         Replacing = FindObjectOfType<Replacing>();
         getData();
         Replacing.activedTrain();
-        Data Save = new Data() {Checkpoint = PointNum, objectLocation = Location.ToList(), objectRotation = Rotation.ToList(), train = Replacing.replacePiece.ToArray(), stage3 = c5,  house = c1, clocknsafe = c6, shadow = c7};
+        Data Save = new Data() {Checkpoint = PointNum, objectLocation = Location.ToList(), objectRotation = Rotation.ToList(), 
+        train = Replacing.replacePiece.ToArray(), stage3 = c5,  house = c1, clocknsafe = c6, shadow = c7};
         jsonData = JsonUtility.ToJson(Save);
         File.WriteAllText(path + filename, jsonData);
         Debug.Log(jsonData);

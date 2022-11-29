@@ -7,6 +7,8 @@ public class stage1Manager : MonoBehaviour
     public GameObject[] candyPuzzles;
     public DataManager DataManager;
     public CheckPointer Checkpointer;
+    public BoxCollider checkPointer1;
+    public GameObject checkPointer2;
     public CPointData CPointData0, CPointData1;
     public bool candyClear;
     void Start()
@@ -49,7 +51,8 @@ public class stage1Manager : MonoBehaviour
             if(candyPuzzles[0].GetComponent<CheckingPuzzle>().puzzleClear == true && candyPuzzles[1].GetComponent<CheckingPuzzle>().puzzleClear == true)
             {
                 Debug.Log("퍼즐 1클리어");
-                Checkpointer.checking[1] = true;
+                checkPointer1.enabled = true;
+                checkPointer2.SetActive(true);
                 CPointData1.saveLocation();
             }
                 

@@ -8,14 +8,18 @@ public class CheckPointer : MonoBehaviour
     public bool[] checking;
     public int pointNum;
 
+    private DataManager dataManager;
     void Start()
     {
         checking = new bool[checkPoint.Length];
+        dataManager = GetComponent<DataManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("데이터매니저값: " + DataManager.PointNum);
+
         if(Input.GetKeyDown(KeyCode.R))
             FindCheckPoint();
     }
@@ -45,6 +49,10 @@ public class CheckPointer : MonoBehaviour
 
     public void TriggerCheck(int num)
     {
+        if(checking[num] == false)
+        {
+            DataManager.PointNum++;
+        }
         checking[num] = true;
     }
 

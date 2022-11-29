@@ -30,6 +30,7 @@ public class SubUI : MonoBehaviour
     }
 
     public DataManager dataManager;
+    public MainUI main;
     void Awake()
     {
         if (Instance != this || SceneManager.GetActiveScene().name == "MainUI")

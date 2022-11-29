@@ -11,6 +11,7 @@ using UnityEngine.Timeline;
 
 public class Cat : MonoBehaviour
 { 
+    public static bool isCatSpurned;
     private NavMeshAgent nav;
     public GameObject player;
     public GameObject head; // 플레이어 위치카메라
@@ -30,9 +31,7 @@ public class Cat : MonoBehaviour
     private RaycastHit[] raycastHits;
     private bool isAudioPlayed;
     public bool playerRun;
-    public GameObject stage4Key;
-    Vector3 k4position;
-    Vector3 k4Roatation;
+    
     public TikTok tikTok;
     
     // 고양이 내쫓기 관련
@@ -54,7 +53,8 @@ public class Cat : MonoBehaviour
     private Vector3 originRotation;
     public float spurnSpeed;
     public GameOver GameOver;
-    public CheckPointer CheckPointer;
+    
+    public GameObject checkPointer8;
     public Safe safe;
     public bool finishShadow;
 
@@ -64,12 +64,8 @@ public class Cat : MonoBehaviour
     {
         isChaser = true;
         nav = GetComponent<NavMeshAgent>();
-        safe = FindObjectOfType<Safe>();
         originPosition = gameObject.transform.position;
         originRotation = gameObject.transform.eulerAngles;
-
-        k4position = stage4Key.transform.position;
-        k4Roatation = stage4Key.transform.eulerAngles;
 
         _noiseCheck = NoiseUI.GetComponent<NoiseCheck>();
 
@@ -88,7 +84,7 @@ public class Cat : MonoBehaviour
             nav.SetDestination(player.transform.position);
         }
 
-        if (isfound)
+        if (isfound && isCatSpurned == false)
         {
             isfound = false;
             SFXMgr.Instance.Stop_SFX();
@@ -101,6 +97,7 @@ public class Cat : MonoBehaviour
         if (isSpurn)
         {
             isSpurn = false;
+            isCatSpurned = true;
             StartCoroutine(CatSpurn());
         }
     }
@@ -148,23 +145,18 @@ public class Cat : MonoBehaviour
         if (BatteryCatch.isStop == false) // 시계 퍼즐 클리어 유무에 따른 초기화 작업
         {
             tikTok.Init();
-        }
-        
-        if(safe.safeClear == true)
-        { 
-            PlayerController.isGrab = false;
-            stage4Key.transform.position = k4position;
-            stage4Key.transform.eulerAngles = k4Roatation;
-            
-            Safe.isSafePuzzleClear = true;
-            CatMove();
-        }
-        else // 시계퍼즐 클리어한게 아니라면 UI켜기
-        {
-            Debug.Log("0으로 초기화");
             NoiseUI.SetActive(true);
         }
         
+        if(BatteryCatch.isStop && DataManager.PointNum == 8 && isCatSpurned == false)
+        { 
+            PlayerController.isGrab = false;
+            safe.InitSafe();            
+        }    
+        else
+        {
+            NoiseUI.SetActive(true);
+        }
     }
     // public void catOver() //게임오버 시 고양이 제자리에 놓기
     // {
@@ -241,7 +233,7 @@ public class Cat : MonoBehaviour
             nav.speed = spurnSpeed;
             audioSource.clip = audioClips[2]; // 도망가는 소리 재생
             audioSource.Play();
-            nav.SetDestination(originPosition); // 원래 이치로 이동시키기
+            nav.SetDestination(originPosition); // 원래 위치로 이동시키기
             finishShadow = true;
         }
         yield return YieldInstructionCache.WaitForSeconds(5f);
@@ -251,7 +243,7 @@ public class Cat : MonoBehaviour
             playerController.enabled = true;
             zoomOut.SetActive(false);
             basicCam.SetActive(true);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         
     }
@@ -266,11 +258,12 @@ public class Cat : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject == stage4 && checkSight.isDetected)
+        if (other.gameObject == stage4 && checkSight.isDetected && DataManager.PointNum == 8)
         {
+            Debug.Log("아직도 쫒아내고있음?");
             isSpurn = true;
             isChaser = false;
-            CheckPointer.checking[7] = true;
+            checkPointer8.SetActive(true);
         }
     }
 

@@ -23,7 +23,6 @@ public class WitchController : MonoBehaviour
     public DataManager DataManager;
 
     private Vector3 initPos;
-    float timer = 0.0f;
 
     private void Start()
     {
@@ -39,27 +38,24 @@ public class WitchController : MonoBehaviour
 
     void Update()
     {
-        if(DataManager.PointNum < 2) //스테이지 1 탈출하면 마녀 안 나오게
-        {   
-            if (isWitchMove && end == false)
-            {
-                isWitchMove = false;
-                MoveWitch();
-            }
-            if(gameObject.activeSelf == false)
-            {
-                Debug.Log("??ASD0");
-            }
-            if (dead)
-            {
-                StartCoroutine(Dead());
-            }
-        
-            if (stage1Cam.activeSelf == false)
-            {
-                gameObject.SetActive(false);
-                crackerClear.StopSound();
-            }
+        if (isWitchMove && end == false)
+        {
+            isWitchMove = false;
+            MoveWitch();
+        }
+        if(gameObject.activeSelf == false)
+        {
+            Debug.Log("??ASD0");
+        }
+        if (dead)
+        {
+            StartCoroutine(Dead());
+        }
+    
+        if (stage1Cam.activeSelf == false)
+        {
+            gameObject.SetActive(false);
+            crackerClear.StopSound();
         }
     }
 

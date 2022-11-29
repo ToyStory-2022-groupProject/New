@@ -6,45 +6,57 @@ public class stage3Manager : MonoBehaviour
 {
     public Rigidbody doorRigid3;
     public Rigidbody doorRigid4;
-    public DataManager DataManager;
+    public DataManager dataManager;
     public CheckPointer CheckPointer;
-    public Cat Cat;
-    public Safe Safe;
+    public Cat cat;
+    public Safe safe;
     public BatteryCatch BatteryCatch;
-    
+    public BoxCollider clockTrigger;
 
+    public GameObject catObj;
+
+    public GameObject key3;
+    public GameObject key4;
+
+    public GameObject spurnCam;
+    public GameObject stage4BasicCam;
     void Start()
     {
-        Safe = FindObjectOfType<Safe>();
-        BatteryCatch = FindObjectOfType<BatteryCatch>();
-        Cat = FindObjectOfType<Cat>();
-
-        DataManager.Checking();
-        if(DataManager.dataExist)
+        dataManager.Checking();
+        if(dataManager.dataExist)
         {
-            DataManager.Load();
-            
-            if(DataManager.PointNum >= 5)
+            dataManager.Load();
+            Debug.Log("asd" + DataManager.PointNum + "bsd" + TikTok.inStage);
+            if(DataManager.PointNum >= 5 && TikTok.inStage)
             {
+                key3.SetActive(false);
                 doorRigid3.isKinematic = false;
             }
-            if(DataManager.PointNum == 6)
+            if(DataManager.PointNum >= 7)
             {
-                Safe.SafeOpen();
+                BatteryCatch.isStop = true;
             }
-            if(DataManager.PointNum == 7)
+            if(DataManager.PointNum <= 7)
             {
+                Cat.isCatSpurned = false;
+            }
+
+            if(DataManager.PointNum == 8 && Cat.isCatSpurned == false)
+            {
+                safe.SafeOpen();
+            }
+            if(DataManager.PointNum >= 8 && Cat.isCatSpurned == true)
+            {
+                safe.SafeOpen();
                 doorRigid4.isKinematic = false;
+                cat.checkPointer8.SetActive(true);
+                catObj.SetActive(false);
+                key4.SetActive(false);
+                spurnCam.SetActive(false);
+                stage4BasicCam.SetActive(true);
             }
         }
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Safe.isSafePuzzleClear == false && BatteryCatch.isStop == true)
-            CheckPointer.checking[6] = true;
     }
 
 }

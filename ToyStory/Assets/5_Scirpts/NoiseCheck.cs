@@ -51,7 +51,7 @@ public class NoiseCheck : MonoBehaviour
     }
     void Update()
     {
-        if (isPlayerEnter && DataManager.PointNum < 6) //퍼즐완료 시 소음게이지 안켜지게
+        if (isPlayerEnter) //퍼즐완료 시 소음게이지 안켜지게
         {
             if (noiseSlider.value >= noiseSlider.maxValue)
             {

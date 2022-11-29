@@ -8,6 +8,7 @@ using UnityEngine.Timeline;
 
 public class TrainLighting : MonoBehaviour
 {
+     public PlayerController playerController;
      public PlayableDirector trainSwitchOffPD;
      public TimelineAsset trainSwitchOffTimeline;
      public GameObject switchTrigger;
@@ -23,8 +24,8 @@ public class TrainLighting : MonoBehaviour
      private bool isEndOperate;
      private float runningTime;
      public bool Connected;
-
-     
+     public Replacing replacing;
+     public BoxCollider checkPointer4;
 
      private void Start()
      {
@@ -69,6 +70,9 @@ public class TrainLighting : MonoBehaviour
      }
      IEnumerator Operate()
      {
+         PlayerController.isGrab = false;
+         playerController.NoInput(true);
+         playerController.enabled = false;
          yield return YieldInstructionCache.WaitForSeconds(1f);
 
          for (int i = 0; i < bulbs.Length; i++)
@@ -77,14 +81,17 @@ public class TrainLighting : MonoBehaviour
              {
                  isOperate = false;
                  cnt = i;
+                 playerController.anim.SetBool("Switch", false);
+                 playerController.Switch = false;
+                 playerController.enabled = true;
                  yield break; 
              }
              yield return YieldInstructionCache.WaitForSeconds(0.1f);
              lights[i].enabled = true;
              if (i == bulbs.Length - 1 && Connected == false)
              {
-                 Connected = true;
-                 cnt = i + 1;
+                Connected = true;
+                cnt = i + 1;
              }
              
          }
@@ -95,6 +102,7 @@ public class TrainLighting : MonoBehaviour
               // 기차 출발
               if (isArrive == false)
               {
+                  checkPointer4.enabled = true;
                   trainTime.ScriptOn();
                   yield return YieldInstructionCache.WaitForSeconds(trainTime.trainOperatingTime);
                   isArrive = true;
@@ -103,9 +111,13 @@ public class TrainLighting : MonoBehaviour
               else
               { 
                   trainTime.ScriptOff();
+                  replacing.SetKeyPos();
                   yield return YieldInstructionCache.WaitForSeconds(0.5f);
+                  playerController.anim.SetBool("Switch", false);
+                  playerController.enabled = true;
                   isOperate = false; 
               }
           }
+          
      }
 }

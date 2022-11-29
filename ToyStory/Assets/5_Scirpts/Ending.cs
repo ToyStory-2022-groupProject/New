@@ -21,11 +21,15 @@ public class Ending : MonoBehaviour
     public BoxCollider boxCollider;
     public Image panel;
     public DataManager dataManager;
+    public BoxCollider lastDoor;
+
+    public Detected detected;
     
     private void Update()
     {
         if (isEnd)
         {
+            lastDoor.enabled = false;
             anim.SetBool("Move", true);
             player.transform.Translate(new Vector3(0,0,0.1f * 0.3f));
             if (SFXMgr.SFX.volume >= 0f)
@@ -61,7 +65,8 @@ public class Ending : MonoBehaviour
             panel.color = new Color(0,0,0,fadecount);
         }
         player.transform.position = targetPos;
-        Destroy(puzzleKey);
+        detected.enabled = false;
+        puzzleKey.SetActive(false);
         animationKey.SetActive(true);
         while(fadecount > 0.0f)
         { 
@@ -84,6 +89,9 @@ public class Ending : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            isEnd = false;
+            SFXMgr.Instance.Stop_SFX();
+            SFXMgr.SFX.volume = 1;
             dataManager = FindObjectOfType<DataManager>();
             dataManager.Save();
             LoadingSceneController.Instance.LoadScene(0);

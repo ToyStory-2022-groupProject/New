@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public GameOver GameOver;
     private CapsuleCollider col;
     private Rigidbody rb;
-    private Animator anim;
+    public Animator anim;
     private AnimatorStateInfo currentBaseState;
     
     public bool onGround;
@@ -57,10 +57,10 @@ public class PlayerController : MonoBehaviour
         {
             dataManager.Load();
             Debug.Log(dataManager.trainPuzzle.Length);
-            if(dataManager.PointNum != -1)
+            if(DataManager.PointNum != -1)
             {
-                transform.position = CheckPointer.checkPoint[dataManager.PointNum].transform.position;
-                for (int i = 0; i < dataManager.PointNum; i++)
+                transform.position = CheckPointer.checkPoint[DataManager.PointNum].transform.position;
+                for (int i = 0; i < DataManager.PointNum; i++)
                 {
                     CheckPointer.checking[i] = true;
                 }
@@ -487,15 +487,19 @@ public class PlayerController : MonoBehaviour
         }*/
     }
 
-    public void NoInput()
+    public void NoInput(bool isTrain = false)
     {
         anim.SetBool("Move", false);
         anim.SetBool("Jump", false); // 점프
         anim.SetBool("Pick", false); 
         anim.SetBool("Grab", false);
-        anim.SetBool("Switch", false);
+        if(isTrain)
+            anim.SetBool("Switch", true);
+        else
+            anim.SetBool("Switch", false);    
         SFXMgr.Instance.Stop_SFX();
     }
+
     public void scriptOff()
     {
         this.GetComponent<PlayerController>().enabled = false;

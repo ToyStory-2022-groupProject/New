@@ -44,7 +44,7 @@ public class MainUI : MonoBehaviour
         {
             dataManager.Load();
             nextScene = GameManager.scene.buildIndex + 1;
-            Debug.Log(dataManager.PointNum);
+            Debug.Log("Main UI 데이터매니저값: " + DataManager.PointNum);
         }
             
         LoadingSceneController.Instance.LoadScene(nextScene);

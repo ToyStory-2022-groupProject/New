@@ -15,8 +15,25 @@ public class Safe : MonoBehaviour
     public BoxCollider boxCollider;
     public Cat cat;
     public GameObject noiseCheck;
-
+    public BoxCollider checkPointer7;
     public bool safeClear;
+
+    public AudioSource clearMusic;
+    public GameObject stage4Key;    
+    public Rigidbody doorRigid4;
+
+    Vector3 k4position;
+    Vector3 k4Roatation;
+    Vector3 doorOriginPos;
+    Vector3 doorOriginRot;
+
+    void Start(){
+        doorOriginPos = SafeDoor.transform.position;
+        doorOriginRot = SafeDoor.transform.eulerAngles;
+
+        k4position = stage4Key.transform.position;
+        k4Roatation = stage4Key.transform.eulerAngles;
+    }
 
     private void Update()
     {
@@ -27,13 +44,20 @@ public class Safe : MonoBehaviour
         }
     }
 
-    public void SafeOpen()
+    public void SafeOpen(bool isGameOver = false)
     {
-        audioSource.Play();
+        if(Cat.isCatSpurned == false)
+        {
+            isSafePuzzle = false;
+            audioSource.Play();
+        }
+        if(isGameOver == false){
+            capsuleCollider.enabled = false;
+            boxCollider.enabled = false;
+            checkPointer7.enabled = true;
+            noiseCheck.SetActive(false);
+        }
         StartCoroutine(Open());
-        capsuleCollider.enabled = false;
-        boxCollider.enabled = false;
-        noiseCheck.SetActive(false);
     }
 
     IEnumerator Open()
@@ -50,6 +74,22 @@ public class Safe : MonoBehaviour
         }
     }
     
+    public void InitSafe()
+    {
+        isSafePuzzle = false;
+        SafeDoor.transform.position = doorOriginPos;
+        SafeDoor.transform.eulerAngles = doorOriginRot;
+        stage4Key.transform.position = k4position;
+        stage4Key.transform.eulerAngles = k4Roatation;
+        if(stage4Key.activeSelf == false)
+        {
+            stage4Key.SetActive(true);
+            doorRigid4.isKinematic = true;
+        }
+        clearMusic.Play();
+        SafeOpen();
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (PlayerController.isGrab && other.gameObject.layer == 3)

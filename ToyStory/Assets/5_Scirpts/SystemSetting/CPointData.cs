@@ -5,6 +5,7 @@ using UnityEngine;
 public class CPointData : MonoBehaviour
 {
     public GameObject[] saveObject;
+
     public List<Vector3> location = new List<Vector3>();
     public List<Vector3> rotation = new List<Vector3>();
     public int objectNum;

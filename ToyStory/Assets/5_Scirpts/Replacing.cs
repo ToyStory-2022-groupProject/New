@@ -7,7 +7,6 @@ public class Replacing : MonoBehaviour
     public GameObject[] tPiece;
     public bool[] replacePiece;
     public GameObject key;
-    public PlayerController PlayerController;
     Vector3 kLocation;
     Vector3 kRotation;
 
@@ -18,18 +17,16 @@ public class Replacing : MonoBehaviour
     public CPointData CPointData;
     public TrainPiece TrainPiece;
     public TrainLighting TrainLighting;
-    private float timer;
     public DataManager tdata;
-    public CheckPointer check4;
-    
+    public BoxCollider checkPointer4;
+
     void Start()
     {
-        PlayerController = FindObjectOfType<PlayerController>();
-        TrainLighting = FindObjectOfType<TrainLighting>();
+        //TrainLighting = FindObjectOfType<TrainLighting>();
         replacePiece = new bool[tPiece.Length];
 
-        kLocation = key.transform.position;
-        kRotation = key.transform.eulerAngles;
+        // kLocation = key.transform.position;
+        // kRotation = key.transform.eulerAngles;
 
         mLocation = Monkey.transform.position;
         mRotation = Monkey.transform.eulerAngles;
@@ -41,25 +38,20 @@ public class Replacing : MonoBehaviour
             tdata.Load();
             for(int i = 0; i < tPiece.Length; i++)
                 tPiece[i].GetComponent<TrainPiece>().done = tdata.trainPuzzle[i];
-            Replace();
+            StartCoroutine(Replace());
+            Debug.Log("한번");
         }
 
     }
 
-    // Update is called once per frame.
-    void Update()
-    {
-        timer += Time.deltaTime;
-        //Debug.Log("리플레이스타이머 " + timer);
-        if(TrainLighting.Connected == true && TrainLighting.isOperate == false)
-        {
-            kLocation = key.transform.position;
-            kRotation = key.transform.eulerAngles;
-        }
-
-        if(replacePiece[0] == true && replacePiece[1] == true && replacePiece[2] == true && replacePiece[3] == true)
-            check4.checking[4] = true;
-    }
+    // // Update is called once per frame.
+    // void Update()
+    // {
+    //     if(replacePiece[0] == true && replacePiece[1] == true && replacePiece[2] == true && replacePiece[3] == true && checkPointer4.enabled == false)
+    //     {
+    //         checkPointer4.enabled = true;
+    //     }
+    // }
     
     public void activedTrain()
     {      
@@ -94,17 +86,27 @@ public class Replacing : MonoBehaviour
             }
         }
 
-        Monkey.transform.position = mLocation;
-        Monkey.transform.eulerAngles = mRotation;
+        if(Monkey.GetComponent<Chaser>().stopDetect)
+        {
+            Monkey.transform.position = mLocation;
+            Monkey.transform.eulerAngles = mRotation;
 
-        key.transform.position = kLocation;
-        key.transform.eulerAngles = kRotation;
-        
-        yield return YieldInstructionCache.WaitForSeconds(1f);
+            Debug.Log("Before : " +  key.transform.position + "x : " + kLocation + "y : " + kRotation);
+            key.transform.position = kLocation;
+            key.transform.eulerAngles = kRotation;
+            Debug.Log("After : " + key.transform.position);
+            yield return YieldInstructionCache.WaitForSeconds(1f);
 
-        Monkey.GetComponent<Chaser>().stopDetect = false;
+            Monkey.GetComponent<Chaser>().stopDetect = false;
+        }
     }
-    
+
+    public void SetKeyPos()
+    {
+        kLocation = key.transform.position;
+        kRotation = key.transform.eulerAngles;
+    }
+
     // public void Replace()
     // {
     //     PlayerController.isGrab = false;

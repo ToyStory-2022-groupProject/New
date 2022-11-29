@@ -18,6 +18,7 @@ public class CrackerClear : MonoBehaviour
     bool isWork;
     public WitchController witchController;
     private Rigidbody _rigidbody;
+
     
     private void Start()
     {
@@ -30,6 +31,7 @@ public class CrackerClear : MonoBehaviour
         {
             Complete();
         }
+        Debug.Log(isclear + "ASD");
         if (isclear)
         {
             isclear = false;
@@ -38,12 +40,24 @@ public class CrackerClear : MonoBehaviour
                 answers[i].floor.SetActive(false);
                 answers[i].Candy.SetActive(false);
             }
-
+            Debug.Log("마녀랑 문이 열려야 하는데? " + DataManager.PointNum);
             //StopSound();
-            doorSource.Play();
-            door.transform.rotation = Quaternion.Euler(0, 45, 0);
-            witch.SetActive(true);
-            witchController.isWitchMove = true;
+            if(DataManager.PointNum >= 1)
+            {
+                Debug.Log("마녀랑 문이 열려야 하는데? " + isclear);
+                door.transform.rotation = Quaternion.Euler(0, 45, 0);
+
+                if(DataManager.PointNum == 1)
+                {
+                    doorSource.Play();
+                    witch.SetActive(true);
+                    witchController.isWitchMove = true;
+                }
+            }
+            // doorSource.Play();
+            // door.transform.rotation = Quaternion.Euler(0, 45, 0);
+            // witch.SetActive(true);
+            // witchController.isWitchMove = true;
             //StartCoroutine("End");
         }
         
@@ -75,8 +89,4 @@ public class CrackerClear : MonoBehaviour
         fanSound.Stop();
     }
     
-    private void OpenDoor()
-    {
-        door.transform.rotation = Quaternion.Euler(0, 45, 0);
-    }
 }
