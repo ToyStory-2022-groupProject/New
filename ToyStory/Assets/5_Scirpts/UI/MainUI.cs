@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainUI : MonoBehaviour
 {
     [SerializeField] Button resume;
-    [SerializeField] Button chapterPick;
+    //[SerializeField] Button chapterPick;
 
     public DataManager dataManager;
     private bool saveExist;
@@ -27,7 +27,7 @@ public class MainUI : MonoBehaviour
         {
             saveExist = true;
             resume.gameObject.SetActive(true);
-            chapterPick.gameObject.SetActive(true);
+            // chapterPick.gameObject.SetActive(true);
         }
         else if(!dataManager.dataExist) 
             saveExist = false;
